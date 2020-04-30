@@ -6,10 +6,10 @@ body {
     background-size: cover;
 }
 
-.text {
-    color: #eee;
+.white-text {
     text-shadow: 10px 8px 9px black;
 }
+
 label.white-text {
     font-size: 18px;
 }
@@ -17,16 +17,14 @@ label.white-text {
 span.query.white-text {
     font-size: 18px;
     font-weight: 700;
-    padding: 0 35px 0 35px;
-
-  
+    padding: 0 35px 0 35px; 
   }
-  #query-type {
+
+#query-type {
     display: flex;
     justify-content: center;
-  }
-  #query-type > p > label {
-    margin: 0 4%;
-  }
-  
+}
 
+#query-type > p {
+    margin: 0 4%;
+}
