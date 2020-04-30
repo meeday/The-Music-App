@@ -28,33 +28,33 @@
         </div>
       </div>
       <div class="input-field col s12">
-        <i class="material-icons white-text prefix">search</i>
+        <i id="search-icon" class="material-icons white-text prefix">search</i>
         <input
           type="text"
-          id="autocomplete-input"
+          id="search-query"
           class="autocomplete white-text"
         />
-        <label class="white-text" for="autocomplete-input"
+        <label class="white-text" for="search-query"
           >search by artist, album, track...
         </label>
       </div>
-      <form action="#" id="query-type">
+      <form action="#" id="query-selection">
         <p>
           <label>
             <input name="group1" type="radio" class="with-gap" checked />
-            <span class="query white-text">Track</span>
+            <span class="query-type white-text">Track</span>
           </label>
         </p>
         <p>
           <label>
             <input name="group1" type="radio" class="with-gap" />
-            <span class="query white-text">Album</span>
+            <span class="query-type white-text">Album</span>
           </label>
         </p>
         <p>
           <label>
             <input name="group1" type="radio" class="with-gap" />
-            <span class="query white-text">Artist</span>
+            <span class="query-type white-text">Artist</span>
           </label>
         </p>
       </form>

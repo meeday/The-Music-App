@@ -10,21 +10,23 @@ body {
     text-shadow: 10px 8px 9px black;
 }
 
-label.white-text {
-    font-size: 18px;
+#search-icon {
+    top: 0.9rem;
 }
 
-span.query.white-text {
-    font-size: 18px;
-    font-weight: 700;
-    padding: 0 35px 0 35px; 
+label.white-text {
+    font-size: 1.5rem;
+}
+
+.query-type {
+    font-size: 1.7rem; 
   }
 
-#query-type {
+#query-selection {
     display: flex;
     justify-content: center;
 }
 
-#query-type > p {
+#query-selection > p {
     margin: 0 4%;
 }
