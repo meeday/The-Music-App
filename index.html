@@ -14,33 +14,39 @@
 	<div class="container landing-page">
 		<div class="section no-pad-bot" id="index-banner">
 			<div class="container">
-				<h1 class="header center blue-text text-accent-3">The Music App</h1>
+				<h1 class="center text">The Music App</h1>
 				<div class="row center">
-					<h4 class="header col s12  white-text text-accent-3">search for all things, music</h4>
+					<h4 class="col s12  text">search for all things, music</h4>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="input-field col s12">
-			</div>
-			<div class="input-field col s12">
-				<select class="header white-text" multiple  id="xxxx">
-					<option value="Album">Album</option>
-					<option value="Artist">Artist</option>
-					<option value="Track">Track</option>
-				</select>
-				<label id="q" class="white-text text-lighten-1">What are you looking for?</label>
-			</div>
+		<div class="input-field col s12">
+			<i class="material-icons white-text prefix">search</i>
+			<input type="text" id="autocomplete-input" class="autocomplete white-text">
+			<label class="white-text" for="autocomplete-input">search by artist, album, track... </label>
 		</div>
-		<div class="row">
-			<div class="input-field col s12">
-			</div>
-			<div class="input-field col s12">
-				<i class="material-icons prefix">search</i>
-				<input type="text" id="autocomplete-input" class="autocomplete header white-text">
-				<label id="q" class="header white-text text-lighten-1" for="autocomplete-input">search by artist, album, track... </label>
-			</div>
-		</div>
+		<form  action="#" id="query-type">
+            <p>
+              <label>
+                <input name="group1" type="radio" class="with-gap" checked />
+                <span class="query white-text">Track</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input name="group1" type="radio" class="with-gap" />
+                <span class="query white-text">Album</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input name="group1" type="radio" class="with-gap" />
+                <span class=" query white-text">Artist</span>
+              </label>
+            </p>
+          </form>
+
+	</div>
 	</div>
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

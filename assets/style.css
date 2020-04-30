@@ -6,23 +6,27 @@ body {
     background-size: cover;
 }
 
-.landing-page {
-    top: 0;
+.text {
+    color: #eee;
+    text-shadow: 10px 8px 9px black;
 }
-
-.input-field {
-    color: #2979ff ;
-    font-size: 2em;
-    font-weight: 600;
-}
-
-#q { 
+label.white-text {
     font-size: 18px;
-    font-weight: 600;
 }
 
-.select-dropdown {
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-}
+span.query.white-text {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0 35px 0 35px;
+
+  
+  }
+  #query-type {
+    display: flex;
+    justify-content: center;
+  }
+  #query-type > p > label {
+    margin: 0 4%;
+  }
+  
+
