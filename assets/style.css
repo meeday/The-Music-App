@@ -12,6 +12,7 @@ body {
 
 #search-icon {
   top: 0.9rem;
+  cursor: pointer;
 }
 
 label.white-text {
@@ -37,4 +38,135 @@ label.white-text {
 
 #query-selection > p {
   margin: 0 4%;
+}
+
+/* artist results page styling */
+
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css";
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+.artist-results-page {
+  width: 100%;
+  padding: 5% 0px 1%;
+  font-family: "Raleway", sans-serif;
+}
+
+.artist-profile a,
+.artist-profile a:hover {
+  text-decoration: none;
+}
+
+#albums ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+#albums li {
+  display: inline;
+}
+
+.artist-profile {
+  background-color: rgba(0, 0, 0, 0.9);
+  background: url("https://i.stack.imgur.com/vAGZp.jpg");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: none;
+  width: 900px;
+  margin: 0px auto;
+  overflow: hidden;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.artist-profile h1 {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+}
+
+.artist-pic {
+  overflow: hidden;
+  width: 180px;
+  height: 180px;
+  margin: 20px auto 10px;
+}
+.artist-pic img {
+  width: 100%;
+  border-radius: 50%;
+}
+.artist-bio {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.artist-bio h2 {
+  color: white;
+  font-size: 2em;
+}
+.artist-profile h3 {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+}
+.artist-bio p {
+  text-align: center;
+  color: white;
+  font-size: 1em;
+}
+
+#albums {
+  width: 60%;
+  margin: 10px auto;
+  clear: both;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#albums a {
+  color: rgba(255, 255, 255, 1);
+  padding: 0;
+}
+
+.app-name {
+  color: white;
+  width: 80%;
+  margin: 0px auto;
+  clear: both;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.album-tracks {
+  background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+}
+.artist-profile ol {
+  list-style-type: none;
+  padding: 20px 36px;
+  font-weight: 500;
+}
+
+.artist-profile ol li a {
+  color: white;
+}
+.artist-profile ol li {
+  border-bottom: 1px solid white;
+  counter-increment: number;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: initial;
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  align-items: center;
+  align-content: initial;
+  height: 45px;
+}
+.artist-profile ol li a span:not(:last-child) {
+  margin-right: 2em;
+}
+/* ---- Responsive Code ---- */
+@media (max-width: 768px) {
+  .artist-profile {
+    width: 80%;
+  }
 }
