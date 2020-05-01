@@ -133,3 +133,13 @@ $(function () {
     $("#album-search-input").hide(400);
   });
 });
+
+
+//search on <enter key> pressed
+$(document).keypress(function(event){
+
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if(keycode == '13'){
+	}
+
+});
