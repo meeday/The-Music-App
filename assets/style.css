@@ -41,12 +41,12 @@ padding:5% 0px 1%;
   font-family: 'Raleway', sans-serif;
 } 
 
-a, a:hover {text-decoration:none;}
+.artist-profile a, .artist-profile a:hover {text-decoration:none;}
 
-ul {list-style:none; margin:0px; padding:0px;}
-li {display:inline;}
+#albums ul {list-style:none; margin:0px; padding:0px;}
+#albums ul li {display:inline;}
 
-main {
+.artist-profile {
   background-color:rgba(0,0,0,0.9);
   background:url("https://i.stack.imgur.com/vAGZp.jpg");
   background-position:top center;
@@ -59,43 +59,43 @@ main {
   border-radius:4px;
 }
 
-main h1 {
+.artist-profile h1 {
   color: white;
   text-align:center;
   font-weight: 600;
   font-size: 2em;
 }
 
-main figure {
+.artist-pic {
   overflow:hidden; 
   width:180px; 
   height:180px;
   margin:20px auto 10px;
 }
-main figure img {
+.artist-pic img {
   width:100%;
   border-radius: 50%;
 }
-main figcaption {
+.artist-bio {
   text-align:center;
   padding-bottom: 10px;
 }
-main figcaption h2 {
+.artist-bio h2 {
   color:white;  
   font-size: 2em;
 }
-main h3 {
+.artist-profile h3 {
   color: white;
   text-align: center;
   font-size: 1.5em;
 }
-main figcaption p {
+.artist-bio p {
   text-align: center;
   color: white;
   font-size: 1em;
 }
 
-main #albums {
+.artist-profile #albums {
   width:60%; 
   margin:10px auto; 
   clear:both;
@@ -103,12 +103,12 @@ main #albums {
   display: flex;
   flex-direction: row;
 }
-main #albums a {
+.artist-profile #albums a {
   color:rgba(255,255,255,1.00);
   padding:0;
 }
 
-footer {
+.app-name {
   color: white;
   width:80%; 
   margin:0px auto; 
@@ -121,18 +121,16 @@ footer {
   background: rgba(255, 255, 255, 0.1); 
   margin-top: 20px;
 }
-main ol {
-  padding: 16px;
+.artist-profile ol {
+  list-style-type: none;
+  padding: 20px 36px;
+  font-weight: 500;
 }
-ol {
-list-style-type: none;
-padding: 20px 36px;
-font-weight: 500;
-}
-ol li a {
+
+.artist-profile ol li a {
  color: white; 
 }
-ol li  {
+.artist-profile ol li  {
 border-bottom: 1px solid white;
 counter-increment: number;
 display: -webkit-box;
@@ -144,10 +142,10 @@ flex-wrap: initial;
 align-content: initial;
 height: 45px;
 }
-ol li a span:not(:last-child) {
+.artist-profile ol li a span:not(:last-child) {
 margin-right: 2em;
 }
 /* ---- Responsive Code ---- */
  @media (max-width: 768px) {
-  main {width:80%;} 
+  .artist-profile {width:80%;} 
  } 
