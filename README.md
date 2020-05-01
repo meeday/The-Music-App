@@ -4,13 +4,22 @@
 
 A webapp that searches for music by track, album, or artist. Enter in your search query and access a wealth of information from reputable sources.
 
-## User Story
+## Contents
+
+- [Planning](#planning)
+  - [User Story](#user-story)
+  - [Acceptance Criteria](#acceptance-criteria)
+  - [Wireframes](#wireframes)
+
+## Planning
+
+### User Story
 
 AS an avid music fan,
 I WANT an App that gives me information on songs
 SO THAT I can learn more about the artists and their work
 
-## Acceptance Criteria
+### Acceptance Criteria
 
 GIVEN that I input a valid name
 WHEN I enter a track name
