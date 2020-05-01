@@ -122,12 +122,12 @@ $(function () {
   });
 
   //search on <enter key> pressed
-$(document).keypress(function(event){
-	var keycode = (event.keyCode ? event.keyCode : event.which);
-	if(keycode == '13'){
-    callAPI();
-	}
-});
+  $(document).keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+      callAPI();
+    }
+  });
 
   $("#album-search-icon").on("click", function () {
     getAlbumInfo();
