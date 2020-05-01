@@ -9,7 +9,6 @@ function callAPI() {
     getTrackInfo(userInput);
   } else if ($("#artist-btn").is(":checked")) {
     getArtistInfo(userInput);
-    $("#default-search-input").hide(400);
     $(".artist-results-page").show(400);
   }
 }
