@@ -61,6 +61,7 @@ function getArtistInfo(userInput) {
   });
 }
 
+//These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
     var userInput = $("#search-query").val();
