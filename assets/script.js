@@ -64,3 +64,15 @@ function getArtistInfo(userInput) {
     console.log(response);
   });
 }
+
+$(function(){
+    $('#album-btn').on('click', function(){
+        $('#default-search-input').hide(400);
+        $('#album-search-input').show(400);
+    })
+    
+    $('.default-query').on('click', function(){
+        $('#default-search-input').show(400);
+        $('#album-search-input').hide(400);
+    })
+})
