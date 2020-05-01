@@ -4,7 +4,6 @@
 
 var userInput;
 
-
 function callAPI() {
   if ($("#track-btn").is(":checked")) {
     getTrackInfo(userInput);
@@ -58,6 +57,38 @@ function getArtistInfo(userInput) {
   }).then(function (response) {
     console.log("user searched for artist: " + userInput);
     console.log(response);
+    $("#artist-name").text(response.artist.name);
+    $("#artist-bio").html(response.artist.bio.summary);
+
+    // Filling top 5 albums
+    let topAlbumURL =
+      "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
+      userInput +
+      "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+    $.ajax({
+      url: topAlbumURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+      $("#header-img").attr(
+        "src",
+        response.topalbums.album[0].image[2]["#text"]
+      );
+      $("#header-img").attr("alt", response.topalbums.album[0].name);
+      for (var i = 0; i < 3; i++) {
+        console.log(response.topalbums.album[i].image[2]["#text"]);
+        $("#albums>ul").append(
+          "<img " +
+            '" src="' +
+            response.topalbums.album[i].image[2]["#text"] +
+            'alt="' +
+            response.topalbums.album[i].name +
+            'class="responsive-img"' +
+            '"/>' +
+            "</li>"
+        );
+      }
+    });
   });
 }
 
@@ -69,9 +100,9 @@ $(function () {
     callAPI(userInput);
   });
 
-  $('#album-search-icon').on('click', function(){
+  $("#album-search-icon").on("click", function () {
     getAlbumInfo();
-  })
+  });
 
   $("#album-btn").on("click", function () {
     $("#default-search-input").hide(400);
