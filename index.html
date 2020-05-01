@@ -22,38 +22,45 @@
           <h1 class="center white-text">The Music App</h1>
           <div class="row center">
             <div class="col s12">
-              <h4 class="white-text">search for all things, music</h4>
+              <h4 class="white-text">
+                search for all things, music
+              </h4>
             </div>
           </div>
         </div>
       </div>
       <div class="input-field col s12">
         <i id="search-icon" class="material-icons white-text prefix">search</i>
-        <input
-          type="text"
-          id="search-query"
-          class="autocomplete white-text"
-        />
-        <label class="white-text" for="search-query"
-          >search
-        </label>
+        <input type="text" id="search-query" class="autocomplete white-text" />
+        <label class="white-text" for="search-query">search </label>
       </div>
       <form action="#" id="query-selection">
         <p>
           <label>
-            <input name="group1" type="radio" class="with-gap" checked />
+            <input
+              id="track-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+              checked
+            />
             <span class="query-type white-text">Track</span>
           </label>
         </p>
         <p>
           <label>
-            <input name="group1" type="radio" class="with-gap" />
+            <input id="album-btn" name="group1" type="radio" class="with-gap" />
             <span class="query-type white-text">Album</span>
           </label>
         </p>
         <p>
           <label>
-            <input name="group1" type="radio" class="with-gap" />
+            <input
+              id="artist-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+            />
             <span class="query-type white-text">Artist</span>
           </label>
         </p>
@@ -62,6 +69,11 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/script.js"></script>
   </body>
 </html>
