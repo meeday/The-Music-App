@@ -11,6 +11,7 @@ A webapp that searches for music by track, album, or artist. Enter in your searc
   - [Acceptance Criteria](#acceptance-criteria)
   - [Wireframes](#wireframes)
   - [APIs](#apis)
+- [Features](#features)
 
 ## Planning
 
@@ -44,3 +45,16 @@ THEN I am presented with a bio, some info about them, and discography
 ##### LastFM
 
 The main API, used to retrieve artist info and to fill out the search result pages
+
+## Features
+
+### Track Search
+
+### Album Search
+
+### Artist Search
+
+When selecting artist and searching the user will be presented with artist info:
+  - Bio
+  - Top Albums
+  - Top Tracks
