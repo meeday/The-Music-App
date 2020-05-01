@@ -4,6 +4,7 @@
 
 var userInput;
 
+
 function callAPI() {
   if ($("#track-btn").is(":checked")) {
     getTrackInfo(userInput);
@@ -28,8 +29,8 @@ function getTrackInfo(userInput) {
 }
 
 function getAlbumInfo() {
-  var artist = $("#query-artist").val();
-  var album = $("query album").val();
+  let artist = $("#query-artist").val();
+  let album = $("#query-album").val();
   let albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
     artist +
@@ -66,6 +67,10 @@ $(function () {
     console.log("user input is " + userInput);
     callAPI(userInput);
   });
+
+  $('#album-search-icon').on('click', function(){
+    getAlbumInfo();
+  })
 
   $("#album-btn").on("click", function () {
     $("#default-search-input").hide(400);
