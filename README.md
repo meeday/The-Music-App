@@ -27,4 +27,11 @@ THEN I am presented with detailed information about the track
 WHEN I enter an album name  
 THEN I am presented with info on the album and a list of songs in it  
 WHEN I enter an artist name  
-THEN I am presented with a bio, some info about them, and discography  
+THEN I am presented with a bio, some info about them, and discography
+
+### Wireframes
+
+![image](https://user-images.githubusercontent.com/59972622/80771729-3c14e880-8b4c-11ea-936d-c620bbad988c.png)
+![image](https://user-images.githubusercontent.com/59972622/80771761-5a7ae400-8b4c-11ea-8554-7d0bb3b74e73.png)
+![image](https://user-images.githubusercontent.com/59972622/80771774-5f3f9800-8b4c-11ea-9281-97c70ca5f2e5.png)
+![image](https://user-images.githubusercontent.com/59972622/80771775-61095b80-8b4c-11ea-970f-dbd6875e8b3c.png)
