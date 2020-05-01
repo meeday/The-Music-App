@@ -9,6 +9,8 @@ function callAPI() {
     getTrackInfo(userInput);
   } else if ($("#artist-btn").is(":checked")) {
     getArtistInfo(userInput);
+    $("#default-search-input").hide(400);
+    $(".artist-results-page").show(400);
   }
 }
 
@@ -96,7 +98,7 @@ function getArtistInfo(userInput) {
       method: "GET",
     }).then(function (response) {
       console.log(response);
-      
+
       for (i = 0; i < 5; i++) {
         $(".album-tracks>ol").append(
           '<li><a class="top-track" target="_blank" href="#">' +
