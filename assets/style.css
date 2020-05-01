@@ -22,6 +22,10 @@ label.white-text {
     margin-left: 43.5px;
 }
 
+#album-search-icon {
+    top: -0.5rem;
+}
+
 .query-type {
   font-size: 1.7rem;
 }
