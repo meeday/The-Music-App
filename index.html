@@ -1,32 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>The Music App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <title>The Music App</title>
-</head>
+  <body>
+    <div class="container landing-page">
+      <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <h1 class="center white-text">The Music App</h1>
 
-<body>
-  <div class="container landing-page">
-    <div class="section no-pad-bot" id="index-banner">
-      <div class="container">
-        <h1 class="center white-text">The Music App</h1>
-        <div class="row center">
-          <div class="col s12">
-            <h4 class="white-text">search for all things, music</h4>
+          <div class="row center">
+            <div class="col s12">
+              <h4 class="white-text">
+                search for all things, music
+              </h4>
+            </div>
           </div>
         </div>
       </div>
+
+      <div id="default-search-input" class="input-field col s12">
+        <i id="search-icon" class="material-icons white-text prefix">search</i>
+        <input type="text" id="search-query" class="autocomplete white-text" />
+        <label class="white-text" for="search-query">search </label>
+      </div>
+
+      <div id="album-search-input" style="display: none;">
+        <div id="artist-input" class="input-field col s12">
+          <input
+            type="text"
+            id="query-artist"
+            class="autocomplete white-text"
+          />
+          <label class="white-text" for="query-artist">Artist </label>
+        </div>
+
+        <div id="album-input" class="input-field col s12">
+          <i id="album-search-icon" class="material-icons white-text prefix">
+            search
+          </i>
+          <input type="text" id="query-album" class="autocomplete white-text" />
+          <label class="white-text" for="query-album">Album </label>
+        </div>
+      </div>
+
+      <form action="#" id="query-selection">
+        <p>
+          <label>
+            <input
+              id="track-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+              checked
+            />
+            <span class="query-type default-query white-text">Track</span>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input id="album-btn" name="group1" type="radio" class="with-gap" />
+            <span class="query-type white-text">Album</span>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input
+              id="artist-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+            />
+            <span class="query-type default-query white-text">Artist</span>
+          </label>
+        </p>
+      </form>
     </div>
     <div class="input-field col s12">
       <i id="search-icon" class="material-icons white-text prefix">search</i>
       <input type="text" id="search-query" class="autocomplete white-text" />
-      <label class="white-text" for="search-query">search
-      </label>
+      <label class="white-text" for="search-query">search </label>
     </div>
     <form action="#" id="query-selection">
       <p>
@@ -48,60 +115,101 @@
         </label>
       </p>
     </form>
-  </div>
 
-  <div class="container artist-results-page">
-    <main class="artist-profile">
+    <div class="container artist-results-page">
+      <main class="artist-profile">
         <h1>Artists Profile</h1>
-      <figure class="artist-pic">
-        <a href="#"><img src="https://s-media-cache-ak0.pinimg.com/736x/71/67/04/71670453736184be195d09a004ad60d9.jpg"
-            atl="The Song Title" /></a>
-      </figure>
-      <figcaption class="artist-bio">
-        <h2>Beyonce</h2>
-        <p>Beyoncé Giselle Knowles-Carter is an American singer, songwriter, record producer, dancer and
-          actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing
-          competitions as a child. </p>
-      </figcaption>
-      <h3>Top Albums</h3>
-      <div id="albums">
-        <ul>
+        <figure class="artist-pic">
+          <a href="#"
+            ><img
+              src="https://s-media-cache-ak0.pinimg.com/736x/71/67/04/71670453736184be195d09a004ad60d9.jpg"
+              atl="The Song Title"
+          /></a>
+        </figure>
+        <figcaption class="artist-bio">
+          <h2>Beyonce</h2>
+          <p>
+            Beyoncé Giselle Knowles-Carter is an American singer, songwriter,
+            record producer, dancer and actress. Born and raised in Houston,
+            Texas, Beyoncé performed in various singing and dancing competitions
+            as a child.
+          </p>
+        </figcaption>
+        <h3>Top Albums</h3>
+        <div id="albums">
+          <ul>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/I+Am...+Sasha+Fierce"
+                class="one"
+              >
+                <img
+                  alt="beyonce"
+                  src="https://lastfm.freetls.fastly.net/i/u/174s/0c53bcc3435d43cd9e2d65e9d78d7709.png"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/B%27Day"
+                class="two"
+              >
+                <img
+                  alt="beyonce"
+                  src="https://lastfm.freetls.fastly.net/i/u/174s/2660a4cb02b874e11485f7a8c93e1d33.png"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/Dangerously+in+Love"
+                class="three"
+              >
+                <img
+                  alt="beyonce"
+                  src="https://lastfm.freetls.fastly.net/i/u/174s/c38c369b894031681638c65cb0070030.png"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <h3>Top Tracks</h3>
+        <div class="album-tracks">
+          <ol>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Halo"
+                ><span>Halo</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Irreplaceable"
+                ><span>Irreplaceable</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Single+Ladies+(Put+a+Ring+on+It)"
+                ><span>Single Ladies (Put a Ring on It)</span></a
+              >
+            </li>
+          </ol>
+        </div>
+        <footer class="app-name">
+          <p>The Music App</p>
+        </footer>
+      </main>
+    </div>
 
-          <li><a target="_blank" href="https://www.last.fm/music/Beyonc%C3%A9/I+Am...+Sasha+Fierce" class="one">
-              <img alt="beyonce" src="https://lastfm.freetls.fastly.net/i/u/174s/0c53bcc3435d43cd9e2d65e9d78d7709.png">
-            </a>
-          </li>
-          <li><a target="_blank" href="https://www.last.fm/music/Beyonc%C3%A9/B%27Day" class="two">
-              <img alt="beyonce" src="https://lastfm.freetls.fastly.net/i/u/174s/2660a4cb02b874e11485f7a8c93e1d33.png">
-            </a>
-          </li>
-          <li><a target="_blank" href="https://www.last.fm/music/Beyonc%C3%A9/Dangerously+in+Love" class="three">
-              <img alt="beyonce" src="https://lastfm.freetls.fastly.net/i/u/174s/c38c369b894031681638c65cb0070030.png">
-            </a>
-          </li>
-        </ul>
-      </div>
-      <h3>Top Tracks</h3>
-      <div class="album-tracks">
-        <ol>
-          <li><a target="_blank" href="https://www.last.fm/music/Beyonc%C3%A9/_/Halo"><span>Halo</span></a></li>
-          <li><a target="_blank"
-              href="https://www.last.fm/music/Beyonc%C3%A9/_/Irreplaceable"><span>Irreplaceable</span></a></li>
-          <li><a target="_blank"
-              href="https://www.last.fm/music/Beyonc%C3%A9/_/Single+Ladies+(Put+a+Ring+on+It)"><span>Single Ladies (Put
-                a Ring on It)</span></a></li>
-        </ol>
-      </div>
-      <footer class="app-name">
-        <p>The Music App</p>
-      </footer>
-    </main>
-  </div>
-
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="assets/script.js"></script>
-</body>
-
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/script.js"></script>
+  </body>
 </html>
