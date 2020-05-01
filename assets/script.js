@@ -60,7 +60,7 @@ function getArtistInfo(userInput) {
     $("#artist-name").text(response.artist.name);
     $("#artist-bio").html(response.artist.bio.summary);
 
-    // Filling top 5 albums
+    // Filling top 4 albums
     let topAlbumURL =
       "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
       userInput +
@@ -75,7 +75,7 @@ function getArtistInfo(userInput) {
         response.topalbums.album[0].image[2]["#text"]
       );
       $("#header-img").attr("alt", response.topalbums.album[0].name);
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
           '<li><img src="' +
             response.topalbums.album[i].image[2]["#text"] +
