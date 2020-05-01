@@ -151,9 +151,10 @@ label.white-text {
   font-weight: 500;
 }
 
-.artist-profile ol li a {
+.top-track {
   color: white;
 }
+
 .artist-profile ol li {
   border-bottom: 1px solid white;
   counter-increment: number;

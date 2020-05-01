@@ -55,8 +55,6 @@ function getArtistInfo(userInput) {
     url: artistURL,
     method: "GET",
   }).then(function (response) {
-    console.log("user searched for artist: " + userInput);
-    console.log(response);
     $("#artist-name").text(response.artist.name);
     $("#artist-bio").html(response.artist.bio.summary);
 
@@ -65,27 +63,46 @@ function getArtistInfo(userInput) {
       "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
       userInput +
       "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
     $.ajax({
       url: topAlbumURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
       $("#header-img").attr(
         "src",
         response.topalbums.album[0].image[2]["#text"]
       );
       $("#header-img").attr("alt", response.topalbums.album[0].name);
-      for (var i = 0; i < 3; i++) {
-        console.log(response.topalbums.album[i].image[2]["#text"]);
+      for (var i = 0; i < 5; i++) {
         $("#albums>ul").append(
-          "<img " +
-            '" src="' +
+          '<li><img src="' +
             response.topalbums.album[i].image[2]["#text"] +
             'alt="' +
             response.topalbums.album[i].name +
-            'class="responsive-img"' +
-            '"/>' +
+            'class="responsive-img"/>' +
             "</li>"
+        );
+      }
+    });
+
+    // Getting top tracks
+    let topTrackURL =
+      "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
+      userInput +
+      "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
+    $.ajax({
+      url: topTrackURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+      
+      for (i = 0; i < 5; i++) {
+        $(".album-tracks>ol").append(
+          '<li><a class="top-track" target="_blank" href="#">' +
+            "<span>" +
+            response.toptracks.track[i].name +
+            "</span></a></li>"
         );
       }
     });
