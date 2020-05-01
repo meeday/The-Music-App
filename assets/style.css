@@ -12,6 +12,7 @@ body {
 
 #search-icon {
   top: 0.9rem;
+  cursor: pointer;
 }
 
 label.white-text {
