@@ -12,6 +12,10 @@ body {
 
 #search-icon {
   top: 0.9rem;
+}
+
+#search-icon,
+#album-search-icon {
   cursor: pointer;
 }
 
@@ -20,11 +24,11 @@ label.white-text {
 }
 
 #artist-input {
-    margin-left: 43.5px;
+  margin-left: 43.5px;
 }
 
 #album-search-icon {
-    top: -0.5rem;
+  top: -0.5rem;
 }
 
 .query-type {
