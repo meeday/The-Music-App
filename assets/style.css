@@ -18,6 +18,10 @@ label.white-text {
   font-size: 1.5rem;
 }
 
+#artist-input {
+    margin-left: 43.5px;
+}
+
 .query-type {
   font-size: 1.7rem;
 }

@@ -29,10 +29,27 @@
           </div>
         </div>
       </div>
-      <div class="input-field col s12">
+      <div id="default-search-input" class="input-field col s12">
         <i id="search-icon" class="material-icons white-text prefix">search</i>
         <input type="text" id="search-query" class="autocomplete white-text" />
         <label class="white-text" for="search-query">search </label>
+      </div>
+      <div id="album-search-input">
+        <div id="artist-input" class="input-field col s12">
+          <input
+            type="text"
+            id="query-artist"
+            class="autocomplete white-text"
+          />
+          <label class="white-text" for="query-artist">Artist </label>
+        </div>
+        <div id="album-input" class="input-field col s12">
+          <i id="album-search-icon" class="material-icons white-text prefix"
+            >search</i
+          >
+          <input type="text" id="query-album" class="autocomplete white-text" />
+          <label class="white-text" for="query-album">Album </label>
+        </div>
       </div>
       <form action="#" id="query-selection">
         <p>
