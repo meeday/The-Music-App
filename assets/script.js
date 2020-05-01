@@ -1,9 +1,9 @@
 
-//API key 1cdcc6e0cda44cee6b6571363c390279
-//http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=<<artist name>>&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json
+//---------------------------------------------------------
+//------------LAST FM API CALLS SECTION--------------------
+//---------------------------------------------------------
 
 var userInput;
-// userInput = $("#search-query").val(); 
 
 
 $("#search-icon").on("click", function(){
@@ -15,11 +15,11 @@ $("#search-icon").on("click", function(){
 
 
 function callAPI(){
-    if($('.track-btn').is(':checked')) {
+    if($("#track-btn").is(":checked")) {
         getTrackInfo(userInput);
-    } else if ($('.album-btn').is(':checked')) {
+    } else if ($("#album-btn").is(":checked")) {
         getAlbumInfo(userInput);
-    } else if ($('.artist-btn').is(':checked')) {
+    } else if ($("#artist-btn").is(":checked")) {
         getArtistInfo(userInput)
     }
 };
