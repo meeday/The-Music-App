@@ -46,6 +46,14 @@ THEN I am presented with a bio, some info about them, and discography
 
 The main API, used to retrieve artist info and to fill out the search result pages
 
+##### Seatgeeks API
+
+Used to retreive upcoming shows and concerts related to the artist
+
+### CSS Framework
+
+Materialize css is used for most of the styling with some custom css to support it
+
 ## Features
 
 ### Track Search
@@ -55,6 +63,7 @@ The main API, used to retrieve artist info and to fill out the search result pag
 ### Artist Search
 
 When selecting artist and searching the user will be presented with artist info:
-  - Bio
-  - Top Albums
-  - Top Tracks
+
+- Bio
+- Top Albums
+- Top Tracks
