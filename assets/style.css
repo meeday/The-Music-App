@@ -149,10 +149,8 @@ label.white-text {
   font-weight: 500;
 }
 
-.search-profile ol li a {
-  color: white;
-}
 .search-profile ol li {
+  color: white;
   border-bottom: 1px solid white;
   counter-increment: number;
   display: -webkit-box;

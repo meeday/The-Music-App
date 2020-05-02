@@ -45,7 +45,19 @@ function getAlbumInfo() {
   }).then(function (response) {
     console.log("user searched for " + album + " by " + artist);
     console.log(response);
+    var icon = response.album.image[2]["#text"];
+    var summary = response.album.wiki.summary;
+    var albumName = response.album.name;
+    $("#album-pic").attr("src", icon);
+    $("#summaryHeading").text(albumName);
+    $("#summary").html(summary);
+    $(".search-tracks>ol").html("");
+    var tracks = response.album.tracks.track;
+    for (i = 0; i<tracks.length;i++){
+      $(".search-tracks>ol").append("<li>"+ tracks[i].name +"</li>");
+    }
   });
+  $(".album-results-page").show(400);
 }
 
 function getArtistInfo(userInput) {
