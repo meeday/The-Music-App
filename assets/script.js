@@ -72,7 +72,7 @@ function getArtistInfo(userInput) {
   }).then(function (response) {
     $("#artist-name").text(response.artist.name);
     $("#artist-bio").html(response.artist.bio.summary);
-
+    $("#artist-bio>a").attr("Target", "_blank");
     // Filling top 4 albums
     var topAlbumURL =
       "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
