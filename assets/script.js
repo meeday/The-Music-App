@@ -11,6 +11,8 @@ function callAPI() {
     getArtistInfo(userInput);
     $("#default-search-input").hide(400);
     $(".artist-results-page").show(400);
+  } else if ($("#album-btn").is(":checked")) {
+    getAlbumInfo();
   }
 }
 
@@ -119,6 +121,14 @@ $(function () {
     callAPI(userInput);
   });
 
+  //search on <enter key> pressed
+  $(document).keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+      callAPI();
+    }
+  });
+
   $("#album-search-icon").on("click", function () {
     getAlbumInfo();
   });
@@ -133,3 +143,4 @@ $(function () {
     $("#album-search-input").hide(400);
   });
 });
+
