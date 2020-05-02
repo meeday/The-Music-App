@@ -51,6 +51,11 @@ function getAlbumInfo() {
     $("#album-pic").attr("src", icon);
     $("#summaryHeading").text("I Am... " + artistName);
     $("#summary").html(summary);
+    $(".search-tracks>ol").html("");
+    var tracks = response.album.tracks.track;
+    for (i = 0; i<tracks.length;i++){
+      $(".search-tracks>ol").append("<li>"+ tracks[i].name +"</li>");
+    }
   });
   $(".album-results-page").show(400);
 }
