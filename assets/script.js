@@ -132,12 +132,13 @@ $(function () {
     console.log("user input is " + userInput);
     callAPI(userInput);
   });
-
+  
   //search on <enter key> pressed
   $(document).keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
       callAPI();
+      $("#default-search-input>label").remove();
     }
   });
 
