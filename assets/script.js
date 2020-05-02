@@ -4,12 +4,12 @@
 
 var userInput;
 
-
 function callAPI() {
   if ($("#track-btn").is(":checked")) {
     getTrackInfo(userInput);
   } else if ($("#artist-btn").is(":checked")) {
     getArtistInfo(userInput);
+    $(".artist-results-page").show(400);
   }
 }
 
@@ -56,8 +56,58 @@ function getArtistInfo(userInput) {
     url: artistURL,
     method: "GET",
   }).then(function (response) {
-    console.log("user searched for artist: " + userInput);
-    console.log(response);
+    $("#artist-name").text(response.artist.name);
+    $("#artist-bio").html(response.artist.bio.summary);
+
+    // Filling top 4 albums
+    let topAlbumURL =
+      "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
+      userInput +
+      "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
+    $.ajax({
+      url: topAlbumURL,
+      method: "GET",
+    }).then(function (response) {
+      $("#header-img").attr(
+        "src",
+        response.topalbums.album[0].image[2]["#text"]
+      );
+      $("#header-img").attr("alt", response.topalbums.album[0].name);
+      $("#albums>ul").html("");
+      
+      for (var i = 0; i < 4; i++) {
+        $("#albums>ul").append(
+          '<li><img src="' +
+            response.topalbums.album[i].image[2]["#text"] +
+            'alt="' +
+            response.topalbums.album[i].name +
+            'class="responsive-img"/>' +
+            "</li>"
+        );
+      }
+    });
+
+    // Getting top tracks
+    let topTrackURL =
+      "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
+      userInput +
+      "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
+    $.ajax({
+      url: topTrackURL,
+      method: "GET",
+    }).then(function (response) {
+      $(".album-tracks>ol").html("");
+      for (i = 0; i < 5; i++) {
+        $(".album-tracks>ol").append(
+          '<li><a class="top-track" target="_blank" href="#">' +
+            "<span>" +
+            response.toptracks.track[i].name +
+            "</span></a></li>"
+        );
+      }
+    });
   });
 }
 
@@ -69,9 +119,9 @@ $(function () {
     callAPI(userInput);
   });
 
-  $('#album-search-icon').on('click', function(){
+  $("#album-search-icon").on("click", function () {
     getAlbumInfo();
-  })
+  });
 
   $("#album-btn").on("click", function () {
     $("#default-search-input").hide(400);
