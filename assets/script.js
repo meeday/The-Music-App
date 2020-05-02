@@ -17,7 +17,7 @@ function callAPI() {
 
 function getTrackInfo(userInput) {
   userInput = $("#search-query").val();
-  let trackURL =
+  var trackURL =
     "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" +
     userInput +
     "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
@@ -31,9 +31,9 @@ function getTrackInfo(userInput) {
 }
 
 function getAlbumInfo() {
-  let artist = $("#query-artist").val();
-  let album = $("#query-album").val();
-  let albumURL =
+  var artist = $("#query-artist").val();
+  var album = $("#query-album").val();
+  var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
     artist +
     "&album=" +
@@ -50,7 +50,7 @@ function getAlbumInfo() {
 
 function getArtistInfo(userInput) {
   userInput = $("#search-query").val();
-  let artistURL =
+  var artistURL =
     "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" +
     userInput +
     "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
@@ -62,7 +62,7 @@ function getArtistInfo(userInput) {
     $("#artist-bio").html(response.artist.bio.summary);
 
     // Filling top 4 albums
-    let topAlbumURL =
+    var topAlbumURL =
       "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
       userInput +
       "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
@@ -91,7 +91,7 @@ function getArtistInfo(userInput) {
     });
 
     // Getting top tracks
-    let topTrackURL =
+    var topTrackURL =
       "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
       userInput +
       "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
