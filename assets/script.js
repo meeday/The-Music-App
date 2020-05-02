@@ -100,9 +100,9 @@ function getArtistInfo(userInput) {
       url: topTrackURL,
       method: "GET",
     }).then(function (response) {
-      $(".album-tracks>ol").html("");
+      $(".search-tracks>ol").html("");
       for (i = 0; i < 5; i++) {
-        $(".album-tracks>ol").append(
+        $(".search-tracks>ol").append(
           '<li><a class="top-track" target="_blank" href="#">' +
             "<span>" +
             response.toptracks.track[i].name +
