@@ -143,16 +143,14 @@ label.white-text {
   background: rgba(255, 255, 255, 0.1);
   margin-top: 20px;
 }
-.search-profile ol {
+.search-tracks ol {
   list-style-type: none;
   padding: 20px 36px;
   font-weight: 500;
 }
 
-.search-profile ol li a {
+.search-tracks ol li {
   color: white;
-}
-.search-profile ol li {
   border-bottom: 1px solid white;
   counter-increment: number;
   display: -webkit-box;
