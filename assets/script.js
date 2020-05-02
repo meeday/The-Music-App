@@ -9,6 +9,7 @@ function callAPI() {
     getTrackInfo(userInput);
   } else if ($("#artist-btn").is(":checked")) {
     getArtistInfo(userInput);
+    getArtistConcert(userInput);
     $(".artist-results-page").show(400);
   } else if ($("#album-btn").is(":checked")) {
     getAlbumInfo();
@@ -153,6 +154,8 @@ function getArtistConcert(){
   $.ajax({
     url: artistConcertURL, 
     method: "GET", 
+  }).then(function(response){
+    console.log(response);
   })
 
 }
