@@ -49,7 +49,7 @@ function getAlbumInfo() {
     var artistName = response.album.artist;
     var summary = response.album.wiki.summary;
     $("#album-pic").attr("src", icon);
-    $("#summaryHeading").text("I Am... " + artistName);
+    $("#summaryHeading").text(artistName);
     $("#summary").html(summary);
     $(".search-tracks>ol").html("");
     var tracks = response.album.tracks.track;
