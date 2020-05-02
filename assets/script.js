@@ -145,5 +145,7 @@ $(function () {
 });
 
 function getArtistConcert(){}
+//https://api.seatgeek.com/2/events?q=metallica&client_id=MjExNjc5MjF8MTU4ODM1ODE5OC4xNw
+
 
 
