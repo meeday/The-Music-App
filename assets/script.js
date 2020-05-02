@@ -51,6 +51,7 @@ function getAlbumInfo() {
     $("#summaryHeading").text("I Am... " + artistName);
     $("#summary").html(summary);
   });
+  $(".album-results-page").show(400);
 }
 
 function getArtistInfo(userInput) {
