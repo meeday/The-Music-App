@@ -1,202 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <title>The Music App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <title>The Music App</title>
-</head>
+  <body>
+    <!-- landing-page html -->
+    <div class="container landing-page">
+      <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <h1 class="center white-text">The Music App</h1>
 
-<body>
-  <!-- landing-page html -->
-  <div class="container landing-page">
-    <div class="section no-pad-bot" id="index-banner">
-      <div class="container">
-        <h1 class="center white-text">The Music App</h1>
-
-        <div class="row center">
-          <div class="col s12">
-            <h4 class="white-text">
-              search for all things, music
-            </h4>
+          <div class="row center">
+            <div class="col s12">
+              <h4 class="white-text">
+                search for all things, music
+              </h4>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div id="default-search-input" class="input-field col s12">
-      <i id="search-icon" class="material-icons white-text prefix">search</i>
-      <input type="text" id="search-query" class="autocomplete white-text" />
-      <label class="white-text" for="search-query">search </label>
-    </div>
-
-    <div id="album-search-input" style="display: none;">
-      <div id="artist-input" class="input-field col s12">
-        <input type="text" id="query-artist" class="autocomplete white-text" />
-        <label class="white-text" for="query-artist">Artist </label>
+      <div id="default-search-input" class="input-field col s12">
+        <i id="search-icon" class="material-icons white-text prefix">search</i>
+        <input type="text" id="search-query" class="autocomplete white-text" />
+        <label class="white-text" for="search-query">search </label>
       </div>
 
-      <div id="album-input" class="input-field col s12">
-        <i id="album-search-icon" class="material-icons white-text prefix">
-          search
-        </i>
-        <input type="text" id="query-album" class="autocomplete white-text" />
-        <label class="white-text" for="query-album">Album </label>
+      <div id="album-search-input" style="display: none;">
+        <div id="artist-input" class="input-field col s12">
+          <input
+            type="text"
+            id="query-artist"
+            class="autocomplete white-text"
+          />
+          <label class="white-text" for="query-artist">Artist </label>
+        </div>
+
+        <div id="album-input" class="input-field col s12">
+          <i id="album-search-icon" class="material-icons white-text prefix">
+            search
+          </i>
+          <input type="text" id="query-album" class="autocomplete white-text" />
+          <label class="white-text" for="query-album">Album </label>
+        </div>
       </div>
-    </div>
 
-    <form action="#" id="query-selection">
-      <p>
-        <label>
-          <input id="track-btn" name="group1" type="radio" class="with-gap" checked />
-          <span class="query-type default-query white-text">Track</span>
-        </label>
-      </p>
-
-      <p>
-        <label>
-          <input id="album-btn" name="group1" type="radio" class="with-gap" />
-          <span class="query-type white-text">Album</span>
-        </label>
-      </p>
-
-      <p>
-        <label>
-          <input id="artist-btn" name="group1" type="radio" class="with-gap" />
-          <span class="query-type default-query white-text">Artist</span>
-        </label>
-      </p>
-    </form>
-  </div>
-<!-- Artist search results page html -->
-  <div style="display: none;" class="container artist-results-page">
-    <main class="search-profile">
-      <h1>Artists Profile</h1>
-      <figure class="search-pic">
-        <a href="#"><img src="https://s-media-cache-ak0.pinimg.com/736x/71/67/04/71670453736184be195d09a004ad60d9.jpg"
-            atl="The Song Title" /></a>
-      </figure>
-      <figcaption class="search-bio">
-        <h2></h2>
+      <form action="#" id="query-selection">
         <p>
-
+          <label>
+            <input
+              id="track-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+              checked
+            />
+            <span class="query-type default-query white-text">Track</span>
+          </label>
         </p>
-      </figcaption>
-      <h3>Top Albums</h3>
-      <div id="albums">
-        <ul>
 
-        </ul>
-      </div>
-      <h3>Top Tracks</h3>
-      <div id="top-tracks" class="search-tracks">
-        <ol>
-
-        </ol>
-      </div>
-      <footer class="app-name">
-        <p>The Music App</p>
-      </footer>
-    </main>
-  </div>
-  <!-- Album search results page html -->
-  <div style="display: none;" class="container album-results-page">
-    <main class="search-profile">
-      <h1>Album Profile</h1>
-      <figure class="search-pic">
-        <a href="#"><img src="https://s-media-cache-ak0.pinimg.com/736x/71/67/04/71670453736184be195d09a004ad60d9.jpg"
-            atl="The Song Title" /></a>
-      </figure>
-      <figcaption class="search-bio">
-        <h2>I Am... Sasha Fierce</h2>
         <p>
-          I Am… Sasha Fierce is the third studio album by American R&B recording artist Beyoncé. It was released on
-          November 18, 2008, by Columbia Records. It is classified as a dual disc album; the first disc I Am…
-          incorporates
-          slow and mid-tempo R&B ballads and pop songs, while the second disc Sasha Fierce, named after Beyoncé's alter
-          ego, contains more uptempo danceable songs which cross from Euro to electropop. A deluxe edition of the album
-          was released simultaneously with its standard edition in 2008.
+          <label>
+            <input id="album-btn" name="group1" type="radio" class="with-gap" />
+            <span class="query-type white-text">Album</span>
+          </label>
         </p>
-      </figcaption>
 
-      <h3>Album Tracks</h3>
-      <div class="search-tracks">
-        <ol>
-          <li>
-            <a target="_blank" href="https://www.last.fm/music/Beyonc%C3%A9/_/Halo"><span>Halo</span></a>
-          </li>
-          <li>
-            <a target="_blank"
-              href="https://www.last.fm/music/Beyonc%C3%A9/_/Irreplaceable"><span>Irreplaceable</span></a>
-          </li>
-          <li>
-            <a target="_blank"
-              href="https://www.last.fm/music/Beyonc%C3%A9/_/Single+Ladies+(Put+a+Ring+on+It)"><span>Single
-                Ladies (Put a Ring on It)</span></a>
-          </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-          <li> </li>
-
-        </ol>
-      </div>
-      <footer class="app-name">
-        <p>The Music App</p>
-      </footer>
-    </main>
-  </div>
-
-  <!-- Track search results page html  -->
-  <div style="display: none;" class="container track-results-page">
-    <main class="search-profile">
-      <h1>Track Search</h1>
-      <figcaption class="search-bio">
-        <h2 id="track-name">Halo</h2>
-        <p id="track-bio">
-          sjfhsjb
+        <p>
+          <label>
+            <input
+              id="artist-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+            />
+            <span class="query-type default-query white-text">Artist</span>
+          </label>
         </p>
-      </figcaption>
+      </form>
+    </div>
+    <!-- Artist search results page html -->
+    <div style="display: none;" class="container artist-results-page">
+      <main class="search-profile">
+        <h1>Artists Profile</h1>
+        <figure class="search-pic">
+          <img id="header-img" src="" alt="" />
+        </figure>
+        <figcaption class="search-bio">
+          <h2 id="artist-name"></h2>
+          <p id="artist-bio"></p>
+        </figcaption>
+        <h3>Top Albums</h3>
+        <div id="albums">
+          <ul></ul>
+        </div>
+        <h3>Top Tracks</h3>
+        <div id="top-tracks" class="search-tracks">
+          <ol></ol>
+        </div>
+        <footer class="app-name">
+          <p>The Music App</p>
+        </footer>
+      </main>
+    </div>
+    <!-- Album search results page html -->
+    <div style="display: none;" class="container album-results-page">
+      <main class="search-profile">
+        <h1>Album Profile</h1>
+        <figure class="search-pic">
+          <a href="#"
+            ><img
+              src="https://s-media-cache-ak0.pinimg.com/736x/71/67/04/71670453736184be195d09a004ad60d9.jpg"
+              atl="The Song Title"
+          /></a>
+        </figure>
+        <figcaption class="search-bio">
+          <h2>I Am... Sasha Fierce</h2>
+          <p>
+            I Am… Sasha Fierce is the third studio album by American R&B
+            recording artist Beyoncé. It was released on November 18, 2008, by
+            Columbia Records. It is classified as a dual disc album; the first
+            disc I Am… incorporates slow and mid-tempo R&B ballads and pop
+            songs, while the second disc Sasha Fierce, named after Beyoncé's
+            alter ego, contains more uptempo danceable songs which cross from
+            Euro to electropop. A deluxe edition of the album was released
+            simultaneously with its standard edition in 2008.
+          </p>
+        </figcaption>
 
-      <h3>Tracks Similar to Your search</h3>
-      <div class="search-tracks">
-        <ol>
-          <li>
-            <a target="_blank" href="https://www.last.fm/music/Beyonc%C3%A9/_/Halo"><span>Halo</span></a>
-          </li>
-          <li>
-            <a target="_blank"
-              href="https://www.last.fm/music/Beyonc%C3%A9/_/Irreplaceable"><span>Irreplaceable</span></a>
-          </li>
-          <li>
-            <a target="_blank"
-              href="https://www.last.fm/music/Beyonc%C3%A9/_/Single+Ladies+(Put+a+Ring+on+It)"><span>Single
-                Ladies (Put a Ring on It)</span></a>
-          </li>
-        </ol>
-      </div>
-      <footer class="app-name">
-        <p>The Music App</p>
-      </footer>
-    </main>
-  </div>
+        <h3>Album Tracks</h3>
+        <div class="search-tracks">
+          <ol>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Halo"
+                ><span>Halo</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Irreplaceable"
+                ><span>Irreplaceable</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Single+Ladies+(Put+a+Ring+on+It)"
+                ><span>Single Ladies (Put a Ring on It)</span></a
+              >
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
+        </div>
+        <footer class="app-name">
+          <p>The Music App</p>
+        </footer>
+      </main>
+    </div>
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.0.min.js"
-    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-  <script src="assets/script.js"></script>
-</body>
+    <!-- Track search results page html  -->
+    <div style="display: none;" class="container track-results-page">
+      <main class="search-profile">
+        <h1>Track Search</h1>
+        <figcaption class="search-bio">
+          <h2 id="track-name">Halo</h2>
+          <p id="track-bio">
+            sjfhsjb
+          </p>
+        </figcaption>
 
+        <h3>Tracks Similar to Your search</h3>
+        <div class="search-tracks">
+          <ol>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Halo"
+                ><span>Halo</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Irreplaceable"
+                ><span>Irreplaceable</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.last.fm/music/Beyonc%C3%A9/_/Single+Ladies+(Put+a+Ring+on+It)"
+                ><span>Single Ladies (Put a Ring on It)</span></a
+              >
+            </li>
+          </ol>
+        </div>
+        <footer class="app-name">
+          <p>The Music App</p>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/script.js"></script>
+  </body>
 </html>
