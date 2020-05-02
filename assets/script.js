@@ -53,8 +53,8 @@ function getAlbumInfo() {
     $("#summary").html(summary);
     $(".search-tracks>ol").html("");
     var tracks = response.album.tracks.track;
-    for (i = 0; i<tracks.length;i++){
-      $(".search-tracks>ol").append("<li>"+ tracks[i].name +"</li>");
+    for (i = 0; i < tracks.length; i++) {
+      $(".search-tracks>ol").append("<li>" + tracks[i].name + "</li>");
     }
   });
   $(".album-results-page").show(400);
@@ -89,15 +89,15 @@ function getArtistInfo(userInput) {
       );
       $("#header-img").attr("alt", response.topalbums.album[0].name);
       $("#albums>ul").html("");
-      
+
       for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
           '<li><img src="' +
-            response.topalbums.album[i].image[2]["#text"] +
-            'alt="' +
-            response.topalbums.album[i].name +
-            'class="responsive-img"/>' +
-            "</li>"
+          response.topalbums.album[i].image[2]["#text"] +
+          'alt="' +
+          response.topalbums.album[i].name +
+          'class="responsive-img"/>' +
+          "</li>"
         );
       }
     });
@@ -116,9 +116,9 @@ function getArtistInfo(userInput) {
       for (i = 0; i < 5; i++) {
         $("#top-tracks>ol").append(
           '<li><a class="top-track" target="_blank" href="#">' +
-            "<span>" +
-            response.toptracks.track[i].name +
-            "</span></a></li>"
+          "<span>" +
+          response.toptracks.track[i].name +
+          "</span></a></li>"
         );
       }
     });
@@ -131,18 +131,25 @@ $(function () {
     var userInput = $("#search-query").val();
     console.log("user input is " + userInput);
     callAPI(userInput);
+    $("#default-search-input>label").remove();
+    $("#album-input>label").remove();
+    $("#artist-input>label").remove();
   });
-  
+
   //search on <enter key> pressed
-  $(document).keypress(function(event){
+  $(document).keypress(function (event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
-    if(keycode == '13'){
+    if (keycode == '13') {
       callAPI();
       $("#default-search-input>label").remove();
+      $("#album-input>label").remove();
+      $("#artist-input>label").remove();
     }
   });
 
   $("#album-search-icon").on("click", function () {
+    $("#album-input>label").remove();
+    $("#artist-input>label").remove();
     getAlbumInfo();
   });
 
@@ -156,4 +163,3 @@ $(function () {
     $("#album-search-input").hide(400);
   });
 });
-
