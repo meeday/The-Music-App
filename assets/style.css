@@ -45,17 +45,15 @@ label.white-text {
 }
 
 /* artist results page styling */
-
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css";
 @import url("https://fonts.googleapis.com/css?family=Raleway");
-.artist-results-page {
+.search-results-page, .album-results-page {
   width: 100%;
   padding: 5% 0px 1%;
   font-family: "Raleway", sans-serif;
 }
 
-.artist-profile a,
-.artist-profile a:hover {
+.search-profile a,
+.search-profile a:hover {
   text-decoration: none;
 }
 
@@ -68,7 +66,7 @@ label.white-text {
   display: inline;
 }
 
-.artist-profile {
+.search-profile {
   background-color: rgba(0, 0, 0, 0.9);
   background: url("https://i.stack.imgur.com/vAGZp.jpg");
   background-position: top center;
@@ -81,37 +79,37 @@ label.white-text {
   border-radius: 4px;
 }
 
-.artist-profile h1 {
+.search-profile h1 {
   color: white;
   text-align: center;
   font-weight: 600;
   font-size: 2em;
 }
 
-.artist-pic {
+.search-pic {
   overflow: hidden;
   width: 180px;
   height: 180px;
   margin: 20px auto 10px;
 }
-.artist-pic img {
+.search-pic img {
   width: 100%;
   border-radius: 50%;
 }
-.artist-bio {
+.search-bio {
   text-align: center;
   padding-bottom: 10px;
 }
-.artist-bio h2 {
+.search-bio h2 {
   color: white;
   font-size: 2em;
 }
-.artist-profile h3 {
+.search-profile h3 {
   color: white;
   text-align: center;
   font-size: 1.5em;
 }
-.artist-bio p {
+.search-bio p {
   text-align: center;
   color: white;
   font-size: 1em;
@@ -140,22 +138,21 @@ label.white-text {
   text-align: center;
   margin-bottom: 20px;
 }
-.album-tracks {
+.search-tracks {
   background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
   background: rgba(255, 255, 255, 0.1);
   margin-top: 20px;
 }
-.artist-profile ol {
+.search-profile ol {
   list-style-type: none;
   padding: 20px 36px;
   font-weight: 500;
 }
 
-.top-track {
+.search-profile ol li a {
   color: white;
 }
-
-.artist-profile ol li {
+.search-profile ol li {
   border-bottom: 1px solid white;
   counter-increment: number;
   display: -webkit-box;
@@ -167,12 +164,12 @@ label.white-text {
   align-content: initial;
   height: 45px;
 }
-.artist-profile ol li a span:not(:last-child) {
+.search-profile ol li a span:not(:last-child) {
   margin-right: 2em;
 }
 /* ---- Responsive Code ---- */
 @media (max-width: 768px) {
-  .artist-profile {
+  .search-profile {
     width: 80%;
   }
 }
