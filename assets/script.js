@@ -2,11 +2,6 @@
 //------------LAST FM API CALLS SECTION--------------------
 //---------------------------------------------------------
 
-// modal function
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = $(".modal");
-  var instances = M.Modal.init(elems);
-});
 
 var userInput;
 
@@ -30,10 +25,10 @@ function callAPI() {
 function getTrackInfo(userInput) {
   userInput = $("#search-query").val();
   var trackURL =
-    "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" +
+  "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" +
     userInput +
     "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
-  $.ajax({
+    $.ajax({
     url: trackURL,
     method: "GET",
   }).then(function (response) {
@@ -75,7 +70,7 @@ function getAlbumInfo() {
     "&album=" +
     album +
     "&format=json";
-  $.ajax({
+    $.ajax({
     url: albumURL,
     method: "GET",
   }).then(function (response) {
@@ -99,7 +94,7 @@ function getAlbumInfo() {
         "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
           tracks[i].name +
           "</a></li>"
-      );
+          );
     }
   });
   $("#album-results-page").show(400);
@@ -138,7 +133,7 @@ function getArtistInfo(userInput) {
       for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
           '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
-            response.topalbums.album[i].image[2]["#text"] +
+          response.topalbums.album[i].image[2]["#text"] +
             'alt="' +
             response.topalbums.album[i].name +
             "/></a>" +
@@ -181,8 +176,15 @@ $(function () {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
   });
+  
+  // Event listeners
+  // Modal function
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = $(".modal");
+    var instances = M.Modal.init(elems);
+  });
 
-  //search on <enter key> pressed
+  // Search on <enter key> pressed
   $(document).keypress(function (event) {
     var keycode = event.keyCode ? event.keyCode : event.which;
     if (keycode == "13") {
@@ -194,6 +196,7 @@ $(function () {
     }
   });
 
+  // Toggling the label for the search bar on search
   $("#album-search-icon").on("click", function () {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
@@ -201,13 +204,15 @@ $(function () {
     getAlbumInfo();
   });
 
+  // Changing inputs for album search to incorporate artist input
   $("#album-btn").on("click", function () {
     $("#default-search-input").hide(400);
     $("#album-search-input").show(400);
   });
-
+  
   $(".default-query").on("click", function () {
     $("#default-search-input").show(400);
     $("#album-search-input").hide(400);
   });
+
 });
