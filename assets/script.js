@@ -111,11 +111,11 @@ function getArtistInfo(userInput) {
 
       for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
-          '<li><img src="' +
+          '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
           response.topalbums.album[i].image[2]["#text"] +
           'alt="' +
           response.topalbums.album[i].name +
-          'class="responsive-img"/>' +
+          '/></a>' +
           "</li>"
         );
       }
