@@ -31,10 +31,6 @@ label.white-text {
   top: -0.5rem;
 }
 
-.query-type {
-  font-size: 1.7rem;
-}
-
 #query-selection {
   display: flex;
   justify-content: center;
@@ -43,6 +39,12 @@ label.white-text {
 #query-selection > p {
   margin: 0 4%;
 }
+
+.query-type {
+  font-size: 1.7rem;
+}
+
+
 
 /* artist results page styling */
 @import url("https://fonts.googleapis.com/css?family=Raleway");
