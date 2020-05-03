@@ -79,28 +79,33 @@ function getAlbumInfo() {
   }).then(function (response) {
     console.log("user searched for " + album + " by " + artist);
     console.log(response);
-    //album search result shown
-    var icon = response.album.image[2]["#text"];
-    var albumName = response.album.name;
-    $("#album-pic").attr("src", icon);
-    $("#summaryHeading").text(albumName);
-    $(".search-tracks>ol").html("");
-    if (!response.album.wiki) {
-      $("#summary").hide();
+    if (response.error) {
+      var error = response.message;
+      M.toast({ html: error, classes: "error-message" });
     } else {
-      $("#summary").html(response.album.wiki.summary);
-      $("#summary").show();
-    }
-    var tracks = response.album.tracks.track;
-    for (i = 0; i < tracks.length; i++) {
-      $(".search-tracks>ol").append(
-        "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-          tracks[i].name +
-          "</a></li>"
-      );
+      //album search result shown
+      var icon = response.album.image[2]["#text"];
+      var albumName = response.album.name;
+      $("#album-pic").attr("src", icon);
+      $("#summaryHeading").text(albumName);
+      $(".search-tracks>ol").html("");
+      if (!response.album.wiki) {
+        $("#summary").hide();
+      } else {
+        $("#summary").html(response.album.wiki.summary);
+        $("#summary").show();
+      }
+      var tracks = response.album.tracks.track;
+      for (i = 0; i < tracks.length; i++) {
+        $(".search-tracks>ol").append(
+          "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            tracks[i].name +
+            "</a></li>"
+        );
+      }
+      $("#album-results-page").show(400);
     }
   });
-  $("#album-results-page").show(400);
 }
 
 function getArtistInfo(userInput) {
