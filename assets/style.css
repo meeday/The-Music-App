@@ -95,7 +95,7 @@ label.white-text {
 }
 
 @import url("https://fonts.googleapis.com/css?family=Raleway");
-.search-results-page, .album-results-page {
+.search-results-page, #album-results-page {
   width: 100%;
   padding: 5% 0px 1%;
   font-family: "Raleway", sans-serif;
