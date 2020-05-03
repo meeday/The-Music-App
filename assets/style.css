@@ -59,11 +59,6 @@ label.white-text {
   background-position: top center;
   background-size: cover;
   background-repeat: none;
-  width: 900px;
-  margin: 0px auto;
-  overflow: hidden;
-  padding: 4px;
-  border-radius: 4px;
 }
 
 .search-profile h1 {
@@ -176,11 +171,4 @@ label.white-text {
   clear: both;
   text-align: center;
   margin-bottom: 20px;
-}
-
-/* ---- Responsive Code ---- */
-@media (max-width: 768px) {
-  .search-profile {
-    width: 80%;
-  }
 }
