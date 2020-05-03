@@ -69,12 +69,11 @@ function getAlbumInfo() {
     $("#album-pic").attr("src", icon);
     $("#summaryHeading").text(albumName);
     $(".search-tracks>ol").html("");
-    if (response && response.album['wiki']){
-      var summary = response.album.wiki.summary;
-      $("#summary").html(summary);
-      $("#summary").show();
-    } else {
+    if (!response.album.wiki){
       $("#summary").hide();
+    } else {
+      $("#summary").html(response.album.wiki.summary);
+      $("#summary").show();
     }
     var tracks = response.album.tracks.track;
     for (i = 0; i < tracks.length; i++) {
