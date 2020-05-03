@@ -33,10 +33,8 @@ function getTrackInfo(userInput) {
   }).then(function (response) {
     console.log("user searched for track: " + userInput);
     console.log(response);
-    if (response.results["opensearch:totalResults"] == '0') {
-      M.toast({ html: "No Result Found!", classes: 'error-message' });
-      console.log('test');
-      
+    if (response.results["opensearch:totalResults"] == "0") {
+      M.toast({ html: "No Result Found!", classes: "error-message" });
     } else {
       //Track search result shown
       var firstTrackName = response.results.trackmatches.track[0].name;
