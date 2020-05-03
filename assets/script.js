@@ -159,6 +159,7 @@ $(function () {
   $("#search-icon").on("click", function () {
     var userInput = $("#search-query").val();
     console.log("user input is " + userInput);
+    $('.result-page').hide(400);
     callAPI(userInput);
     $("#default-search-input>label").remove();
     $("#album-input>label").remove();
@@ -169,16 +170,18 @@ $(function () {
   $(document).keypress(function (event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if (keycode == '13') {
+      $('.result-page').hide(400);
       callAPI();
       $("#default-search-input>label").remove();
       $("#album-input>label").remove();
       $("#artist-input>label").remove();
     }
   });
-
+  
   $("#album-search-icon").on("click", function () {
     $("#album-input>label").remove();
     $("#artist-input>label").remove();
+    $('.result-page').hide(400);
     getAlbumInfo();
   });
 
