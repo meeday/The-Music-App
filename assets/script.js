@@ -13,7 +13,6 @@ function callAPI() {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
     getArtistInfo(userInput);
-    $("#artist-results-page").show(400);
   } else if ($("#album-btn").is(":checked")) {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
@@ -119,58 +118,68 @@ function getArtistInfo(userInput) {
     url: artistURL,
     method: "GET",
   }).then(function (response) {
-    $("#artist-name").text(response.artist.name);
-    $("#artist-bio").html(response.artist.bio.summary);
-    $("#artist-bio>a").attr("Target", "_blank");
-    // Filling top 4 albums
-    var topAlbumURL =
-      "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
-      userInput +
-      "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+    console.log(response);
+    var name = response.artist.name;
+    var bio = response.artist.bio;
+    var image = response.artist.image[0]["#text"];
+    // Determining if artist exists
+    if (!bio.content && !image) {
+      M.toast({ html: "No Result Found!", classes: "error-message" });
+    } else {
+      $("#artist-name").text(name);
+      $("#artist-bio").html(bio.summary);
+      $("#artist-bio>a").attr("Target", "_blank");
+      // Filling top 4 albums
+      var topAlbumURL =
+        "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
+        userInput +
+        "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
 
-    $.ajax({
-      url: topAlbumURL,
-      method: "GET",
-    }).then(function (response) {
-      $("#header-img").attr(
-        "src",
-        response.topalbums.album[0].image[2]["#text"]
-      );
-      $("#header-img").attr("alt", response.topalbums.album[0].name);
-      $("#albums>ul").html("");
-
-      for (var i = 0; i < 4; i++) {
-        $("#albums>ul").append(
-          '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
-            response.topalbums.album[i].image[2]["#text"] +
-            'alt="' +
-            response.topalbums.album[i].name +
-            "/></a>" +
-            "</li>"
+      $.ajax({
+        url: topAlbumURL,
+        method: "GET",
+      }).then(function (response) {
+        $("#header-img").attr(
+          "src",
+          response.topalbums.album[0].image[2]["#text"]
         );
-      }
-    });
+        $("#header-img").attr("alt", response.topalbums.album[0].name);
+        $("#albums>ul").html("");
 
-    // Getting top tracks
-    var topTrackURL =
-      "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
-      userInput +
-      "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+        for (var i = 0; i < 4; i++) {
+          $("#albums>ul").append(
+            '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+              response.topalbums.album[i].image[2]["#text"] +
+              'alt="' +
+              response.topalbums.album[i].name +
+              "/></a>" +
+              "</li>"
+          );
+        }
+      });
 
-    $.ajax({
-      url: topTrackURL,
-      method: "GET",
-    }).then(function (response) {
-      $("#top-tracks>ol").html("");
-      for (i = 0; i < 5; i++) {
-        $("#top-tracks>ol").append(
-          '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
-            "<span>" +
-            response.toptracks.track[i].name +
-            "</span></a></li>"
-        );
-      }
-    });
+      // Getting top tracks
+      var topTrackURL =
+        "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
+        userInput +
+        "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
+      $.ajax({
+        url: topTrackURL,
+        method: "GET",
+      }).then(function (response) {
+        $("#top-tracks>ol").html("");
+        for (i = 0; i < 5; i++) {
+          $("#top-tracks>ol").append(
+            '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
+              "<span>" +
+              response.toptracks.track[i].name +
+              "</span></a></li>"
+          );
+        }
+      });
+      $("#artist-results-page").show(400);
+    }
   });
 }
 
