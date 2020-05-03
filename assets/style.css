@@ -53,6 +53,7 @@ label.white-text {
 }
 
 .error-message {
+  text-align: center;
   background-color: red;
   color: #ffffff;
 }
@@ -196,11 +197,11 @@ label.white-text {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   #toast-container {
     bottom: auto !important;
-    right: 42.5% !important;
+    right: 41% !important;
     top: 34%;
-    left: 42.5%
+    left: 41%;
   }
 }
