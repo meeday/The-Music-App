@@ -1,3 +1,7 @@
+/* CSS imports */
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+/* landing-page styling */
 body {
   background-image: url("https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80");
   background-position: center center;
@@ -6,15 +10,19 @@ body {
   background-size: cover;
 }
 
+a {
+  color: white;
+}
+
 .white-text {
   text-shadow: 10px 8px 9px black;
 }
 
 #search-icon {
   top: 0.9rem;
+  cursor: pointer;
 }
 
-#search-icon,
 #album-search-icon {
   cursor: pointer;
 }
@@ -31,10 +39,6 @@ label.white-text {
   top: -0.5rem;
 }
 
-.query-type {
-  font-size: 1.7rem;
-}
-
 #query-selection {
   display: flex;
   justify-content: center;
@@ -44,28 +48,11 @@ label.white-text {
   margin: 0 4%;
 }
 
-/* artist results page styling */
-@import url("https://fonts.googleapis.com/css?family=Raleway");
-.search-results-page, .album-results-page {
-  width: 100%;
-  padding: 5% 0px 1%;
-  font-family: "Raleway", sans-serif;
+.query-type {
+  font-size: 1.7rem;
 }
 
-.search-profile a,
-.search-profile a:hover {
-  text-decoration: none;
-}
-
-#albums ul {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-#albums li {
-  display: inline;
-}
-
+/* results page styling */
 .search-profile {
   background-color: rgba(0, 0, 0, 0.9);
   background: url("https://i.stack.imgur.com/vAGZp.jpg");
@@ -92,10 +79,12 @@ label.white-text {
   height: 180px;
   margin: 20px auto 10px;
 }
+
 .search-pic img {
   width: 100%;
   border-radius: 50%;
 }
+
 .search-bio {
   text-align: center;
   padding-bottom: 10px;
@@ -104,23 +93,43 @@ label.white-text {
   color: white;
   font-size: 2em;
 }
-.search-profile h3 {
-  color: white;
-  text-align: center;
-  font-size: 1.5em;
-}
+
 .search-bio p {
   text-align: center;
   color: white;
   font-size: 1em;
 }
 
+.search-results-page, #album-results-page {
+  width: 100%;
+  padding: 5% 0px 1%;
+  font-family: "Raleway", sans-serif;
+}
+
+.search-profile a,
+.search-profile a:hover {
+  text-decoration: none;
+}
+
+#albums ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+#albums li {
+  display: inline;
+}
+
+.search-profile h3 {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+}
+
 #albums {
-  width: 60%;
   margin: 10px auto;
   clear: both;
   text-align: center;
-  display: flex;
   flex-direction: row;
 }
 
@@ -130,29 +139,20 @@ label.white-text {
   margin: 0 5px;
 }
 
-.app-name {
-  color: white;
-  width: 80%;
-  margin: 0px auto;
-  clear: both;
-  text-align: center;
-  margin-bottom: 20px;
-}
 .search-tracks {
   background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
   background: rgba(255, 255, 255, 0.1);
   margin-top: 20px;
 }
+
 .search-profile ol {
   list-style-type: none;
   padding: 20px 36px;
   font-weight: 500;
 }
 
-.search-profile ol li a {
-  color: white;
-}
 .search-profile ol li {
+  color: white;
   border-bottom: 1px solid white;
   counter-increment: number;
   display: -webkit-box;
@@ -164,9 +164,20 @@ label.white-text {
   align-content: initial;
   height: 45px;
 }
+
 .search-profile ol li a span:not(:last-child) {
   margin-right: 2em;
 }
+
+.app-name {
+  color: white;
+  width: 80%;
+  margin: 0px auto;
+  clear: both;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 /* ---- Responsive Code ---- */
 @media (max-width: 768px) {
   .search-profile {
