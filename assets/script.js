@@ -153,7 +153,7 @@ $(function () {
   $("#search-icon").on("click", function () {
     var userInput = $("#search-query").val();
     console.log("user input is " + userInput);
-    $('.results-page').hide(400);
+    $('.result-page').hide(400);
     callAPI(userInput);
     $("#default-search-input>label").remove();
     $("#album-input>label").remove();
@@ -164,7 +164,7 @@ $(function () {
   $(document).keypress(function (event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if (keycode == '13') {
-      $('.results-page').hide(400);
+      $('.result-page').hide(400);
       callAPI();
       $("#default-search-input>label").remove();
       $("#album-input>label").remove();
@@ -175,7 +175,7 @@ $(function () {
   $("#album-search-icon").on("click", function () {
     $("#album-input>label").remove();
     $("#artist-input>label").remove();
-    $('.results-page').hide(400);
+    $('.result-page').hide(400);
     getAlbumInfo();
   });
 
