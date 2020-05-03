@@ -65,12 +65,17 @@ function getAlbumInfo() {
     console.log(response);
     //album search result shown
     var icon = response.album.image[2]["#text"];
-    var summary = response.album.wiki.summary;
     var albumName = response.album.name;
     $("#album-pic").attr("src", icon);
     $("#summaryHeading").text(albumName);
-    $("#summary").html(summary);
     $(".search-tracks>ol").html("");
+    if (response && response.album['wiki']){
+      var summary = response.album.wiki.summary;
+      $("#summary").html(summary);
+      $("#summary").show();
+    } else {
+      $("#summary").hide();
+    }
     var tracks = response.album.tracks.track;
     for (i = 0; i < tracks.length; i++) {
       $(".search-tracks>ol").append("<li>" + tracks[i].name + "</li>");
