@@ -2,6 +2,12 @@
 //------------LAST FM API CALLS SECTION--------------------
 //---------------------------------------------------------
 
+// modal function
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
+});
+
 var userInput;
 
 function callAPI() {

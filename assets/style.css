@@ -116,11 +116,9 @@ label.white-text {
 }
 
 #albums {
-  width: 60%;
   margin: 10px auto;
   clear: both;
   text-align: center;
-  display: flex;
   flex-direction: row;
 }
 
