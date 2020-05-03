@@ -12,11 +12,17 @@ var userInput;
 
 function callAPI() {
   if ($("#track-btn").is(":checked")) {
+    $("#album-input>label").toggle();
+    $("#artist-input>label").toggle();
     getTrackInfo(userInput);
   } else if ($("#artist-btn").is(":checked")) {
+    $("#album-input>label").toggle();
+    $("#artist-input>label").toggle();
     getArtistInfo(userInput);
     $("#artist-results-page").show(400);
   } else if ($("#album-btn").is(":checked")) {
+    $("#album-input>label").toggle();
+    $("#artist-input>label").toggle();
     getAlbumInfo();
   }
 }
@@ -162,8 +168,9 @@ $(function () {
     $('.result-page').hide(400);
     callAPI(userInput);
     $("#default-search-input>label").remove();
-    $("#album-input>label").remove();
-    $("#artist-input>label").remove();
+    $("#album-input>label").toggle();
+    $("#artist-input>label").toggle();
+    $("#search-query").clear();
   });
 
   //search on <enter key> pressed
@@ -173,14 +180,15 @@ $(function () {
       $('.result-page').hide(400);
       callAPI();
       $("#default-search-input>label").remove();
-      $("#album-input>label").remove();
-      $("#artist-input>label").remove();
+      $("#album-input>label").toggle();
+      $("#artist-input>label").toggle();
+      $("#search-query").clear();
     }
   });
   
   $("#album-search-icon").on("click", function () {
-    $("#album-input>label").remove();
-    $("#artist-input>label").remove();
+    $("#album-input>label").toggle();
+    $("#artist-input>label").toggle();
     $('.result-page').hide(400);
     getAlbumInfo();
   });
