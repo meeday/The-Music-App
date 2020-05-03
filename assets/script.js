@@ -2,7 +2,6 @@
 //------------LAST FM API CALLS SECTION--------------------
 //---------------------------------------------------------
 
-
 var userInput;
 
 function callAPI() {
@@ -25,40 +24,46 @@ function callAPI() {
 function getTrackInfo(userInput) {
   userInput = $("#search-query").val();
   var trackURL =
-  "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" +
+    "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" +
     userInput +
     "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
-    $.ajax({
+  $.ajax({
     url: trackURL,
     method: "GET",
   }).then(function (response) {
     console.log("user searched for track: " + userInput);
     console.log(response);
-    //Track search result shown
-    var firstTrackName = response.results.trackmatches.track[0].name;
-    var tracks = response.results.trackmatches.track;
-    $("#track-name").text(firstTrackName);
-    //if function to ensure max show track is 10
-    if (tracks.length > 10) {
-      var length = 10;
+    if (response.results["opensearch:totalResults"] == '0') {
+      M.toast({ html: "No Result Found!", classes: 'error-message' });
+      console.log('test');
+      
     } else {
-      length = tracks.length;
-    }
-    //reset search result list
-    $("#track-search-result>ol").html("");
-    //build up search result list
-    for (i = 0; i < length; i++) {
-      $("#track-search-result>ol").append(
-        "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-          tracks[i].name +
-          " - " +
-          tracks[i].artist +
-          "</a></li>"
-      );
+      //Track search result shown
+      var firstTrackName = response.results.trackmatches.track[0].name;
+      var tracks = response.results.trackmatches.track;
+      $("#track-name").text(firstTrackName);
+      //if function to ensure max show track is 10
+      if (tracks.length > 10) {
+        var length = 10;
+      } else {
+        length = tracks.length;
+      }
+      //reset search result list
+      $("#track-search-result>ol").html("");
+      //build up search result list
+      for (i = 0; i < length; i++) {
+        $("#track-search-result>ol").append(
+          "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            tracks[i].name +
+            " - " +
+            tracks[i].artist +
+            "</a></li>"
+        );
+      }
+      //show the result page after finish call
+      $("#track-results-page").show(400);
     }
   });
-  //show the result page after finish call
-  $("#track-results-page").show(400);
 }
 
 function getAlbumInfo() {
@@ -70,7 +75,7 @@ function getAlbumInfo() {
     "&album=" +
     album +
     "&format=json";
-    $.ajax({
+  $.ajax({
     url: albumURL,
     method: "GET",
   }).then(function (response) {
@@ -94,7 +99,7 @@ function getAlbumInfo() {
         "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
           tracks[i].name +
           "</a></li>"
-          );
+      );
     }
   });
   $("#album-results-page").show(400);
@@ -133,7 +138,7 @@ function getArtistInfo(userInput) {
       for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
           '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
-          response.topalbums.album[i].image[2]["#text"] +
+            response.topalbums.album[i].image[2]["#text"] +
             'alt="' +
             response.topalbums.album[i].name +
             "/></a>" +
@@ -176,7 +181,7 @@ $(function () {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
   });
-  
+
   // Event listeners
   // Modal function
   document.addEventListener("DOMContentLoaded", function () {
@@ -209,10 +214,9 @@ $(function () {
     $("#default-search-input").hide(400);
     $("#album-search-input").show(400);
   });
-  
+
   $(".default-query").on("click", function () {
     $("#default-search-input").show(400);
     $("#album-search-input").hide(400);
   });
-
 });
