@@ -56,9 +56,20 @@ Materialize css is used for most of the styling with some custom css to support 
 
 ## Features
 
+with all search result pages the user will be able to click on arist/album/track names in the results to open a modal with more info on that item.
+
 ### Track Search
 
+This will display the top 10 search results. The user can then click to select which track they want. This will then show them the track info.
+
 ### Album Search
+
+This will return the album with:
+ - Artist
+ - Brief summary (if available)
+ - Tracklist
+
+The user will be able to click on the artist/tracks to open modals with more info
 
 ### Artist Search
 
