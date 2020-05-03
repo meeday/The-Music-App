@@ -82,6 +82,7 @@ function getAlbumInfo() {
     if (response.error) {
       var error = response.message;
       M.toast({ html: error, classes: "error-message" });
+      $("#toast-container").css("top", "44%");
     } else {
       //album search result shown
       var icon = response.album.image[2]["#text"];
