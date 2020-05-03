@@ -88,6 +88,12 @@ label.white-text {
   font-size: 2em;
 }
 
+.search-bio p {
+  text-align: center;
+  color: white;
+  font-size: 1em;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 .search-results-page, .album-results-page {
   width: 100%;
@@ -111,17 +117,12 @@ label.white-text {
 
 
 
-/* .search-profile h3 {
+.search-profile h3 {
   color: white;
   text-align: center;
   font-size: 1.5em;
-} */
-
-.search-bio p {
-  text-align: center;
-  color: white;
-  font-size: 1em;
 }
+
 
 #albums {
   width: 60%;
@@ -138,19 +139,12 @@ label.white-text {
   margin: 0 5px;
 }
 
-.app-name {
-  color: white;
-  width: 80%;
-  margin: 0px auto;
-  clear: both;
-  text-align: center;
-  margin-bottom: 20px;
-}
 .search-tracks {
   background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
   background: rgba(255, 255, 255, 0.1);
   margin-top: 20px;
 }
+
 .search-profile ol {
   list-style-type: none;
   padding: 20px 36px;
@@ -170,6 +164,16 @@ label.white-text {
   align-content: initial;
   height: 45px;
 }
+
+.app-name {
+  color: white;
+  width: 80%;
+  margin: 0px auto;
+  clear: both;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .search-profile ol li a span:not(:last-child) {
   margin-right: 2em;
 }
