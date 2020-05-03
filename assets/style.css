@@ -52,6 +52,16 @@ label.white-text {
   font-size: 1.7rem;
 }
 
+.error-message {
+  background-color: red;
+  color: #ffffff;
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 55%;
+}
 /* results page styling */
 .search-profile {
   background-color: rgba(0, 0, 0, 0.9);
@@ -100,7 +110,8 @@ label.white-text {
   font-size: 1em;
 }
 
-.search-results-page, #album-results-page {
+.search-results-page,
+#album-results-page {
   width: 100%;
   padding: 5% 0px 1%;
   font-family: "Raleway", sans-serif;
