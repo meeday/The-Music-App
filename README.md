@@ -12,6 +12,9 @@ A webapp that searches for music by track, album, or artist. Enter in your searc
   - [Wireframes](#wireframes)
   - [APIs](#apis)
 - [Features](#features)
+  - [Track Search](#track-search)
+  - [Album Search](#album-search)
+  - [Artist Search](#arist-search)
 
 ## Planning
 
