@@ -10,6 +10,10 @@ body {
   background-size: cover;
 }
 
+a {
+  color: white;
+}
+
 .white-text {
   text-shadow: 10px 8px 9px black;
 }
