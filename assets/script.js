@@ -38,8 +38,6 @@ function getTrackInfo(userInput) {
       }
     },
   }).then(function (response) {
-    console.log("user searched for track: " + userInput);
-    console.log(response);
     if (response.error) {
       var error = response.message;
       M.toast({ html: error, classes: "error-message" });
@@ -95,8 +93,6 @@ function getAlbumInfo() {
       }
     },
   }).then(function (response) {
-    console.log("user searched for " + album + " by " + artist);
-    console.log(response);
     if (response.error) {
       var error = response.message;
       M.toast({ html: error, classes: "error-message" });
@@ -222,7 +218,6 @@ function getArtistInfo(userInput) {
 $(function () {
   $("#search-icon").on("click", function () {
     var userInput = $("#search-query").val();
-    console.log("user input is " + userInput);
     $(".result-page").hide(400);
     callAPI(userInput);
     $("#default-search-input>label").remove();
