@@ -4,7 +4,7 @@
 
 // modal function
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = $('#modal');
+  var elems = $('.modal');
   var instances = M.Modal.init(elems);
 });
 
