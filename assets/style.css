@@ -60,6 +60,13 @@ label.white-text {
   border-radius: 4px;
 }
 
+.search-profile h1 {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 .search-results-page, .album-results-page {
   width: 100%;
@@ -67,10 +74,10 @@ label.white-text {
   font-family: "Raleway", sans-serif;
 }
 
-.search-profile a,
+/* .search-profile a,
 .search-profile a:hover {
   text-decoration: none;
-}
+} */
 
 #albums ul {
   list-style: none;
@@ -82,12 +89,6 @@ label.white-text {
 }
 
 
-.search-profile h1 {
-  color: white;
-  text-align: center;
-  font-weight: 600;
-  font-size: 2em;
-}
 
 .search-pic {
   overflow: hidden;
