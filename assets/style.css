@@ -47,6 +47,19 @@ label.white-text {
 
 
 /* artist results page styling */
+.search-profile {
+  background-color: rgba(0, 0, 0, 0.9);
+  background: url("https://i.stack.imgur.com/vAGZp.jpg");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: none;
+  width: 900px;
+  margin: 0px auto;
+  overflow: hidden;
+  padding: 4px;
+  border-radius: 4px;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 .search-results-page, .album-results-page {
   width: 100%;
@@ -68,18 +81,6 @@ label.white-text {
   display: inline;
 }
 
-.search-profile {
-  background-color: rgba(0, 0, 0, 0.9);
-  background: url("https://i.stack.imgur.com/vAGZp.jpg");
-  background-position: top center;
-  background-size: cover;
-  background-repeat: none;
-  width: 900px;
-  margin: 0px auto;
-  overflow: hidden;
-  padding: 4px;
-  border-radius: 4px;
-}
 
 .search-profile h1 {
   color: white;
