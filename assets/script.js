@@ -134,7 +134,7 @@ function getArtistInfo(userInput) {
       $("#top-tracks>ol").html("");
       for (i = 0; i < 5; i++) {
         $("#top-tracks>ol").append(
-          '<li><a class="top-track" target="_blank" href="#">' +
+          '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
           "<span>" +
           response.toptracks.track[i].name +
           "</span></a></li>"
