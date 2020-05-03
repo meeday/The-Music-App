@@ -71,12 +71,16 @@ function getAlbumInfo() {
     console.log(response);
     //album search result shown
     var icon = response.album.image[2]["#text"];
-    var summary = response.album.wiki.summary;
     var albumName = response.album.name;
     $("#album-pic").attr("src", icon);
     $("#summaryHeading").text(albumName);
-    $("#summary").html(summary);
     $(".search-tracks>ol").html("");
+    if (!response.album.wiki){
+      $("#summary").hide();
+    } else {
+      $("#summary").html(response.album.wiki.summary);
+      $("#summary").show();
+    }
     var tracks = response.album.tracks.track;
     for (i = 0; i < tracks.length; i++) {
       $(".search-tracks>ol").append("<li>" + tracks[i].name + "</li>");
@@ -155,6 +159,7 @@ $(function () {
   $("#search-icon").on("click", function () {
     var userInput = $("#search-query").val();
     console.log("user input is " + userInput);
+    $('.result-page').hide(400);
     callAPI(userInput);
     $("#default-search-input>label").remove();
     $("#album-input>label").remove();
@@ -165,16 +170,18 @@ $(function () {
   $(document).keypress(function (event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if (keycode == '13') {
+      $('.result-page').hide(400);
       callAPI();
       $("#default-search-input>label").remove();
       $("#album-input>label").remove();
       $("#artist-input>label").remove();
     }
   });
-
+  
   $("#album-search-icon").on("click", function () {
     $("#album-input>label").remove();
     $("#artist-input>label").remove();
+    $('.result-page').hide(400);
     getAlbumInfo();
   });
 
