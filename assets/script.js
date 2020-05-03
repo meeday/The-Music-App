@@ -83,7 +83,7 @@ function getAlbumInfo() {
     }
     var tracks = response.album.tracks.track;
     for (i = 0; i < tracks.length; i++) {
-      $(".search-tracks>ol").append("<li>" + tracks[i].name + "</li>");
+      $(".search-tracks>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + "</a></li>");
     }
   });
   $("#album-results-page").show(400);
