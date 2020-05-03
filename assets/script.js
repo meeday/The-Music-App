@@ -170,7 +170,6 @@ $(function () {
     $("#default-search-input>label").remove();
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
-    $("#search-query").clear();
   });
 
   //search on <enter key> pressed
@@ -182,7 +181,7 @@ $(function () {
       $("#default-search-input>label").remove();
       $("#album-input>label").toggle();
       $("#artist-input>label").toggle();
-      $("#search-query").clear();
+
     }
   });
   
