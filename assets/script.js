@@ -27,7 +27,25 @@ function getTrackInfo(userInput) {
   }).then(function (response) {
     console.log("user searched for track: " + userInput);
     console.log(response);
+    //Track search result shown
+    var firstTrackName = response.results.trackmatches.track[0].name;
+    var tracks = response.results.trackmatches.track;
+    $("#track-name").text(firstTrackName);
+    //if function to ensure max show track is 10
+    if (tracks.length > 10){
+      var length = 10;
+    } else {
+      length = tracks.length;
+    }
+    //reset search result list
+    $("#track-search-result>ol").html("");
+    //build up search result list
+    for (i = 0; i < length; i++){
+      $("#track-search-result>ol").append("<li>" + tracks[i].name + "</li>");
+    }
   });
+  //show the result page after finish call
+  $(".track-results-page").show(400);
 }
 
 function getAlbumInfo() {
@@ -45,6 +63,7 @@ function getAlbumInfo() {
   }).then(function (response) {
     console.log("user searched for " + album + " by " + artist);
     console.log(response);
+    //album search result shown
     var icon = response.album.image[2]["#text"];
     var summary = response.album.wiki.summary;
     var albumName = response.album.name;
