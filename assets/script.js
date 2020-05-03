@@ -4,7 +4,7 @@
 
 // modal function
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.modal');
+  var elems = $('.modal');
   var instances = M.Modal.init(elems);
 });
 
@@ -15,7 +15,7 @@ function callAPI() {
     getTrackInfo(userInput);
   } else if ($("#artist-btn").is(":checked")) {
     getArtistInfo(userInput);
-    $(".artist-results-page").show(400);
+    $("#artist-results-page").show(400);
   } else if ($("#album-btn").is(":checked")) {
     getAlbumInfo();
   }
@@ -51,7 +51,7 @@ function getTrackInfo(userInput) {
     }
   });
   //show the result page after finish call
-  $(".track-results-page").show(400);
+  $("#track-results-page").show(400);
 }
 
 function getAlbumInfo() {
@@ -86,7 +86,7 @@ function getAlbumInfo() {
       $(".search-tracks>ol").append("<li>" + tracks[i].name + "</li>");
     }
   });
-  $(".album-results-page").show(400);
+  $("#album-results-page").show(400);
 }
 
 function getArtistInfo(userInput) {
