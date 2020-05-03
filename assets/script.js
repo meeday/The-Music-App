@@ -29,10 +29,21 @@ function getTrackInfo(userInput) {
   $.ajax({
     url: trackURL,
     method: "GET",
+    // Handling errors with the api call
+    error: function (xhr, _ajaxOptions, _thrownError) {
+      if (xhr.status == 400) {
+        M.toast({ html: "400: Invalid Input.", classes: "error-message" });
+      } else if (xhr.status == 404) {
+        M.toast({ html: "404: Not Found.", classes: "error-message" });
+      }
+    },
   }).then(function (response) {
     console.log("user searched for track: " + userInput);
     console.log(response);
-    if (response.results["opensearch:totalResults"] == "0") {
+    if (response.error) {
+      var error = response.message;
+      M.toast({ html: error, classes: "error-message" });
+    } else if (response.results["opensearch:totalResults"] == "0") {
       M.toast({ html: "No Result Found!", classes: "error-message" });
     } else {
       //Track search result shown
@@ -75,10 +86,21 @@ function getAlbumInfo() {
   $.ajax({
     url: albumURL,
     method: "GET",
+    // Handling errors with the api call
+    error: function (xhr, _ajaxOptions, _thrownError) {
+      if (xhr.status == 400) {
+        M.toast({ html: "400: Invalid Input.", classes: "error-message" });
+      } else if (xhr.status == 404) {
+        M.toast({ html: "404: Not Found.", classes: "error-message" });
+      }
+    },
   }).then(function (response) {
     console.log("user searched for " + album + " by " + artist);
     console.log(response);
     if (response.error) {
+      var error = response.message;
+      M.toast({ html: error, classes: "error-message" });
+    } else if (response.error) {
       var error = response.message;
       M.toast({ html: error, classes: "error-message" });
       $("#toast-container").css("top", "44%");
@@ -117,68 +139,81 @@ function getArtistInfo(userInput) {
   $.ajax({
     url: artistURL,
     method: "GET",
+    // Handling errors with the api call
+    error: function (xhr, _ajaxOptions, _thrownError) {
+      if (xhr.status == 400) {
+        M.toast({ html: "400: Invalid Input.", classes: "error-message" });
+      } else if (xhr.status == 404) {
+        M.toast({ html: "404: Not Found.", classes: "error-message" });
+      }
+    },
   }).then(function (response) {
-    console.log(response);
-    var name = response.artist.name;
-    var bio = response.artist.bio;
-    var image = response.artist.image[0]["#text"];
-    // Determining if artist exists
-    if (!bio.content && !image) {
-      M.toast({ html: "No Result Found!", classes: "error-message" });
+    // Handling LastFM error response
+    if (response.error) {
+      var error = response.message;
+      M.toast({ html: error, classes: "error-message" });
     } else {
-      $("#artist-name").text(name);
-      $("#artist-bio").html(bio.summary);
-      $("#artist-bio>a").attr("Target", "_blank");
-      // Filling top 4 albums
-      var topAlbumURL =
-        "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
-        userInput +
-        "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+      // Determining if artist exists
+      var name = response.artist.name;
+      var bio = response.artist.bio;
+      var image = response.artist.image[0]["#text"];
+      if (!bio.content && !image) {
+        M.toast({ html: "No Result Found!", classes: "error-message" });
+      } else {
+        $("#artist-name").text(name);
+        $("#artist-bio").html(bio.summary);
+        $("#artist-bio>a").attr("Target", "_blank");
+        // Filling top 4 albums
+        var topAlbumURL =
+          "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
+          userInput +
+          "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
 
-      $.ajax({
-        url: topAlbumURL,
-        method: "GET",
-      }).then(function (response) {
-        $("#header-img").attr(
-          "src",
-          response.topalbums.album[0].image[2]["#text"]
-        );
-        $("#header-img").attr("alt", response.topalbums.album[0].name);
-        $("#albums>ul").html("");
-
-        for (var i = 0; i < 4; i++) {
-          $("#albums>ul").append(
-            '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
-              response.topalbums.album[i].image[2]["#text"] +
-              'alt="' +
-              response.topalbums.album[i].name +
-              "/></a>" +
-              "</li>"
+        $.ajax({
+          url: topAlbumURL,
+          method: "GET",
+        }).then(function (response) {
+          $("#header-img").attr(
+            "src",
+            response.topalbums.album[0].image[2]["#text"]
           );
-        }
-      });
+          $("#header-img").attr("alt", response.topalbums.album[0].name);
+          $("#albums>ul").html("");
 
-      // Getting top tracks
-      var topTrackURL =
-        "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
-        userInput +
-        "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+          for (var i = 0; i < 4; i++) {
+            $("#albums>ul").append(
+              '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+                response.topalbums.album[i].image[2]["#text"] +
+                'alt="' +
+                response.topalbums.album[i].name +
+                "/></a>" +
+                "</li>"
+            );
+          }
+        });
 
-      $.ajax({
-        url: topTrackURL,
-        method: "GET",
-      }).then(function (response) {
-        $("#top-tracks>ol").html("");
-        for (i = 0; i < 5; i++) {
-          $("#top-tracks>ol").append(
-            '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
-              "<span>" +
-              response.toptracks.track[i].name +
-              "</span></a></li>"
-          );
-        }
-      });
-      $("#artist-results-page").show(400);
+        // Getting top tracks
+        var topTrackURL =
+          "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
+          userInput +
+          "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
+        $.ajax({
+          url: topTrackURL,
+          method: "GET",
+        }).then(function (response) {
+          $("#top-tracks>ol").html("");
+          for (i = 0; i < 5; i++) {
+            $("#top-tracks>ol").append(
+              '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
+                "<span>" +
+                response.toptracks.track[i].name +
+                "</span></a></li>"
+            );
+          }
+        });
+        $("#artist-results-page").show(400);
+      }
     }
   });
 }
