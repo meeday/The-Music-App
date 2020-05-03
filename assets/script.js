@@ -53,7 +53,7 @@ function getTrackInfo(userInput) {
     $("#track-search-result>ol").html("");
     //build up search result list
     for (i = 0; i < length; i++){
-      $("#track-search-result>ol").append("<li>" + tracks[i].name + " - "+ tracks[i].artist + "</li>");
+      $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
     }
   });
   //show the result page after finish call
