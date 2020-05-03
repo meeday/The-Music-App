@@ -74,6 +74,20 @@ label.white-text {
   margin: 20px auto 10px;
 }
 
+.search-pic img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.search-bio {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.search-bio h2 {
+  color: white;
+  font-size: 2em;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 .search-results-page, .album-results-page {
   width: 100%;
@@ -97,23 +111,12 @@ label.white-text {
 
 
 
-.search-pic img {
-  width: 100%;
-  border-radius: 50%;
-}
-.search-bio {
-  text-align: center;
-  padding-bottom: 10px;
-}
-.search-bio h2 {
-  color: white;
-  font-size: 2em;
-}
-.search-profile h3 {
+/* .search-profile h3 {
   color: white;
   text-align: center;
   font-size: 1.5em;
-}
+} */
+
 .search-bio p {
   text-align: center;
   color: white;
