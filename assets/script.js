@@ -55,15 +55,22 @@ function getTrackInfo(userInput) {
     //build up search result list
     for (i = 0; i < length; i++){
       $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
-      $('#tracks').click(function() {
-        var getLyricsFor = $(this).text();
-        console.log("clicked is: " + getLyricsFor);
-        // //https://api.audd.io/findLyrics/?q=adele hello
-        // var lyricsURL = "https://api.audd.io/findLyrics/?q=" + lyricsArtist + " " + lyricsTrack;
-        // console.log(lyricsURL);
-      });
-    
+      
     }
+    $('#tracks').click(function() {
+    var getLyricsFor = $(this).text();
+    // getLyricsFor.each($(this).text());
+    console.log("clicked is: " + getLyricsFor);
+    // //https://api.audd.io/findLyrics/?q=adele hello
+    var lyricsURL = "https://api.audd.io/findLyrics/?q=" + getLyricsFor;
+    console.log(lyricsURL);
+    $.ajax({
+      url: lyricsURL,
+      method: "GET", 
+    }).then(function(response){
+      console.log(response);
+    })
+    });
 
   });
   //show the result page after finish call
