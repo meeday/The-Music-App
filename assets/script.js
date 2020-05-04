@@ -15,7 +15,6 @@ function callAPI() {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
     getTrackInfo(userInput);
-    getLyrics();
   } else if ($("#artist-btn").is(":checked")) {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
@@ -26,6 +25,7 @@ function callAPI() {
     $("#artist-input>label").toggle();
     getAlbumInfo();
   }
+  // getLyrics();
 }
 
 function getTrackInfo(userInput) {
@@ -55,14 +55,16 @@ function getTrackInfo(userInput) {
     //build up search result list
     for (i = 0; i < length; i++){
       $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
-    }
-    //for loop to grab name of track and artist from getTrackInfo(userInput) api:
-    for (i=0; i<10; i++){ //Only the first 10 items shown when user searches for tracks - i.e. in track results page
-    var lyricsTrack = response.results.trackmatches.track[i].name;
-    var lyricsArtist = response.results.trackmatches.track[i].artist;
-    console.log("tracks 1-10 are: " + lyricsTrack + "by  " +  lyricsArtist);
-    }
+      $('#tracks').click(function() {
+        var getLyricsFor = $(this).text();
+        console.log("clicked is: " + getLyricsFor);
+        // //https://api.audd.io/findLyrics/?q=adele hello
+        // var lyricsURL = "https://api.audd.io/findLyrics/?q=" + lyricsArtist + " " + lyricsTrack;
+        // console.log(lyricsURL);
+      });
     
+    }
+
   });
   //show the result page after finish call
   $("#track-results-page").show(400);
@@ -210,12 +212,4 @@ $(function () {
     $("#album-search-input").hide(400);
   });
 });
-
-function getLyrics(){
-  getTrackInfo(userInput);
-  for (i=0; i<10; i++){ //Only the first 10 items shown when user searches for tracks - i.e. in track results page
-    var track = response.results.trackmatches.track[i].name;
-    console.log("tracks 1-10 are: " + track);
-  }
-}
 
