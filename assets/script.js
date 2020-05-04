@@ -57,11 +57,13 @@ function getTrackInfo(userInput) {
       $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
       
     }
+    //"reading" the value of <li>
     $('#tracks').click(function() {
     var getLyricsFor = $(this).text();
     // getLyricsFor.each($(this).text());
     console.log("clicked is: " + getLyricsFor);
     // //https://api.audd.io/findLyrics/?q=adele hello
+    //Create lyrics api url with <li> information
     var lyricsURL = "https://api.audd.io/findLyrics/?q=" + getLyricsFor;
     console.log(lyricsURL);
     $.ajax({
@@ -69,6 +71,8 @@ function getTrackInfo(userInput) {
       method: "GET", 
     }).then(function(response){
       console.log(response);
+      var responseLyrics = response.result[0].lyrics;
+      console.log("lyrics for button: " + responseLyrics);
     })
     });
 
