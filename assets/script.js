@@ -240,12 +240,7 @@ $(function () {
   });
 
   // Event listeners
-  // Modal function
-  document.addEventListener("DOMContentLoaded", function () {
-    var elems = $(".modal");
-    var instances = M.Modal.init(elems);
-  });
-
+  
   // Search on <enter key> pressed
   $(document).keypress(function (event) {
     var keycode = event.keyCode ? event.keyCode : event.which;
@@ -257,7 +252,7 @@ $(function () {
       $("#artist-input>label").toggle();
     }
   });
-
+  
   // Toggling the label for the search bar on search
   $("#album-search-icon").on("click", function () {
     $("#album-input>label").toggle();
@@ -276,4 +271,11 @@ $(function () {
     $("#default-search-input").show(400);
     $("#album-search-input").hide(400);
   });
+});
+// Modal function
+document.addEventListener("DOMContentLoaded", function () {
+  console.log('click');
+  
+  var elems = $(".modal");
+  var instances = M.Modal.init(elems);
 });
