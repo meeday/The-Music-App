@@ -15,6 +15,7 @@ function callAPI() {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
     getTrackInfo(userInput);
+    getLyrics();
   } else if ($("#artist-btn").is(":checked")) {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
@@ -202,3 +203,12 @@ $(function () {
     $("#album-search-input").hide(400);
   });
 });
+
+function getLyrics(){
+  getTrackInfo(userInput);
+  for (i=0; i<10; i++){ //Only the first 10 items shown when user searches for tracks - i.e. in track results page
+    var track = response.results.trackmatches.track[i].name;
+    console.log("tracks 1-10 are: " + track);
+  }
+}
+
