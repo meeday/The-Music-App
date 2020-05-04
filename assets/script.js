@@ -79,6 +79,8 @@ function getAlbumInfo() {
     var icon = response.album.image[2]["#text"];
     var albumName = response.album.name;
     $("#album-pic").attr("src", icon);
+    $("#album-pic").attr("title", artist);
+    $("a.image").each(function(){$(this).attr('title',$(this).find("img").attr('title'))});
     $("#summaryHeading").text(albumName);
     $(".search-tracks>ol").html("");
     if (!response.album.wiki){
