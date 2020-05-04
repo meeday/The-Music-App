@@ -274,8 +274,6 @@ $(function () {
 });
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {
-  console.log('click');
-  
   var elems = $(".modal");
   var instances = M.Modal.init(elems);
 });
