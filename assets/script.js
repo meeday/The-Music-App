@@ -173,13 +173,19 @@ function getArtistInfo(userInput) {
           url: topAlbumURL,
           method: "GET",
         }).then(function (response) {
-          $("#header-img").attr(
-            "src",
-            response.topalbums.album[0].image[2]["#text"]
-          );
-          $("#header-img").attr("alt", response.topalbums.album[0].name);
-          $("#albums>ul").html("");
-
+          //iterating through albums for a header image
+          for (i = 0; i < 50; i++) {
+            var albumImage = response.topalbums.album[i].image[2]["#text"];
+            var albumName = response.topalbums.album[i].name;
+            if (!albumImage || !albumName) {
+              continue;
+            } else {
+              $("#header-img").attr("src", albumImage);
+              $("#header-img").attr("alt", albumName);
+              $("#albums>ul").html("");
+              break;
+            }
+          }
           for (i = 0, a = 0; a < 4; i++) {
             var albumImage = response.topalbums.album[i].image[2]["#text"];
             var albumName = response.topalbums.album[i].name;
@@ -240,7 +246,7 @@ $(function () {
   });
 
   // Event listeners
-  
+
   // Search on <enter key> pressed
   $(document).keypress(function (event) {
     var keycode = event.keyCode ? event.keyCode : event.which;
@@ -252,7 +258,7 @@ $(function () {
       $("#artist-input>label").toggle();
     }
   });
-  
+
   // Toggling the label for the search bar on search
   $("#album-search-icon").on("click", function () {
     $("#album-input>label").toggle();
