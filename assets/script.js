@@ -127,13 +127,15 @@ function getArtistInfo(userInput) {
 
       for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
-          '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+          '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
           response.topalbums.album[i].image[2]["#text"] +
-          'alt="' +
+          ' alt="' +
           response.topalbums.album[i].name +
+          ' title="'+ response.topalbums.album[i].name + '"' +
           '/></a>' +
           "</li>"
-        );
+          );
+          $("a.image").each(function(){$(this).attr('title',$(this).find("img").attr('title'))});
       }
     });
 
