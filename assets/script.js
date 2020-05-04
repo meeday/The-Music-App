@@ -127,11 +127,11 @@ function getArtistInfo(userInput) {
       
       for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
-          '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+          '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img id="album-img" src="' +
           response.topalbums.album[i].image[2]['#text'] +
-          '"alt=' +
+          '"alt="' +
           response.topalbums.album[i].name +
-          '></a>' +
+          '"></a>' +
           "</li>"
         );
       }
@@ -202,3 +202,10 @@ $(function () {
     $("#album-search-input").hide(400);
   });
 });
+
+//Secondary Function
+//Artist Search Result Page Top Albums Modal
+$("#album-img").on("click",getAlbumInfoModal);
+function getAlbumInfoModal(artist, album){
+  $("#album-img").this
+}
