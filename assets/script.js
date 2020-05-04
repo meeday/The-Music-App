@@ -173,6 +173,8 @@ function getArtistInfo(userInput) {
           url: topAlbumURL,
           method: "GET",
         }).then(function (response) {
+          console.log(response);
+
           $("#header-img").attr(
             "src",
             response.topalbums.album[0].image[2]["#text"]
@@ -180,15 +182,25 @@ function getArtistInfo(userInput) {
           $("#header-img").attr("alt", response.topalbums.album[0].name);
           $("#albums>ul").html("");
 
-          for (var i = 0; i < 4; i++) {
-            $("#albums>ul").append(
-              '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
-                response.topalbums.album[i].image[2]["#text"] +
-                'alt="' +
-                response.topalbums.album[i].name +
-                "/></a>" +
-                "</li>"
-            );
+          for (i = 0, a = 0; a < 4; i++) {
+            var albumImage = response.topalbums.album[i].image[2]["#text"];
+            var albumName = response.topalbums.album[i].name;
+            // Checking if album has both img and alt text
+            if (!albumImage || !albumName) {
+              continue;
+            } else {
+              // Apending the album
+              $("#albums>ul").append(
+                '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+                  albumImage +
+                  'alt="' +
+                  albumName +
+                  "/></a>" +
+                  "</li>"
+              );
+              // Incrimenting album count
+              a++;
+            }
           }
         });
 
