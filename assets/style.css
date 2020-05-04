@@ -4,7 +4,7 @@
 /* landing-page styling */
 body {
   background-image: url("https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80");
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -70,7 +70,7 @@ label.white-text {
   background-position: top center;
   background-size: cover;
   background-repeat: none;
-  width: 900px;
+  width: 80%;
   margin: 0px auto;
   overflow: hidden;
   padding: 4px;
@@ -188,13 +188,6 @@ label.white-text {
   clear: both;
   text-align: center;
   margin-bottom: 20px;
-}
-
-/* ---- Responsive Code ---- */
-@media (max-width: 768px) {
-  .search-profile {
-    width: 80%;
-  }
 }
 
 @media (min-width: 600px) {
