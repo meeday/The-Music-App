@@ -70,6 +70,7 @@ function getTrackInfo(userInput) {
       console.log(response);
       var responseLyrics = response.result[0].lyrics;
       console.log("lyrics for button: " + responseLyrics);
+      $("#modal-track-search-result").text(responseLyrics);
     })
     });
 
