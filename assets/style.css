@@ -44,12 +44,23 @@ label.white-text {
   justify-content: center;
 }
 
-#query-selection>p {
+#query-selection > p {
   margin: 0 4%;
 }
 
 .query-type {
   font-size: 1.7rem;
+}
+
+.error-message {
+  text-align: center;
+  background-color: red;
+  color: #ffffff;
+}
+
+#toast-container {
+  bottom: auto !important;
+  top: 62%;
 }
 
 /* results page styling */
@@ -181,7 +192,8 @@ label.white-text {
   margin-bottom: 20px;
 }
 
-.image:hover::after, #album-pic:hover::after {
+.image:hover::after,
+#album-pic:hover::after {
   content: attr(title);
   color: #fff;
   z-index: 1;
@@ -190,4 +202,13 @@ label.white-text {
   text-align: center;
   background: url("https://i.stack.imgur.com/vAGZp.jpg");
   display: block;
+}
+
+@media (min-width: 600px) {
+  #toast-container {
+    bottom: auto !important;
+    right: 41% !important;
+    top: 34%;
+    left: 41%;
+  }
 }
