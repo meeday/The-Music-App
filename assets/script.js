@@ -25,7 +25,6 @@ function callAPI() {
     $("#artist-input>label").toggle();
     getAlbumInfo();
   }
-  // getLyrics();
 }
 
 function getTrackInfo(userInput) {
@@ -60,10 +59,8 @@ function getTrackInfo(userInput) {
     //"reading" the value of <li>
     $('#tracks').click(function() {
     var getLyricsFor = $(this).text();
-    // getLyricsFor.each($(this).text());
     console.log("clicked is: " + getLyricsFor);
-    // //https://api.audd.io/findLyrics/?q=adele hello
-    //Create lyrics api url with <li> information
+    //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
     var lyricsURL = "https://api.audd.io/findLyrics/?q=" + getLyricsFor;
     console.log(lyricsURL);
     $.ajax({
