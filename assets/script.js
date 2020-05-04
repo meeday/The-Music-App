@@ -200,7 +200,7 @@ function getArtistInfo(userInput) {
               $("#albums>ul").append(
                 '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
                   albumImage +
-                  'alt="' +
+                  '" alt="' +
                   albumName +
                   "/></a>" +
                   "</li>"
