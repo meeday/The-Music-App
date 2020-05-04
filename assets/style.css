@@ -52,6 +52,17 @@ label.white-text {
   font-size: 1.7rem;
 }
 
+.error-message {
+  text-align: center;
+  background-color: red;
+  color: #ffffff;
+}
+
+#toast-container {
+  bottom: auto !important;
+  top: 62%;
+}
+
 /* results page styling */
 .search-profile {
   background-color: rgba(0, 0, 0, 0.9);
@@ -59,10 +70,10 @@ label.white-text {
   background-position: top center;
   background-size: cover;
   background-repeat: none;
-  width: 80%;	
-  margin: 0px auto;	
-  overflow: hidden;	
-  padding: 4px;	
+  width: 80%;
+  margin: 0px auto;
+  overflow: hidden;
+  padding: 4px;
   border-radius: 4px;
 }
 
@@ -100,7 +111,8 @@ label.white-text {
   font-size: 1em;
 }
 
-.search-results-page, #album-results-page {
+.search-results-page,
+#album-results-page {
   width: 100%;
   padding: 5% 0px 1%;
   font-family: "Raleway", sans-serif;
@@ -176,4 +188,13 @@ label.white-text {
   clear: both;
   text-align: center;
   margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+  #toast-container {
+    bottom: auto !important;
+    right: 41% !important;
+    top: 34%;
+    left: 41%;
+  }
 }
