@@ -111,7 +111,9 @@ function getAlbumInfo() {
         $("#album-pic").attr("src", icon);
         $("#summaryHeading").text(albumName);
         $("#album-pic").attr("title", artist);
-        $("a.image").each(function(){$(this).attr('title',$(this).find("img").attr('title'))});
+        $("a.image").each(function () {
+          $(this).attr("title", $(this).find("img").attr("title"));
+        });
         $(".search-tracks>ol").html("");
         if (!response.album.wiki) {
           $("#summary").hide();
@@ -202,10 +204,12 @@ function getArtistInfo(userInput) {
                   albumImage +
                   '" alt="' +
                   albumName +
-                  "/></a>" +
+                  '"/></a' +
                   "</li>"
               );
-              $("a.image").each(function(){$(this).attr('title',$(this).find("img").attr('title'))});
+              $("a.image").each(function () {
+                $(this).attr("title", $(this).find("img").attr("title"));
+              });
               // Incrimenting album count
               a++;
             }
