@@ -173,8 +173,6 @@ function getArtistInfo(userInput) {
           url: topAlbumURL,
           method: "GET",
         }).then(function (response) {
-          console.log(response);
-
           $("#header-img").attr(
             "src",
             response.topalbums.album[0].image[2]["#text"]
