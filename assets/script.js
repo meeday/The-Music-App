@@ -56,7 +56,7 @@ function getTrackInfo(userInput) {
     for (i = 0; i < length; i++){
       $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
     }
-    //function to grab name of track and artist from getTrackInfo(userInput) api:
+    //for loop to grab name of track and artist from getTrackInfo(userInput) api:
     for (i=0; i<10; i++){ //Only the first 10 items shown when user searches for tracks - i.e. in track results page
     var lyricsTrack = response.results.trackmatches.track[i].name;
     var lyricsArtist = response.results.trackmatches.track[i].artist;
