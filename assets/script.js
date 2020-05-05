@@ -63,7 +63,7 @@ function getTrackInfo(userInput) {
             tracks[i].name +
             " - " +
             tracks[i].artist +
-            "</a></li>"
+            "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
         );
       }
       //show the result page after finish call
