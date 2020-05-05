@@ -233,7 +233,7 @@ function getArtistInfo(userInput) {
               '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
-                "</span><span><i  class='tiny material-icons'>add_circle</i></span></a></li>"
+                "</span><span><i class='tiny material-icons'>add_circle</i></span></a></li>"
             );
           }
         });
