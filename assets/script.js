@@ -200,7 +200,7 @@ function getArtistInfo(userInput) {
             } else {
               // Appending the album
               $("#albums>ul").append(
-                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
