@@ -123,9 +123,9 @@ function getAlbumInfo() {
         }
         for (i = 0; i < tracks.length; i++) {
           $(".search-tracks>ol").append(
-            "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            "<li><a  id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
-              "</a></li>"
+              "<span style='margin-left: 20px'><i  class='tiny material-icons blue600'>add_circle</i></span></a></li>"
           );
         }
         $("#album-results-page").show(400);
