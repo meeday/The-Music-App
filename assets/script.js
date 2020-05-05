@@ -42,7 +42,10 @@ function getTrackInfo(userInput) {
       var error = response.message;
       M.toast({ html: error, classes: "error-message" });
     } else if (response.results["opensearch:totalResults"] == "0") {
-      M.toast({ html: "The track you supplied could not be found", classes: "error-message" });
+      M.toast({
+        html: "The track you supplied could not be found",
+        classes: "error-message",
+      });
     } else {
       //Track search result shown
       var firstTrackName = response.results.trackmatches.track[0].name;
@@ -104,7 +107,10 @@ function getAlbumInfo() {
       var tracks = response.album.tracks.track;
       // Checking if an empty album was returned
       if (!icon && !tracks.length) {
-        M.toast({ html: 'The album you supplied could not be found', classes: "error-message" });
+        M.toast({
+          html: "The album you supplied could not be found",
+          classes: "error-message",
+        });
         $("#toast-container").css("top", "44%");
       } else {
         //album search result shown
@@ -158,7 +164,10 @@ function getArtistInfo(userInput) {
       var bio = response.artist.bio;
       var image = response.artist.image[0]["#text"];
       if (!bio.content && !image) {
-        M.toast({ html: "No Result Found!", classes: "error-message" });
+        M.toast({
+          html: "The artist you supplied could not be found",
+          classes: "error-message",
+        });
       } else {
         $("#artist-name").text(name);
         $("#artist-bio").html(bio.summary);
