@@ -65,7 +65,7 @@ Materialize css is used for most of the styling with some custom css to support 
 
 ### Results Pages
 
-With all search result pages the user will be able to click on arist/album/track names in the results to open a modal with more info on that item.
+With all search result pages the user will be able to click on arist/album/track names in the results to open a [modal](#modals) with more info on that item.
 
 #### Track Search
 
@@ -74,11 +74,10 @@ This will display the top 10 search results. The user can then click to select w
 #### Album Search
 
 This will return the album with:
- - Artist
- - Brief summary (if available)
- - Tracklist
 
-The user will be able to click on the artist/tracks to open modals with more info
+- Artist
+- Brief summary (if available)
+- Tracklist
 
 #### Artist Search
 
@@ -90,7 +89,15 @@ When selecting artist and searching the user will be presented with artist info:
 
 ### Modals
 
+These are shown whenever a user clicks on a link in the [results pages](#results-pages) and have been implimented so that a user won't lose their original search if they go down the 'rabbit hole' and click numerous links. Any link clicked within a modal will refresh/change the modal to display the new info.
+
 #### Track Modal
+
+- Track
+- Album title with cover
+- Artist name
+- Lyrics
 
 #### Album & Artist Modals
 
+These are designed the same as the existing results pages.
