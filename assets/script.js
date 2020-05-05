@@ -204,6 +204,7 @@ function getArtistInfo(userInput) {
                   albumImage +
                   '" alt="' +
                   albumName +
+                  '" title=" ' + albumName + ' by ' + response.topalbums["@attr"].artist +
                   '"/></a' +
                   "</li>"
               );
