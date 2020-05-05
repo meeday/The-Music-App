@@ -4,11 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
   <link rel="stylesheet" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+  crossorigin="anonymous"
+/>
   <title>The Music App</title>
 </head>
 
@@ -37,7 +47,11 @@
 
     <div id="album-search-input" style="display: none;">
       <div id="artist-input" class="input-field col s12">
-        <input type="text" id="query-artist" class="autocomplete white-text" />
+        <input
+        type="text"
+        id="query-artist"
+        class="autocomplete white-text"
+      />
         <label class="white-text" for="query-artist">Artist </label>
       </div>
 
@@ -53,7 +67,13 @@
     <form action="#" id="query-selection">
       <p>
         <label>
-          <input id="track-btn" name="group1" type="radio" class="with-gap" checked />
+          <input
+              id="track-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+              checked
+            />
           <span class="query-type default-query white-text">Track</span>
         </label>
       </p>
@@ -67,7 +87,12 @@
 
       <p>
         <label>
-          <input id="artist-btn" name="group1" type="radio" class="with-gap" />
+          <input
+              id="artist-btn"
+              name="group1"
+              type="radio"
+              class="with-gap"
+            />
           <span class="query-type default-query white-text">Artist</span>
         </label>
       </p>
@@ -77,7 +102,11 @@
   <br />
 
   <!-- Artist search results page html -->
-  <div style="display: none;" class="container result-page" id="artist-results-page">
+  <div
+      style="display: none;"
+      class="container result-page"
+      id="artist-results-page"
+    >
     <main class="container search-profile">
       <h1>Artists Profile</h1>
       <figure class="search-pic">
@@ -102,7 +131,11 @@
   </div>
 
   <!-- Album search results page html -->
-  <div style="display: none;" class="container result-page" id="album-results-page">
+  <div
+      style="display: none;"
+      class="container result-page"
+      id="album-results-page"
+    >
     <main class="search-profile">
       <h1>Album Profile</h1>
       <figure class="search-pic">
@@ -125,7 +158,11 @@
   </div>
 
   <!-- Track search results page html  -->
-  <div style="display: none;" class="container result-page" id="track-results-page">
+  <div
+      style="display: none;"
+      class="container result-page"
+      id="track-results-page"
+    >
     <main class="search-profile">
       <h1>Track Search</h1>
       <figcaption class="search-bio">
@@ -149,7 +186,11 @@
   <div class="modal-content">
     <main id="album-modal" class="modal search-profile">
       <div class="modal-header right-align">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green large material-icons">close</a>
+        <a
+            href="#!"
+            class="modal-action modal-close waves-effect waves-green large material-icons"
+            >close</a
+          >
       </div>
       <h1>About Album</h1>
       <figure class="modal-search-pic">
@@ -173,7 +214,11 @@
   <div class="modal-content">
     <main id="track-modal" class="modal search-profile">
       <div class="modal-header right-align">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green large material-icons">close</a>
+        <a
+            href="#!"
+            class="modal-action modal-close waves-effect waves-green large material-icons"
+            >close</a
+          >
       </div>
       <h1>About Track</h1>
       <figcaption class="modal-search-bio">
@@ -223,8 +268,11 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.0.min.js"
-    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+  ></script>
   <script src="assets/script.js"></script>
 </body>
 
