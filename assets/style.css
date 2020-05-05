@@ -180,10 +180,14 @@ label.white-text {
 <<<<<<< HEAD
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .image:hover::after, .img:hover::before {
 =======
 .image:hover::after {
 >>>>>>> parent of f81d03b... Update style.css
+=======
+.image:hover::after, #artist:hover::after {
+>>>>>>> parent of 07cfcaf... Update index.html
   content: attr(title);
   color: #fff;
   z-index: 1;
