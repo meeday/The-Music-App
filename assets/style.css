@@ -192,7 +192,7 @@ label.white-text {
   margin-bottom: 20px;
 }
 
-.image:hover::after, #artist:hover::after {
+.image:hover::after, .img:hover::before {
   content: attr(title);
   color: #fff;
   z-index: 1;
