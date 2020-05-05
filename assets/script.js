@@ -62,7 +62,7 @@ function getTrackInfo(userInput) {
       //build up search result list
       for (i = 0; i < length; i++) {
         $("#track-search-result>ol").append(
-          "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+          "<li><a id='tracks' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
             tracks[i].name +
             " - " +
             tracks[i].artist +
