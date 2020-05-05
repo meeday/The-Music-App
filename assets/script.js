@@ -158,7 +158,7 @@ function getArtistInfo(userInput) {
       var bio = response.artist.bio;
       var image = response.artist.image[0]["#text"];
       if (!bio.content && !image) {
-        M.toast({ html: "No Result Found!", classes: "error-message" });
+        M.toast({ html: "The artist you supplied could not be found", classes: "error-message" });
       } else {
         $("#artist-name").text(name);
         $("#artist-bio").html(bio.summary);
