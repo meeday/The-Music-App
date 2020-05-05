@@ -179,7 +179,11 @@ label.white-text {
 }
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 .image:hover::after, .img:hover::before {
+=======
+.image:hover::after {
+>>>>>>> parent of f81d03b... Update style.css
   content: attr(title);
   color: #fff;
   z-index: 1;
