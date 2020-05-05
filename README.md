@@ -53,7 +53,9 @@ THEN I am presented with a bio, some info about them, and discography
 
 The main API, used to retrieve artist info and to fill out the search result pages
 
-##### Seatgeeks API
+##### audd.io API
+
+Used to retrieve song lyrics on request.
 
 Used to retreive upcoming shows and concerts related to the artist
 
