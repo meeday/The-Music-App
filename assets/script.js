@@ -205,7 +205,7 @@ function getArtistInfo(userInput) {
                   '" alt="' +
                   albumName +
                   '" title=" ' + albumName + ' by ' + response.topalbums["@attr"].artist +
-                  '"/><span style="margin-left: 10px"><i  class="tiny material-icons">add_circle</i></span></a' +
+                  '"/></a' +
                   "</li>"
               );
               $("a.image").each(function () {
@@ -233,7 +233,7 @@ function getArtistInfo(userInput) {
               '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
-                "</span></a></li>"
+                "</span><span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
             );
           }
         });
