@@ -205,7 +205,7 @@ function getArtistInfo(userInput) {
                   '" alt="' +
                   albumName +
                   '" title=" ' + albumName + ' by ' + response.topalbums["@attr"].artist +
-                  '"/></a' +
+                  '"/><span style="margin-left: 10px"><i  class="tiny material-icons">add_circle</i></span></a' +
                   "</li>"
               );
               $("a.image").each(function () {
