@@ -110,7 +110,7 @@ function getAlbumInfo() {
         //album search result shown
         $("#album-pic").attr("src", icon);
         $("#summaryHeading").text(albumName);
-        $("#album-pic").attr("title", artist);
+        $("#album-pic").attr("title", response.album.artist);
         $("a.image").each(function () {
           $(this).attr("title", $(this).find("img").attr("title"));
         });
