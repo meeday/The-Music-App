@@ -111,7 +111,7 @@ function getAlbumInfo() {
         $("#album-pic").attr("src", icon);
         $("#summaryHeading").text(albumName);
         $("#album-pic").attr("title", "Artist: " + response.album.artist);
-        $("a.image").each(function () {
+        $("#album-pic").each(function () {
           $(this).attr("title", $(this).find("img").attr("title"));
         });
         $(".search-tracks>ol").html("");
