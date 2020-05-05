@@ -12,9 +12,13 @@ A webapp that searches for music by track, album, or artist. Enter in your searc
   - [Wireframes](#wireframes)
   - [APIs](#apis)
 - [Features](#features)
-  - [Track Search](#track-search)
-  - [Album Search](#album-search)
-  - [Artist Search](#arist-search)
+  - [Results Pages](#results-pages)
+    - [Track Search](#track-search)
+    - [Album Search](#album-search)
+    - [Artist Search](#arist-search)
+  - [Modals](#modals)
+    - [Track Modal](#track-modal)
+    - [Album & Artist Modals](#album-artists-modal)
 
 ## Planning
 
@@ -59,13 +63,15 @@ Materialize css is used for most of the styling with some custom css to support 
 
 ## Features
 
-with all search result pages the user will be able to click on arist/album/track names in the results to open a modal with more info on that item.
+### Results Pages
 
-### Track Search
+With all search result pages the user will be able to click on arist/album/track names in the results to open a modal with more info on that item.
+
+#### Track Search
 
 This will display the top 10 search results. The user can then click to select which track they want. This will then show them the track info.
 
-### Album Search
+#### Album Search
 
 This will return the album with:
  - Artist
@@ -74,10 +80,17 @@ This will return the album with:
 
 The user will be able to click on the artist/tracks to open modals with more info
 
-### Artist Search
+#### Artist Search
 
 When selecting artist and searching the user will be presented with artist info:
 
 - Bio
 - Top Albums
 - Top Tracks
+
+### Modals
+
+#### Track Modal
+
+#### Album & Artist Modals
+
