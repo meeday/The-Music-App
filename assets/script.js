@@ -67,7 +67,7 @@ function getTrackInfo(userInput) {
             tracks[i].name +
             " - " +
             tracks[i].artist +
-            "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
+            "</a></li>"
         );
       }
       //show the result page after finish call
@@ -136,9 +136,9 @@ function getAlbumInfo() {
         }
         for (i = 0; i < tracks.length; i++) {
           $(".search-tracks>ol").append(
-            "<li><a  id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
-              "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
+              "</a></li>"
           );
         }
         $("#album-results-page").show(400);
@@ -214,7 +214,7 @@ function getArtistInfo(userInput) {
             } else {
               // Appending the album
               $("#albums>ul").append(
-                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img class="materialboxed" src="' +
+                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
@@ -261,7 +261,7 @@ function getArtistInfo(userInput) {
               '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
-                "</span><span><i class='tiny material-icons'>add_circle</i></span></a></li>"
+                "</span></a></li>"
             );
           }
         });
