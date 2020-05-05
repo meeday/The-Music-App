@@ -203,6 +203,8 @@ label.white-text {
   display: block;
 }
 
+.material-icons.red600 { color: #a10d26; }
+
 @media (min-width: 600px) {
   #toast-container {
     bottom: auto !important;
