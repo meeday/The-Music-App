@@ -47,32 +47,6 @@ function getTrackInfo(userInput) {
     if (tracks.length > 10){
       var length = 10;
     } else {
-<<<<<<< HEAD
-      //Track search result shown
-      var firstTrackName = response.results.trackmatches.track[0].name;
-      var tracks = response.results.trackmatches.track;
-      $("#track-name").text(firstTrackName);
-      //if function to ensure max show track is 10
-      if (tracks.length > 10) {
-        var length = 10;
-      } else {
-        length = tracks.length;
-      }
-      //reset search result list
-      $("#track-search-result>ol").html("");
-      //build up search result list
-      for (i = 0; i < length; i++) {
-        $("#track-search-result>ol").append(
-          "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-            tracks[i].name +
-            " - " +
-            tracks[i].artist +
-            "</a></li>"
-        );
-      }
-      //show the result page after finish call
-      $("#track-results-page").show(400);
-=======
       length = tracks.length;
     }
     //reset search result list
@@ -80,7 +54,6 @@ function getTrackInfo(userInput) {
     //build up search result list
     for (i = 0; i < length; i++){
       $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
->>>>>>> parent of 7e6af5f... Merge remote-tracking branch 'origin/meeday/patch/image-title-on-hover' into meeday/feature/add-modal-links-to-image-in-album-results-page
     }
   });
   //show the result page after finish call
@@ -111,46 +84,12 @@ function getAlbumInfo() {
     if (!response.album.wiki){
       $("#summary").hide();
     } else {
-<<<<<<< HEAD
-      var albumName = response.album.name;
-      var icon = response.album.image[2]["#text"];
-      var tracks = response.album.tracks.track;
-      // Checking if an empty album was returned
-      if (!icon && !tracks.length) {
-        M.toast({ html: error, classes: "error-message" });
-        $("#toast-container").css("top", "44%");
-      } else {
-        //album search result shown
-        $("#album-pic").attr("src", icon);
-        $("#summaryHeading").text(albumName);
-        $("#album-pic").attr("title", "Artist: " + response.album.artist);
-        $("#artist").each(function () {
-          $(this).attr("title", $(this).find("img").attr("title"));
-        });
-        $(".search-tracks>ol").html("");
-        if (!response.album.wiki) {
-          $("#summary").hide();
-        } else {
-          $("#summary").html(response.album.wiki.summary);
-          $("#summary").show();
-        }
-        for (i = 0; i < tracks.length; i++) {
-          $(".search-tracks>ol").append(
-            "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-              tracks[i].name +
-              "</a></li>"
-          );
-        }
-        $("#album-results-page").show(400);
-      }
-=======
       $("#summary").html(response.album.wiki.summary);
       $("#summary").show();
     }
     var tracks = response.album.tracks.track;
     for (i = 0; i < tracks.length; i++) {
       $(".search-tracks>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + "</a></li>");
->>>>>>> parent of 7e6af5f... Merge remote-tracking branch 'origin/meeday/patch/image-title-on-hover' into meeday/feature/add-modal-links-to-image-in-album-results-page
     }
   });
   $("#album-results-page").show(400);
@@ -186,51 +125,6 @@ function getArtistInfo(userInput) {
       $("#header-img").attr("alt", response.topalbums.album[0].name);
       $("#albums>ul").html("");
 
-<<<<<<< HEAD
-        $.ajax({
-          url: topAlbumURL,
-          method: "GET",
-        }).then(function (response) {
-          console.log(response);
-          //iterating through albums for a header image
-          for (i = 0; i < 50; i++) {
-            var albumImage = response.topalbums.album[i].image[2]["#text"];
-            var albumName = response.topalbums.album[i].name;
-            if (!albumImage || !albumName) {
-              continue;
-            } else {
-              $("#header-img").attr("src", albumImage);
-              $("#header-img").attr("alt", albumName);
-              $("#albums>ul").html("");
-              break;
-            }
-          }
-          for (i = 0, a = 0; i < 50, a < 4; i++) {
-            var albumImage = response.topalbums.album[i].image[2]["#text"];
-            var albumName = response.topalbums.album[i].name;
-            if (!albumImage || !albumName) {
-              // Checking if album has both img and alt text
-              continue;
-            } else {
-              // Appending the album
-              $("#albums>ul").append(
-                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
-                  albumImage +
-                  '" alt="' +
-                  albumName +
-                  '" title=" ' + albumName + ' by ' + response.topalbums["@attr"].artist +
-                  '"/></a' +
-                  "</li>"
-              );
-              $("a.image").each(function () {
-                $(this).attr("title", $(this).find("img").attr("title"));
-              });
-              // Incrimenting album count
-              a++;
-            }
-          }
-        });
-=======
       for (var i = 0; i < 4; i++) {
         $("#albums>ul").append(
           '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
@@ -242,7 +136,6 @@ function getArtistInfo(userInput) {
         );
       }
     });
->>>>>>> parent of 7e6af5f... Merge remote-tracking branch 'origin/meeday/patch/image-title-on-hover' into meeday/feature/add-modal-links-to-image-in-album-results-page
 
     // Getting top tracks
     var topTrackURL =
@@ -250,23 +143,6 @@ function getArtistInfo(userInput) {
       userInput +
       "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
 
-<<<<<<< HEAD
-        $.ajax({
-          url: topTrackURL,
-          method: "GET",
-        }).then(function (response) {
-          $("#top-tracks>ol").html("");
-          for (i = 0; i < 5; i++) {
-            $("#top-tracks>ol").append(
-              '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
-                "<span>" +
-                response.toptracks.track[i].name +
-                "</span></a></li>"
-            );
-          }
-        });
-        $("#artist-results-page").show(400);
-=======
     $.ajax({
       url: topTrackURL,
       method: "GET",
@@ -279,7 +155,6 @@ function getArtistInfo(userInput) {
           response.toptracks.track[i].name +
           "</span></a></li>"
         );
->>>>>>> parent of 7e6af5f... Merge remote-tracking branch 'origin/meeday/patch/image-title-on-hover' into meeday/feature/add-modal-links-to-image-in-album-results-page
       }
     });
   });
