@@ -53,7 +53,7 @@ function getTrackInfo(userInput) {
     $("#track-search-result>ol").html("");
     //build up search result list
     for (i = 0; i < length; i++){
-      $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
+      $("#track-search-result>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger track-result' href='#track-modal'>" + tracks[i].name + " - "+ tracks[i].artist + "</a></li>");
       
     }
     //"reading" the value of <li>
