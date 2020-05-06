@@ -190,6 +190,12 @@ label.white-text {
   margin-bottom: 20px;
 }
 
+.modal-search-tracks{
+  color: white;
+  padding: 2em;
+  text-align: justify;
+}
+
 @media (min-width: 600px) {
   #toast-container {
     bottom: auto !important;
