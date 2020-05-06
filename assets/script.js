@@ -267,7 +267,7 @@ function getArtistInfo(userInput) {
   });
 }
 
-//"reading" the value of <li>
+//Function for lyrics modal in track result page
 function lyrics(track) {
   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
   var lyricsURL =
@@ -321,7 +321,7 @@ function customFunction(data) {
     //for loop to add track inside the modal
     for (i = 0; i < length; i++) {
       $("#modal-search-tracks>ol").append(
-        "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+        "<li><a id='tracks' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
         tracks[i].name +
         "</a></li>"
         );
