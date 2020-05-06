@@ -267,6 +267,10 @@ function lyrics(track) {
   }).then(function (response) {
     console.log(response);
     var lyrics = response.result[0].lyrics;
+    // console.log(lyrics);
+    var mediaLink = response.result[0].media[2]["url"];
+    console.log(mediaLink);
+    $("#track-modal>h1").text(track);
     $("#modal-track-search-result").text(lyrics);
   });
 }
