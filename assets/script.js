@@ -254,22 +254,25 @@ function getArtistInfo(userInput) {
 }
 
 //"reading" the value of <li>
-function lyrics() {
-  var track = $(this).text();
+function lyrics(track) {
+  // var track = $(this).text();
   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
   var lyricsURL =
     "https://api.audd.io/findLyrics/?q=" +
     track +
     "&api_token=56504f66202634311b0e5c04f32ced06";
+    console.log(lyricsURL)
   $.ajax({
     url: lyricsURL,
     method: "GET",
   }).then(function (response) {
+    console.log(response);
     var lyrics = response.result[0].lyrics;
     $("#modal-track-search-result").text(lyrics);
   });
 }
 
+// Event listeners
 //These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
@@ -281,7 +284,6 @@ $(function () {
     $("#artist-input>label").toggle();
   });
 
-  // Event listeners
 
   // Search on <enter key> pressed
   $(document).keypress(function (event) {
@@ -315,10 +317,16 @@ $(function () {
   });
 
   //Filling in lyrics in modal when track is clicked
-  $(".track-result").on("click", function () {
-    lyrics();
+  $("#track-search-result>ol").on("click", ".track-result", function () { 
+    var track = $(this).text();
+    console.log("this is: " + this);
+    console.log("the track is: " + track);
+    lyrics(track);
+
   });
 });
+
+
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {
   var elems = $(".modal");
