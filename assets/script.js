@@ -66,7 +66,7 @@ function getTrackInfo(userInput) {
             tracks[i].name +
             " - " +
             tracks[i].artist +
-            "</a></li>"
+            "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
         );
       }
       //show the result page after finish call
@@ -133,7 +133,7 @@ function getAlbumInfo() {
           $(".search-tracks>ol").append(
             "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
-              "</a></li>"
+              "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
           );
         }
         $("#album-results-page").show(400);
@@ -212,7 +212,7 @@ function getArtistInfo(userInput) {
               // Appending the album
               $("#albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img src="' +
+                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
@@ -248,7 +248,7 @@ function getArtistInfo(userInput) {
               '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
-                "</span></a></li>"
+                "</span><span><i class='tiny material-icons'>add_circle</i></span></a></li>"
             );
           }
         });

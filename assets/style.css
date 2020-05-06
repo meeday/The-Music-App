@@ -194,6 +194,10 @@ label.white-text {
   margin-bottom: 20px;
 }
 
+.materialboxed {
+  cursor: pointer;
+}
+
 .img:hover::after,
 .image:hover::after {
   content: attr(title);
