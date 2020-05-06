@@ -75,7 +75,6 @@ label.white-text {
   background-repeat: none;
   width: 80%;
   margin: 0px auto;
-  overflow: hidden;
   padding: 4px;
   border-radius: 4px;
 }
@@ -192,6 +191,12 @@ label.white-text {
   clear: both;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.modal-search-tracks{
+  color: white;
+  padding: 2em;
+  text-align: justify;
 }
 
 .materialboxed {

@@ -32,7 +32,10 @@ function getTrackInfo(userInput) {
     // Handling errors with the api call
     error: function (xhr, _ajaxOptions, _thrownError) {
       if (xhr.status == 400) {
-        M.toast({ html: "400: Invalid Input.", classes: "error-message" });
+        M.toast({
+          html: "400: Invalid Input.",
+          classes: "error-message",
+        });
       } else if (xhr.status == 404) {
         M.toast({ html: "404: Not Found.", classes: "error-message" });
       }
@@ -55,18 +58,18 @@ function getTrackInfo(userInput) {
       if (tracks.length > 10) {
         var length = 10;
       } else {
-        length = tracks.length;
+        var length = tracks.length;
       }
       //reset search result list
       $("#track-search-result>ol").html("");
       //build up search result list
       for (i = 0; i < length; i++) {
         $("#track-search-result>ol").append(
-          "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+          "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
             tracks[i].name +
             " - " +
             tracks[i].artist +
-            "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
+            "</a></li>"
         );
       }
       //show the result page after finish call
@@ -90,7 +93,10 @@ function getAlbumInfo() {
     // Handling errors with the api call
     error: function (xhr, _ajaxOptions, _thrownError) {
       if (xhr.status == 400) {
-        M.toast({ html: "400: Invalid Input.", classes: "error-message" });
+        M.toast({
+          html: "400: Invalid Input.",
+          classes: "error-message",
+        });
       } else if (xhr.status == 404) {
         M.toast({ html: "404: Not Found.", classes: "error-message" });
       }
@@ -131,9 +137,9 @@ function getAlbumInfo() {
         }
         for (i = 0; i < tracks.length; i++) {
           $(".search-tracks>ol").append(
-            "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
-              "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
+              "</a></li>"
           );
         }
         $("#album-results-page").show(400);
@@ -154,7 +160,10 @@ function getArtistInfo(userInput) {
     // Handling errors with the api call
     error: function (xhr, _ajaxOptions, _thrownError) {
       if (xhr.status == 400) {
-        M.toast({ html: "400: Invalid Input.", classes: "error-message" });
+        M.toast({
+          html: "400: Invalid Input.",
+          classes: "error-message",
+        });
       } else if (xhr.status == 404) {
         M.toast({ html: "404: Not Found.", classes: "error-message" });
       }
@@ -245,10 +254,10 @@ function getArtistInfo(userInput) {
           $("#top-tracks>ol").html("");
           for (i = 0; i < 5; i++) {
             $("#top-tracks>ol").append(
-              '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
+              '<li><a class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
-                "</span><span><i class='tiny material-icons'>add_circle</i></span></a></li>"
+                "</span></a></li>"
             );
           }
         });
@@ -258,6 +267,27 @@ function getArtistInfo(userInput) {
   });
 }
 
+//Function for lyrics modal in track result page
+function lyrics(track) {
+  //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
+  var lyricsURL =
+    "https://api.audd.io/findLyrics/?q=" +
+    track +
+    "&api_token=56504f66202634311b0e5c04f32ced06";
+    console.log(lyricsURL)
+  $.ajax({
+    url: lyricsURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    var lyrics = response.result[0].lyrics;
+    // console.log(lyrics);
+    var mediaLink = response.result[0].media[2]["url"];
+    console.log(mediaLink);
+    $("#modal-track-title").text(track);
+    $("#modal-track-search-result").text(lyrics);
+  });
+}
 
 // Secondary Function
 // Artist Search Result Page Top Albums Modal
@@ -291,7 +321,7 @@ function customFunction(data) {
     //for loop to add track inside the modal
     for (i = 0; i < length; i++) {
       $("#modal-search-tracks>ol").append(
-        "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+        "<li><a id='tracks' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
         tracks[i].name +
         "</a></li>"
         );
@@ -310,7 +340,6 @@ $(function () {
     $("#artist-input>label").toggle();
   });
 
-  // Event listeners
 
   // Search on <enter key> pressed
   $(document).keypress(function (event) {
@@ -341,6 +370,12 @@ $(function () {
   $(".default-query").on("click", function () {
     $("#default-search-input").show(400);
     $("#album-search-input").hide(400);
+  });
+
+  //Filling in lyrics in modal when track is clicked
+  $("ol").on("click", ".track-result", function () { 
+    var track = $(this).text();
+    lyrics(track);
   });
 });
 
