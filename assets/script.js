@@ -75,22 +75,6 @@ function getTrackInfo(userInput) {
       //show the result page after finish call
       $("#track-results-page").show(400);
     }
-    //"reading" the value of <li>
-    $(".track-result").on("click", function () {
-      var track = $(this).text();
-      //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
-      var lyricsURL =
-        "https://api.audd.io/findLyrics/?q=" +
-        track +
-        "&api_token=56504f66202634311b0e5c04f32ced06";
-      $.ajax({
-        url: lyricsURL,
-        method: "GET",
-      }).then(function (response) {
-        var lyrics = response.result[0].lyrics;
-        $("#modal-track-search-result").text(lyrics);
-      });
-    });
   });
 }
 
@@ -269,6 +253,39 @@ function getArtistInfo(userInput) {
   });
 }
 
+//"reading" the value of <li>
+function lyrics() {
+  var track = $(this).text();
+  //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
+  var lyricsURL =
+    "https://api.audd.io/findLyrics/?q=" +
+    track +
+    "&api_token=56504f66202634311b0e5c04f32ced06";
+  $.ajax({
+    url: lyricsURL,
+    method: "GET",
+  }).then(function (response) {
+    var lyrics = response.result[0].lyrics;
+    $("#modal-track-search-result").text(lyrics);
+  });
+}
+
+// $(".track-result").on("click", function () {
+//   var track = $(this).text();
+//   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
+//   var lyricsURL =
+//     "https://api.audd.io/findLyrics/?q=" +
+//     track +
+//     "&api_token=56504f66202634311b0e5c04f32ced06";
+//   $.ajax({
+//     url: lyricsURL,
+//     method: "GET",
+//   }).then(function (response) {
+//     var lyrics = response.result[0].lyrics;
+//     $("#modal-track-search-result").text(lyrics);
+//   });
+// });
+
 //These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
@@ -311,6 +328,11 @@ $(function () {
   $(".default-query").on("click", function () {
     $("#default-search-input").show(400);
     $("#album-search-input").hide(400);
+  });
+
+  //Filling in lyrics in modal when track is clicked
+  $(".track-result").on("click", function () {
+    lyrics();
   });
 });
 // Modal function
