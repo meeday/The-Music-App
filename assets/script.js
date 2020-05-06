@@ -62,7 +62,7 @@ function getTrackInfo(userInput) {
       //build up search result list
       for (i = 0; i < length; i++) {
         $("#track-search-result>ol").append(
-          "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+          "<li><a class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
             tracks[i].name +
             " - " +
             tracks[i].artist +
@@ -131,7 +131,7 @@ function getAlbumInfo() {
         }
         for (i = 0; i < tracks.length; i++) {
           $(".search-tracks>ol").append(
-            "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            "<li><a class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
               "</a></li>"
           );
@@ -211,7 +211,7 @@ function getArtistInfo(userInput) {
             } else {
               // Appending the album
               $("#albums>ul").append(
-                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
                   albumImage +
                   'alt="' +
                   albumName +
@@ -244,7 +244,7 @@ function getArtistInfo(userInput) {
           $("#top-tracks>ol").html("");
           for (i = 0; i < 5; i++) {
             $("#top-tracks>ol").append(
-              '<li><a id="tracks" class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
+              '<li><a class="waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
                 "</span></a></li>"
