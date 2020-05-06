@@ -69,7 +69,7 @@ function getTrackInfo(userInput) {
             tracks[i].name +
             " - " +
             tracks[i].artist +
-            "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
+            "</a></li>"
         );
       }
       //show the result page after finish call
@@ -139,7 +139,7 @@ function getAlbumInfo() {
           $(".search-tracks>ol").append(
             "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
-              "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
+              "</a></li>"
           );
         }
         $("#album-results-page").show(400);
@@ -257,7 +257,7 @@ function getArtistInfo(userInput) {
               '<li><a class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
-                "</span><span><i class='tiny material-icons'>add_circle</i></span></a></li>"
+                "</span></a></li>"
             );
           }
         });
