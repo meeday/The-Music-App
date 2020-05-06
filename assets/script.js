@@ -270,22 +270,6 @@ function lyrics() {
   });
 }
 
-// $(".track-result").on("click", function () {
-//   var track = $(this).text();
-//   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
-//   var lyricsURL =
-//     "https://api.audd.io/findLyrics/?q=" +
-//     track +
-//     "&api_token=56504f66202634311b0e5c04f32ced06";
-//   $.ajax({
-//     url: lyricsURL,
-//     method: "GET",
-//   }).then(function (response) {
-//     var lyrics = response.result[0].lyrics;
-//     $("#modal-track-search-result").text(lyrics);
-//   });
-// });
-
 //These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
