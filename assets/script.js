@@ -376,7 +376,6 @@ $(function () {
   $("ol").on("click", ".track-result", function () { 
     var track = $(this).text();
     lyrics(track);
-
   });
 });
 
