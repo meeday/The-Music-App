@@ -303,18 +303,18 @@ $(function () {
   });
 });
 
-//Secondary Function
-//Artist Search Result Page Top Albums Modal
-function customFunction(data){
-  //Reset the list when modal is clicked
+// Secondary Function
+// Artist Search Result Page Top Albums Modal
+function customFunction(data) {
+  // Reset the list when modal is clicked
   $("#modal-search-tracks>ol").html("");
-  //Get value from the search input and image alt
+  // Get value from the search input and image alt
   var artist = $("#search-query").val();
-  var album = data[0].firstChild.alt
-  //Add pic to the modal (if added, less tracks will be shown)
-  //$("#modal-album-pic").attr("src", data[0].firstChild.src);
+  var album = data[0].firstChild.alt;
+  // Add pic to the modal (if added, less tracks will be shown)
+  // $("#modal-album-pic").attr("src", data[0].firstChild.src);
 
-  //ajax call to get information of track
+  // ajax call to get information of track
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
     artist +
@@ -328,13 +328,17 @@ function customFunction(data){
     var tracks = response.album.tracks.track;
     var length = tracks.length;
     //logic gate to limit the track shown
-    if (length>5){
+    if (length > 5) {
       var length = 5;
     }
     $("#top-album-modal").text(album);
     //for loop to add track inside the modal
-    for (i=0; i<length ; i++){
-      $("#modal-search-tracks>ol").append("<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" + tracks[i].name + "</a></li>");
+    for (i = 0; i < length; i++) {
+      $("#modal-search-tracks>ol").append(
+        "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+          tracks[i].name +
+          "</a></li>"
+      );
     }
   });
 }
