@@ -1,0 +1,5 @@
+documentation:
+  - ./*.md
+
+ui related:
+  - assets/*.css
