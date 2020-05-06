@@ -69,7 +69,7 @@ function getTrackInfo(userInput) {
             tracks[i].name +
             " - " +
             tracks[i].artist +
-            "</a></li>"
+            "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
         );
       }
       //show the result page after finish call
@@ -122,6 +122,12 @@ function getAlbumInfo() {
         //album search result shown
         $("#album-pic").attr("src", icon);
         $("#summaryHeading").text(albumName);
+        // create title attribute
+        $("#album-pic").attr("title", response.album.artist);
+        //function for setting attribute to each link
+        $("a.img").each(function () {
+          $(this).attr("title", $(this).find("img").attr("title"));
+        });
         $(".search-tracks>ol").html("");
         if (!response.album.wiki) {
           $("#summary").hide();
@@ -133,7 +139,7 @@ function getAlbumInfo() {
           $(".search-tracks>ol").append(
             "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
-              "</a></li>"
+              "<span style='margin-left: 10px'><i  class='tiny material-icons'>add_circle</i></span></a></li>"
           );
         }
         $("#album-results-page").show(400);
@@ -214,13 +220,21 @@ function getArtistInfo(userInput) {
             } else {
               // Appending the album
               $("#albums>ul").append(
-                '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+                //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
+                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
                   albumImage +
-                  'alt="' +
+                  '" alt="' +
                   albumName +
+                  '" title="' +
+                  albumName +
+                  '"' +
                   "/></a>" +
                   "</li>"
               );
+              //function for setting attribute to each link
+              $("a.image").each(function () {
+                $(this).attr("title", $(this).find("img").attr("title"));
+              });
               // Incrimenting album count
               a++;
             }
@@ -243,7 +257,7 @@ function getArtistInfo(userInput) {
               '<li><a class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
-                "</span></a></li>"
+                "</span><span><i class='tiny material-icons'>add_circle</i></span></a></li>"
             );
           }
         });
@@ -275,7 +289,46 @@ function lyrics(track) {
   });
 }
 
-// Event listeners
+// Secondary Function
+// Artist Search Result Page Top Albums Modal
+function customFunction(data) {
+  // Reset the list when modal is clicked
+  $("#modal-search-tracks>ol").html("");
+  // Get value from the search input and image alt
+  var artist = $("#search-query").val();
+  var album = data[0].firstChild.alt;
+  // Add pic to the modal (if added, less tracks will be shown)
+  // $("#modal-album-pic").attr("src", data[0].firstChild.src);
+  
+  // ajax call to get information of track
+  var albumURL =
+    "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
+    artist +
+    "&album=" +
+    album +
+    "&format=json";
+  $.ajax({
+    url: albumURL,
+    method: "GET",
+  }).then(function (response) {
+    var tracks = response.album.tracks.track;
+    var length = tracks.length;
+    //logic gate to limit the track shown
+    if (length > 5) {
+      var length = 5;
+    }
+    $("#top-album-modal").text(album);
+    //for loop to add track inside the modal
+    for (i = 0; i < length; i++) {
+      $("#modal-search-tracks>ol").append(
+        "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+        tracks[i].name +
+        "</a></li>"
+        );
+      }
+  });
+}
+
 //These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
@@ -326,7 +379,6 @@ $(function () {
 
   });
 });
-
 
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {
