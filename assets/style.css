@@ -1,7 +1,9 @@
 /* CSS imports */
+
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 /* landing-page styling */
+
 body {
   background-image: url("https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80");
   background-position: center;
@@ -64,6 +66,7 @@ label.white-text {
 }
 
 /* results page styling */
+
 .search-profile {
   background-color: rgba(0, 0, 0, 0.9);
   background: url("https://i.stack.imgur.com/vAGZp.jpg");
@@ -85,7 +88,6 @@ label.white-text {
 }
 
 .search-pic {
-  overflow: hidden;
   width: 180px;
   height: 180px;
   margin: 20px auto 10px;
@@ -100,6 +102,7 @@ label.white-text {
   text-align: center;
   padding-bottom: 10px;
 }
+
 .search-bio h2 {
   color: white;
   font-size: 2em;
@@ -128,6 +131,7 @@ label.white-text {
   margin: 0px;
   padding: 0px;
 }
+
 #albums li {
   display: inline;
 }
@@ -188,6 +192,17 @@ label.white-text {
   clear: both;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.img:hover::after,
+.image:hover::after {
+  content: attr(title);
+  color: #fff;
+  justify-content: center;
+  padding: 4px 10px;
+  text-align: center;
+  background: url("https://i.stack.imgur.com/vAGZp.jpg");
+  display: block;
 }
 
 @media (min-width: 600px) {
