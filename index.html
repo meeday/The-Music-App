@@ -98,6 +98,8 @@
       </form>
     </div>
 
+    <br />
+
     <!-- Artist search results page html -->
     <div
       style="display: none;"
@@ -136,7 +138,11 @@
       <main class="search-profile">
         <h1>Album Profile</h1>
         <figure class="search-pic">
-          <img src="" alt="" id="album-pic" />
+          <a
+            class="img waves-effect waves-light collection-item modal-trigger"
+            href="#artist-modal"
+            ><img src="" alt="" id="album-pic"
+          /></a>
         </figure>
         <figcaption class="search-bio">
           <h2 id="summaryHeading"></h2>
@@ -178,11 +184,15 @@
     </div>
 
     <!-- Album Modal Structure -->
-    
+
     <div class="modal-content">
       <main id="album-modal" class="modal search-profile">
         <div class="modal-header right-align">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green large material-icons">close</a>
+          <a
+            href="#!"
+            class="modal-action modal-close waves-effect waves-green large material-icons"
+            >close</a
+          >
         </div>
         <h1 id="top-album-modal">About Album</h1>
         <figure class="modal-search-pic">
@@ -202,29 +212,65 @@
       </main>
     </div>
 
-      <!-- Tracks Modal Structure -->
-  <div class="modal-content">
-    <main id="track-modal" class="modal search-profile">
-      <div class="modal-header right-align">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green large material-icons">close</a>
-      </div>
-      <h1>About Track</h1>
-      <figcaption class="modal-search-bio">
-        <h2 id="modal-track-name"></h2>
-      </figcaption>
+    <!-- Tracks Modal Structure -->
+    <div class="modal-content">
+      <main id="track-modal" class="modal search-profile">
+        <div class="modal-header right-align">
+          <a
+            href="#!"
+            class="modal-action modal-close waves-effect waves-green large material-icons"
+            >close</a
+          >
+        </div>
+        <h1>About Track</h1>
+        <figcaption class="modal-search-bio">
+          <h2 id="modal-track-name"></h2>
+        </figcaption>
 
-      <h3>Lyrics</h3>
-      <div class="modal-search-tracks" id="modal-track-search-result">
-        <ol>
-          <li></li>
-        </ol>
-      </div>
-      <footer class="app-name">
-        <p>The Music App</p>
-      </footer>
-    </main>
-  </div>
-  
+        <h3>Lyrics</h3>
+        <div class="modal-search-tracks" id="modal-track-search-result">
+          <ol>
+            <li></li>
+          </ol>
+        </div>
+        <footer class="app-name">
+          <p>The Music App</p>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Artists Modal Structure -->
+
+    <div class="modal-content">
+      <main id="artist-modal" class="modal search-profile">
+        <div class="modal-header right-align">
+          <a
+            href="#!"
+            class="modal-action modal-close waves-effect waves-green large material-icons"
+            >close</a
+          >
+        </div>
+        <h1>Artists Profile</h1>
+        <figure class="search-pic">
+          <img id="modal-header-img" src="" alt="" />
+        </figure>
+        <figcaption class="search-bio">
+          <h2 id="modal-artist-name"></h2>
+          <p id="modal-artist-bio"></p>
+        </figcaption>
+        <h3>Top Albums</h3>
+        <div id="modal-albums">
+          <ul></ul>
+        </div>
+        <h3>Top Tracks</h3>
+        <div id="modal-top-tracks" class="search-tracks">
+          <ol></ol>
+        </div>
+        <footer class="app-name">
+          <p>The Music App</p>
+        </footer>
+      </main>
+    </div>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
