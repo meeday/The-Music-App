@@ -377,6 +377,13 @@ $(function () {
     var track = $(this).text();
     lyrics(track);
   });
+
+    //Filling in artist info modal
+    $("a[href='#artist-modal']").on("click", function () { 
+      var artistName = $(this).attr("title");
+      getModalArtistInfo(artistName);
+      console.log(artistName);
+    });
 });
 
 // Modal function
@@ -384,3 +391,123 @@ document.addEventListener("DOMContentLoaded", function () {
   var elems = $(".modal");
   var instances = M.Modal.init(elems);
 });
+
+
+
+function getModalArtistInfo(artistName) {
+  // artistName = $("#search-query").val();
+  var artistURL =
+    "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" +
+    artistName +
+    "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+  $.ajax({
+    url: artistURL,
+    method: "GET",
+    // Handling errors with the api call
+    error: function (xhr, _ajaxOptions, _thrownError) {
+      if (xhr.status == 400) {
+        M.toast({
+          html: "400: Invalid Input.",
+          classes: "error-message",
+        });
+      } else if (xhr.status == 404) {
+        M.toast({ html: "404: Not Found.", classes: "error-message" });
+      }
+    },
+  }).then(function (response) {
+    // Handling LastFM error response
+    if (response.error) {
+      var error = response.message;
+      M.toast({ html: error, classes: "error-message" });
+    } else {
+      // Determining if artist exists
+      var name = response.artist.name;
+      var bio = response.artist.bio;
+      var image = response.artist.image[0]["#text"];
+      if (!bio.content && !image) {
+        M.toast({
+          html: "The artist you supplied could not be found",
+          classes: "error-message",
+        });
+      } else {
+        $("#modal-artist-name").text(name);
+        $("#modal-artist-bio").html(bio.summary);
+        $("#modal-artist-bio>a").attr("Target", "_blank");
+        // Filling top 4 albums
+        var topAlbumURL =
+          "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
+          artistName +
+          "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
+        $.ajax({
+          url: topAlbumURL,
+          method: "GET",
+        }).then(function (response) {
+          console.log(response);
+          //iterating through albums for a header image
+          for (i = 0; i < 50; i++) {
+            var albumImage = response.topalbums.album[i].image[2]["#text"];
+            var albumName = response.topalbums.album[i].name;
+            if (!albumImage || !albumName) {
+              continue;
+            } else {
+              $("#modal-header-img").attr("src", albumImage);
+              $("#modal-header-img").attr("alt", albumName);
+              $("#modal-albums>ul").html("");
+              break;
+            }
+          }
+          for (i = 0, a = 0; i < 50, a < 4; i++) {
+            var albumImage = response.topalbums.album[i].image[2]["#text"];
+            var albumName = response.topalbums.album[i].name;
+            if (!albumImage || !albumName) {
+              // Checking if album has both img and alt text
+              continue;
+            } else {
+              // Appending the album
+              $("#modal-albums>ul").append(
+                //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
+                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
+                  albumImage +
+                  '" alt="' +
+                  albumName +
+                  '" title="' +
+                  albumName +
+                  '"' +
+                  "/></a>" +
+                  "</li>"
+              );
+              // Function for setting attribute to each link
+              $("a.image").each(function () {
+                $(this).attr("title", $(this).find("img").attr("title"));
+              });
+              // Incrementing album count
+              a++;
+            }
+          }
+        });
+
+        // Getting top tracks
+        var topTrackURL =
+          "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
+          artistName +
+          "&api_key=1cdcc6e0cda44cee6b6571363c390279&format=json";
+
+        $.ajax({
+          url: topTrackURL,
+          method: "GET",
+        }).then(function (response) {
+          $("#top-tracks>ol").html("");
+          for (i = 0; i < 5; i++) {
+            $("#top-tracks>ol").append(
+              '<li><a class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
+                "<span>" +
+                response.toptracks.track[i].name +
+                "</span></a></li>"
+            );
+          }
+        });
+      }
+    }
+  });
+}

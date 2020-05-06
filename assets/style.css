@@ -125,13 +125,15 @@ label.white-text {
   text-decoration: none;
 }
 
-#albums ul {
+#albums ul,
+#modal-albums ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
 
-#albums li {
+#albums li,
+#modal-albums li {
   display: inline;
 }
 
@@ -141,14 +143,16 @@ label.white-text {
   font-size: 1.5em;
 }
 
-#albums {
+#albums,
+#modal-albums {
   margin: 10px auto;
   clear: both;
   text-align: center;
   flex-direction: row;
 }
 
-#albums img {
+#albums img,
+#modal-albums img {
   color: rgba(255, 255, 255, 1);
   padding: 0;
   margin: 0 5px;
