@@ -211,13 +211,18 @@ function getArtistInfo(userInput) {
                         } else {
                             // Appending the album
                             $("#albums>ul").append(
-                                '<li><a id="albums" class="waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
+                                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal"><img src="' +
                                 albumImage +
                                 'alt="' +
                                 albumName +
+                                ' title="' + albumName + '"' +
                                 "/></a>" +
                                 "</li>"
                             );
+                            //function for setting attribute to each link
+                            $("a.image").each(function() {
+                                $(this).attr("title", $(this).find("img").attr("title"));
+                            });
                             // Incrimenting album count
                             a++;
                         }

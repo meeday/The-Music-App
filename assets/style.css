@@ -195,10 +195,12 @@ label.white-text {
     margin-bottom: 20px;
 }
 
-.img:hover::before {
+.img:hover::before,
+.image:hover::after {
     content: attr(title);
     color: #fff;
     justify-content: center;
+    padding: 4px 10px;
     text-align: center;
     background: url("https://i.stack.imgur.com/vAGZp.jpg");
     display: block;
