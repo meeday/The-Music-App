@@ -274,7 +274,7 @@ function lyrics(track) {
     "https://api.audd.io/findLyrics/?q=" +
     track +
     "&api_token=56504f66202634311b0e5c04f32ced06";
-    console.log(lyricsURL)
+  console.log(lyricsURL);
   $.ajax({
     url: lyricsURL,
     method: "GET",
@@ -299,7 +299,7 @@ function customFunction(data) {
   var album = data[0].firstChild.alt;
   // Add pic to the modal (if added, less tracks will be shown)
   // $("#modal-album-pic").attr("src", data[0].firstChild.src);
-  
+
   // ajax call to get information of track
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
@@ -322,77 +322,12 @@ function customFunction(data) {
     for (i = 0; i < length; i++) {
       $("#modal-search-tracks>ol").append(
         "<li><a id='tracks' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-        tracks[i].name +
-        "</a></li>"
-        );
-      }
-  });
-}
-
-//These apply on page load
-$(function () {
-  $("#search-icon").on("click", function () {
-    var userInput = $("#search-query").val();
-    $(".result-page").hide(400);
-    callAPI(userInput);
-    $("#default-search-input>label").remove();
-    $("#album-input>label").toggle();
-    $("#artist-input>label").toggle();
-  });
-
-
-  // Search on <enter key> pressed
-  $(document).keypress(function (event) {
-    var keycode = event.keyCode ? event.keyCode : event.which;
-    if (keycode == "13") {
-      $(".result-page").hide(400);
-      callAPI();
-      $("#default-search-input>label").remove();
-      $("#album-input>label").toggle();
-      $("#artist-input>label").toggle();
+          tracks[i].name +
+          "</a></li>"
+      );
     }
   });
-
-  // Toggling the label for the search bar on search
-  $("#album-search-icon").on("click", function () {
-    $("#album-input>label").toggle();
-    $("#artist-input>label").toggle();
-    $(".result-page").hide(400);
-    getAlbumInfo();
-  });
-
-  // Changing inputs for album search to incorporate artist input
-  $("#album-btn").on("click", function () {
-    $("#default-search-input").hide(400);
-    $("#album-search-input").show(400);
-  });
-
-  $(".default-query").on("click", function () {
-    $("#default-search-input").show(400);
-    $("#album-search-input").hide(400);
-  });
-
-  //Filling in lyrics in modal when track is clicked
-  $("ol").on("click", ".track-result", function () { 
-    var track = $(this).text();
-    lyrics(track);
-  });
-
-    //Filling in artist info modal
-    $("a[href='#artist-modal']").on("click", function () { 
-      var artistName = $(this).attr("title");
-      getModalArtistInfo(artistName);
-      console.log(artistName);
-    });
-});
-
-// Modal function
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = $(".modal");
-  var instances = M.Modal.init(elems);
-});
-
-
+}
 
 function getModalArtistInfo(artistName) {
   // artistName = $("#search-query").val();
@@ -511,3 +446,65 @@ function getModalArtistInfo(artistName) {
     }
   });
 }
+
+//These apply on page load
+$(function () {
+  $("#search-icon").on("click", function () {
+    var userInput = $("#search-query").val();
+    $(".result-page").hide(400);
+    callAPI(userInput);
+    $("#default-search-input>label").remove();
+    $("#album-input>label").toggle();
+    $("#artist-input>label").toggle();
+  });
+
+  // Search on <enter key> pressed
+  $(document).keypress(function (event) {
+    var keycode = event.keyCode ? event.keyCode : event.which;
+    if (keycode == "13") {
+      $(".result-page").hide(400);
+      callAPI();
+      $("#default-search-input>label").remove();
+      $("#album-input>label").toggle();
+      $("#artist-input>label").toggle();
+    }
+  });
+
+  // Toggling the label for the search bar on search
+  $("#album-search-icon").on("click", function () {
+    $("#album-input>label").toggle();
+    $("#artist-input>label").toggle();
+    $(".result-page").hide(400);
+    getAlbumInfo();
+  });
+
+  // Changing inputs for album search to incorporate artist input
+  $("#album-btn").on("click", function () {
+    $("#default-search-input").hide(400);
+    $("#album-search-input").show(400);
+  });
+
+  $(".default-query").on("click", function () {
+    $("#default-search-input").show(400);
+    $("#album-search-input").hide(400);
+  });
+
+  //Filling in lyrics in modal when track is clicked
+  $("ol").on("click", ".track-result", function () {
+    var track = $(this).text();
+    lyrics(track);
+  });
+
+  //Filling in artist info modal
+  $("a[href='#artist-modal']").on("click", function () {
+    var artistName = $(this).attr("title");
+    getModalArtistInfo(artistName);
+    console.log(artistName);
+  });
+});
+
+// Modal function
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = $(".modal");
+  var instances = M.Modal.init(elems);
+});
