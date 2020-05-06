@@ -211,6 +211,7 @@ function getArtistInfo(userInput) {
             } else {
               // Appending the album
               $("#albums>ul").append(
+                //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
                 '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img src="' +
                   albumImage +
                   '" alt="' +
