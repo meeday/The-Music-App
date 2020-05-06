@@ -258,7 +258,6 @@ function getArtistInfo(userInput) {
   });
 }
 
-//These apply on page load
 
 // Secondary Function
 // Artist Search Result Page Top Albums Modal
@@ -270,7 +269,7 @@ function customFunction(data) {
   var album = data[0].firstChild.alt;
   // Add pic to the modal (if added, less tracks will be shown)
   // $("#modal-album-pic").attr("src", data[0].firstChild.src);
-
+  
   // ajax call to get information of track
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
@@ -293,13 +292,14 @@ function customFunction(data) {
     for (i = 0; i < length; i++) {
       $("#modal-search-tracks>ol").append(
         "<li><a id='tracks' class='waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-          tracks[i].name +
-          "</a></li>"
-      );
-    }
+        tracks[i].name +
+        "</a></li>"
+        );
+      }
   });
 }
 
+//These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
     var userInput = $("#search-query").val();
