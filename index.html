@@ -1,71 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link rel="stylesheet" href="assets/style.css" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>The Music App</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- landing-page html -->
     <div class="container landing-page">
-      <div class="section no-pad-bot" id="index-banner">
-        <div class="container">
-          <h1 class="center white-text">The Music App</h1>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h1 class="center white-text">The Music App</h1>
 
-          <div class="row center">
-            <div class="col s12">
-              <h4 class="white-text">
-                search for all things, music
-              </h4>
+                <div class="row center">
+                    <div class="col s12">
+                        <h4 class="white-text">
+                            search for all things, music
+                        </h4>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="default-search-input" class="input-field col s12">
-        <i id="search-icon" class="material-icons white-text prefix">search</i>
-        <input type="text" id="search-query" class="autocomplete white-text" />
-        <label class="white-text" for="search-query">Search </label>
-      </div>
-
-      <div id="album-search-input" style="display: none;">
-        <div id="artist-input" class="input-field col s12">
-          <input
-            type="text"
-            id="query-artist"
-            class="autocomplete white-text"
-          />
-          <label class="white-text" for="query-artist">Artist </label>
         </div>
 
-        <div id="album-input" class="input-field col s12">
-          <i id="album-search-icon" class="material-icons white-text prefix">
+        <div id="default-search-input" class="input-field col s12">
+            <i id="search-icon" class="material-icons white-text prefix">search</i>
+            <input type="text" id="search-query" class="autocomplete white-text" />
+            <label class="white-text" for="search-query">Search </label>
+        </div>
+
+        <div id="album-search-input" style="display: none;">
+            <div id="artist-input" class="input-field col s12">
+                <input type="text" id="query-artist" class="autocomplete white-text" />
+                <label class="white-text" for="query-artist">Artist </label>
+            </div>
+
+            <div id="album-input" class="input-field col s12">
+                <i id="album-search-icon" class="material-icons white-text prefix">
             search
           </i>
-          <input type="text" id="query-album" class="autocomplete white-text" />
-          <label class="white-text" for="query-album">Album </label>
+                <input type="text" id="query-album" class="autocomplete white-text" />
+                <label class="white-text" for="query-album">Album </label>
+            </div>
         </div>
-      </div>
 
-      <form action="#" id="query-selection">
-        <p>
-          <label>
+        <form action="#" id="query-selection">
+            <p>
+                <label>
             <input
               id="track-btn"
               name="group1"
@@ -75,17 +61,17 @@
             />
             <span class="query-type default-query white-text">Track</span>
           </label>
-        </p>
+            </p>
 
-        <p>
-          <label>
+            <p>
+                <label>
             <input id="album-btn" name="group1" type="radio" class="with-gap" />
             <span class="query-type white-text">Album</span>
           </label>
-        </p>
+            </p>
 
-        <p>
-          <label>
+            <p>
+                <label>
             <input
               id="artist-btn"
               name="group1"
@@ -94,104 +80,85 @@
             />
             <span class="query-type default-query white-text">Artist</span>
           </label>
-        </p>
-      </form>
+            </p>
+        </form>
     </div>
 
     <br />
 
     <!-- Artist search results page html -->
-    <div
-      style="display: none;"
-      class="container result-page"
-      id="artist-results-page"
-    >
-      <main class="container search-profile">
-        <h1>Artists Profile</h1>
-        <figure class="search-pic">
-          <img id="header-img" src="" alt="" />
-        </figure>
-        <figcaption class="search-bio">
-          <h2 id="artist-name"></h2>
-          <p id="artist-bio"></p>
-        </figcaption>
-        <h3>Top Albums</h3>
-        <div id="albums">
-          <ul></ul>
-        </div>
-        <h3>Top Tracks</h3>
-        <div id="top-tracks" class="search-tracks">
-          <ol></ol>
-        </div>
-        <footer class="app-name">
-          <p>The Music App</p>
-        </footer>
-      </main>
+    <div style="display: none;" class="container result-page" id="artist-results-page">
+        <main class="container search-profile">
+            <h1>Artists Profile</h1>
+            <figure class="search-pic">
+                <img id="header-img" src="" alt="" />
+            </figure>
+            <figcaption class="search-bio">
+                <h2 id="artist-name"></h2>
+                <p id="artist-bio"></p>
+            </figcaption>
+            <h3>Top Albums</h3>
+            <div id="albums">
+                <ul></ul>
+            </div>
+            <h3>Top Tracks</h3>
+            <div id="top-tracks" class="search-tracks">
+                <ol></ol>
+            </div>
+            <footer class="app-name">
+                <p>The Music App</p>
+            </footer>
+        </main>
     </div>
 
     <!-- Album search results page html -->
-    <div
-      style="display: none;"
-      class="container result-page"
-      id="album-results-page"
-    >
-      <main class="search-profile">
-        <h1>Album Profile</h1>
-        <figure class="search-pic">
-          <a
-            class="waves-effect waves-light collection-item modal-trigger"
-            href="#artist-modal"
-            ><img src="" alt="" id="album-pic"
-          /></a>
-        </figure>
-        <figcaption class="search-bio">
-          <h2 id="summaryHeading"></h2>
-          <p id="summary"></p>
-        </figcaption>
+    <div style="display: none;" class="container result-page" id="album-results-page">
+        <main class="search-profile">
+            <h1>Album Profile</h1>
+            <figure class="search-pic">
+                <a class="waves-effect waves-light collection-item modal-trigger" href="#artist-modal"><img class="materialboxed" src="" alt="" id="album-pic" /></a>
+            </figure>
+            <figcaption class="search-bio">
+                <h2 id="summaryHeading"></h2>
+                <p id="summary"></p>
+            </figcaption>
 
-        <h3>Album Tracks</h3>
-        <div class="search-tracks">
-          <ol></ol>
-        </div>
-        <footer class="app-name">
-          <p>The Music App</p>
-        </footer>
-      </main>
+            <h3>Album Tracks</h3>
+            <div class="search-tracks">
+                <ol></ol>
+            </div>
+            <footer class="app-name">
+                <p>The Music App</p>
+            </footer>
+        </main>
     </div>
 
     <!-- Track search results page html  -->
-    <div
-      style="display: none;"
-      class="container result-page"
-      id="track-results-page"
-    >
-      <main class="search-profile">
-        <h1>Track Search</h1>
-        <figcaption class="search-bio">
-          <h2 id="track-name"></h2>
-        </figcaption>
+    <div style="display: none;" class="container result-page" id="track-results-page">
+        <main class="search-profile">
+            <h1>Track Search</h1>
+            <figcaption class="search-bio">
+                <h2 id="track-name"></h2>
+            </figcaption>
 
-        <h3>Track Search Results</h3>
-        <div class="search-tracks" id="track-search-result">
-          <ol>
-            <li></li>
-          </ol>
-        </div>
-        <footer class="app-name">
-          <p>The Music App</p>
-        </footer>
-      </main>
+            <h3>Track Search Results</h3>
+            <div class="search-tracks" id="track-search-result">
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <footer class="app-name">
+                <p>The Music App</p>
+            </footer>
+        </main>
     </div>
 
     <!-- Album Modal Structure -->
 
     <div class="modal-content">
-      <main id="album-modal" class="modal search-profile">
-        <div class="modal-header right-align">
-          <a
-            href="#!"
-            class="modal-action modal-close waves-effect waves-green large material-icons"
-            >close</a
+        <main id="album-modal" class="modal search-profile">
+            <div class="modal-header right-align">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green large material-icons">close</a
           >
         </div>
         <h1>About Album</h1>
