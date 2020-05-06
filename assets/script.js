@@ -255,7 +255,6 @@ function getArtistInfo(userInput) {
 
 //"reading" the value of <li>
 function lyrics(track) {
-  // var track = $(this).text();
   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
   var lyricsURL =
     "https://api.audd.io/findLyrics/?q=" +
