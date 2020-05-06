@@ -318,8 +318,6 @@ $(function () {
   //Filling in lyrics in modal when track is clicked
   $("ol").on("click", ".track-result", function () { 
     var track = $(this).text();
-    console.log("this is: " + this);
-    console.log("the track is: " + track);
     lyrics(track);
 
   });
