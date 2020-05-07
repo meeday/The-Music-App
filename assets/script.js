@@ -135,6 +135,7 @@ function getAlbumInfo() {
           $("#summary").html(response.album.wiki.summary);
           $("#summary").show();
         }
+        // Appending tracks
         for (i = 0; i < tracks.length; i++) {
           $(".search-tracks>ol").append(
             "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
@@ -197,7 +198,6 @@ function getArtistInfo() {
           url: topAlbumURL,
           method: "GET",
         }).then(function (response) {
-          console.log(response);
           //iterating through albums for a header image
           for (i = 0; i < 50; i++) {
             var albumImage = response.topalbums.album[i].image[2]["#text"];
@@ -268,7 +268,7 @@ function getArtistInfo() {
 }
 
 //Function for lyrics modal in track result page
-function lyrics(track) {
+function getLyrics(track) {
   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
   var lyricsURL =
     "https://api.audd.io/findLyrics/?q=" +
@@ -278,11 +278,8 @@ function lyrics(track) {
     url: lyricsURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     var lyrics = response.result[0].lyrics;
-    // console.log(lyrics);
     var mediaLink = response.result[0].media[2]["url"];
-    console.log(mediaLink);
     $("#modal-track-title").text(track);
     $("#modal-track-search-result").text(lyrics);
   });
@@ -376,7 +373,6 @@ function getModalArtistInfo(artistName) {
           url: topAlbumURL,
           method: "GET",
         }).then(function (response) {
-          console.log(response);
           //iterating through albums for a header image
           for (i = 0; i < 50; i++) {
             var albumImage = response.topalbums.album[i].image[2]["#text"];
@@ -490,14 +486,13 @@ $(function () {
   //Filling in lyrics in modal when track is clicked
   $("ol").on("click", ".track-result", function () {
     var track = $(this).text();
-    lyrics(track);
+    getLyrics(track);
   });
 
   //Filling in artist info modal
   $("a[href='#artist-modal']").on("click", function () {
     var artistName = $(this).attr("title");
     getModalArtistInfo(artistName);
-    console.log(artistName);
   });
 });
 
