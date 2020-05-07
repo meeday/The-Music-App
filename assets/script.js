@@ -277,9 +277,12 @@ function getModalTrackInfo(track) {
     url: lyricsURL,
     method: "GET",
   }).then(function (response) {
+    var trackName = response.result[0].title;
+    var artistName = response.result[0].artist;
     var lyrics = response.result[0].lyrics;
     var mediaLink = response.result[0].media[2]["url"];
-    $("#modal-track-title").text(track);
+    $("#modal-track-name").text(trackName);
+    $("#modal-artist-name").text(artistName);
     $("#modal-track-search-result").text(lyrics);
   });
 }
