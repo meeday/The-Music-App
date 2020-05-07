@@ -274,7 +274,6 @@ function lyrics(track) {
     "https://api.audd.io/findLyrics/?q=" +
     track +
     "&api_token=56504f66202634311b0e5c04f32ced06";
-  console.log(lyricsURL);
   $.ajax({
     url: lyricsURL,
     method: "GET",
