@@ -150,7 +150,7 @@ function getAlbumInfo() {
 }
 
 function getArtistInfo() {
- var userInput = $("#search-query").val();
+  var userInput = $("#search-query").val();
   var artistURL =
     "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" +
     userInput +
@@ -441,7 +441,7 @@ function getModalArtistInfo(artistName) {
   });
 }
 
-//These apply on page load
+// These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
     var userInput = $("#search-query").val();
