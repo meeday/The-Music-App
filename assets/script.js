@@ -338,6 +338,7 @@ $(function () {
     $("#default-search-input>label").remove();
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
+    $('input').val('');
   });
 
 
@@ -350,6 +351,7 @@ $(function () {
       $("#default-search-input>label").remove();
       $("#album-input>label").toggle();
       $("#artist-input>label").toggle();
+      $('input').val('');
     }
   });
 
@@ -384,3 +386,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var elems = $(".modal");
   var instances = M.Modal.init(elems);
 });
+
+
+// Erase input after search function
+// function eraseInput(){
+//   if ()
+//   $('input').val('');
+// }
