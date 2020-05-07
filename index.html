@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <!-- landing-page html -->
+    <!-- Landing page -->
     <div class="container landing-page">
       <div class="section no-pad-bot" id="index-banner">
         <div class="container">
@@ -45,6 +45,7 @@
         <label class="white-text" for="search-query">Search </label>
       </div>
 
+      <!-- Separate search for album to include artist name -->
       <div id="album-search-input" style="display: none;">
         <div id="artist-input" class="input-field col s12">
           <input
@@ -130,6 +131,28 @@
       </main>
     </div>
 
+    <!-- Track search results page html  -->
+    <div
+      style="display: none;"
+      class="container result-page"
+      id="track-results-page"
+    >
+      <main class="search-profile">
+        <h1>Track Search</h1>
+        <figcaption class="search-bio">
+          <h2 id="track-name"></h2>
+        </figcaption>
+
+        <h3>Track Search Results</h3>
+        <div class="search-tracks" id="track-search-result">
+          <ol></ol>
+        </div>
+        <footer class="app-name">
+          <p>The Music App</p>
+        </footer>
+      </main>
+    </div>
+
     <!-- Album search results page html -->
     <div
       style="display: none;"
@@ -160,30 +183,7 @@
       </main>
     </div>
 
-    <!-- Track search results page html  -->
-    <div
-      style="display: none;"
-      class="container result-page"
-      id="track-results-page"
-    >
-      <main class="search-profile">
-        <h1>Track Search</h1>
-        <figcaption class="search-bio">
-          <h2 id="track-name"></h2>
-        </figcaption>
-
-        <h3>Track Search Results</h3>
-        <div class="search-tracks" id="track-search-result">
-          <ol></ol>
-        </div>
-        <footer class="app-name">
-          <p>The Music App</p>
-        </footer>
-      </main>
-    </div>
-
     <!-- Album Modal Structure -->
-
     <div class="modal-content">
       <main id="album-modal" class="modal search-profile">
         <div class="modal-header right-align">
@@ -239,7 +239,6 @@
     </div>
 
     <!-- Artists Modal Structure -->
-
     <div class="modal-content">
       <main id="artist-modal" class="modal search-profile">
         <div class="modal-header right-align">
