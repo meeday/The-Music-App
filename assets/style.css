@@ -5,7 +5,7 @@
 /* landing-page styling */
 
 body {
-  background-image: url("https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80");
+  background-image: url("../assets/images/landing-background.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -76,7 +76,7 @@ label.white-text {
 
 .search-profile {
   background-color: rgba(0, 0, 0, 0.9);
-  background: url("https://i.stack.imgur.com/vAGZp.jpg");
+  background-image: url("../assets/images/results-background.jpg");
   background-position: top center;
   background-size: cover;
   background-repeat: none;
@@ -132,13 +132,15 @@ label.white-text {
   text-decoration: none;
 }
 
-#albums ul {
+#albums ul,
+#modal-albums ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
 
-#albums li {
+#albums li,
+#modal-albums li {
   display: inline;
 }
 
@@ -148,21 +150,23 @@ label.white-text {
   font-size: 1.5em;
 }
 
-#albums {
+#albums,
+#modal-albums {
   margin: 10px auto;
   clear: both;
   text-align: center;
   flex-direction: row;
 }
 
-#albums img {
+#albums img,
+#modal-albums img {
   color: rgba(255, 255, 255, 1);
   padding: 0;
   margin: 0 5px;
 }
 
 .search-tracks {
-  background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
+  background-image: url("../assets/images/results-background.jpg");
   background: rgba(255, 255, 255, 0.1);
   margin-top: 20px;
 }
@@ -200,7 +204,7 @@ label.white-text {
   margin-bottom: 20px;
 }
 
-.modal-search-tracks{
+.modal-search-tracks {
   color: white;
   padding: 2em;
   text-align: justify;
@@ -217,7 +221,7 @@ label.white-text {
   justify-content: center;
   padding: 4px 10px;
   text-align: center;
-  background: url("https://i.stack.imgur.com/vAGZp.jpg");
+  background: url("../assets/images/results-background.jpg");
   display: block;
 }
 
