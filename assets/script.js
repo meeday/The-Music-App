@@ -2,8 +2,6 @@
 //------------LAST FM API CALLS SECTION--------------------
 //---------------------------------------------------------
 
-// var userInput;
-
 function callAPI() {
   if ($("#track-btn").is(":checked")) {
     $("#album-input>label").toggle();
@@ -65,7 +63,7 @@ function getTrackInfo() {
       //build up search result list
       for (i = 0; i < length; i++) {
         $("#track-search-result>ol").append(
-          "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+          "<li><a title='click me for more' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
             tracks[i].name +
             " - " +
             tracks[i].artist +
@@ -138,7 +136,7 @@ function getAlbumInfo() {
         // Appending tracks
         for (i = 0; i < tracks.length; i++) {
           $(".search-tracks>ol").append(
-            "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            "<li><a title='click me for more' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
               "</a></li>"
           );
@@ -254,7 +252,7 @@ function getArtistInfo() {
           $("#top-tracks>ol").html("");
           for (i = 0; i < 5; i++) {
             $("#top-tracks>ol").append(
-              '<li><a class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
+              '<li><a title="click me for more" class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
                 "</span></a></li>"
@@ -495,6 +493,7 @@ $(function () {
     getModalArtistInfo(artistName);
   });
 });
+
 
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {
