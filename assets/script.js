@@ -2,17 +2,17 @@
 //------------LAST FM API CALLS SECTION--------------------
 //---------------------------------------------------------
 
-var userInput;
+// var userInput;
 
 function callAPI() {
   if ($("#track-btn").is(":checked")) {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
-    getTrackInfo(userInput);
+    getTrackInfo();
   } else if ($("#artist-btn").is(":checked")) {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
-    getArtistInfo(userInput);
+    getArtistInfo();
   } else if ($("#album-btn").is(":checked")) {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
@@ -20,8 +20,8 @@ function callAPI() {
   }
 }
 
-function getTrackInfo(userInput) {
-  userInput = $("#search-query").val();
+function getTrackInfo() {
+  var userInput = $("#search-query").val();
   var trackURL =
     "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" +
     userInput +
@@ -148,8 +148,8 @@ function getAlbumInfo() {
   });
 }
 
-function getArtistInfo(userInput) {
-  userInput = $("#search-query").val();
+function getArtistInfo() {
+ var userInput = $("#search-query").val();
   var artistURL =
     "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" +
     userInput +
