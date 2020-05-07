@@ -168,6 +168,7 @@ function getArtistInfo() {
       }
     },
   }).then(function (response) {
+    
     // Handling LastFM error response
     if (response.error) {
       var error = response.message;
@@ -184,6 +185,8 @@ function getArtistInfo() {
         });
       } else {
         $("#artist-name").text(name);
+        console.log(response);
+  
         $("#artist-bio").html(bio.summary);
         $("#artist-bio>a").attr("Target", "_blank");
         // Filling top 4 albums
