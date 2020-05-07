@@ -19,6 +19,7 @@ function callAPI() {
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
     getArtistInfo(userInput);
+    getArtistConcert();
     $("#artist-results-page").show(400);
   } else if ($("#album-btn").is(":checked")) {
     $("#album-input>label").toggle();
