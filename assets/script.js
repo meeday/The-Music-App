@@ -2,6 +2,7 @@
 //------------LAST FM API CALLS SECTION--------------------
 //---------------------------------------------------------
 
+
 var userInput;
 
 function callAPI() {
@@ -65,7 +66,7 @@ function getTrackInfo(userInput) {
       //build up search result list
       for (i = 0; i < length; i++) {
         $("#track-search-result>ol").append(
-          "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+          "<li><a title='click me for more' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
             tracks[i].name +
             " - " +
             tracks[i].artist +
@@ -137,7 +138,7 @@ function getAlbumInfo() {
         }
         for (i = 0; i < tracks.length; i++) {
           $(".search-tracks>ol").append(
-            "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+            "<li><a title='click me for more' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
               tracks[i].name +
               "</a></li>"
           );
@@ -221,7 +222,7 @@ function getArtistInfo(userInput) {
               // Appending the album
               $("#albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
+                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
@@ -254,7 +255,7 @@ function getArtistInfo(userInput) {
           $("#top-tracks>ol").html("");
           for (i = 0; i < 5; i++) {
             $("#top-tracks>ol").append(
-              '<li><a class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
+              '<li><a title="click me for more" class="track-result waves-effect waves-light collection-item modal-trigger" href="#track-modal">' +
                 "<span>" +
                 response.toptracks.track[i].name +
                 "</span></a></li>"
@@ -378,6 +379,7 @@ $(function () {
     lyrics(track);
   });
 });
+
 
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {

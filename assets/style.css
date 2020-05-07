@@ -11,9 +11,16 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-
 a {
-  color: white;
+  color: #fff;
+}
+a:hover::after {
+  background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
+  content: attr(title);
+  justify-content: center;
+  padding: 4px 10px;
+  text-align: center;
+  margin-left: 10px;
 }
 
 .white-text {
