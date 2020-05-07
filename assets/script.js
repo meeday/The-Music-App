@@ -221,7 +221,7 @@ function getArtistInfo(userInput) {
               // Appending the album
               $("#albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
+                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="getModalAlbumsInfo($(this))"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
@@ -288,16 +288,15 @@ function lyrics(track) {
   });
 }
 
-// Secondary Function
-// Artist Search Result Page Top Albums Modal
-function customFunction(data) {
+// Generating top albums modal
+function getModalAlbumsInfo(clickedElement) {
   // Reset the list when modal is clicked
   $("#modal-search-tracks>ol").html("");
   // Get value from the search input and image alt
   var artist = $("#search-query").val();
-  var album = data[0].firstChild.alt;
+  var album = clickedElement[0].firstChild.alt;
   // Add pic to the modal (if added, less tracks will be shown)
-  // $("#modal-album-pic").attr("src", data[0].firstChild.src);
+  // $("#modal-album-pic").attr("src", clickedElement[0].firstChild.src);
 
   // ajax call to get information of track
   var albumURL =
@@ -401,7 +400,7 @@ function getModalArtistInfo(artistName) {
               // Appending the album
               $("#modal-albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
+                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="getModalAlbumsInfo($(this))"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
