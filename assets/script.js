@@ -274,7 +274,7 @@ function lyrics(track) {
     "https://api.audd.io/findLyrics/?q=" +
     track +
     "&api_token=56504f66202634311b0e5c04f32ced06";
-    console.log(lyricsURL)
+  console.log(lyricsURL);
   $.ajax({
     url: lyricsURL,
     method: "GET",
@@ -299,7 +299,7 @@ function customFunction(data) {
   var album = data[0].firstChild.alt;
   // Add pic to the modal (if added, less tracks will be shown)
   // $("#modal-album-pic").attr("src", data[0].firstChild.src);
-  
+
   // ajax call to get information of track
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
@@ -322,10 +322,10 @@ function customFunction(data) {
     for (i = 0; i < length; i++) {
       $("#modal-search-tracks>ol").append(
         "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-        tracks[i].name +
-        "</a></li>"
-        );
-      }
+          tracks[i].name +
+          "</a></li>"
+      );
+    }
   });
 }
 
@@ -338,9 +338,8 @@ $(function () {
     $("#default-search-input>label").remove();
     $("#album-input>label").toggle();
     $("#artist-input>label").toggle();
-    $('input').val('');
+    $("input").val("");
   });
-
 
   // Search on <enter key> pressed
   $(document).keypress(function (event) {
@@ -351,7 +350,7 @@ $(function () {
       $("#default-search-input>label").remove();
       $("#album-input>label").toggle();
       $("#artist-input>label").toggle();
-      $('input').val('');
+      $("input").val("");
     }
   });
 
@@ -375,7 +374,7 @@ $(function () {
   });
 
   //Filling in lyrics in modal when track is clicked
-  $("ol").on("click", ".track-result", function () { 
+  $("ol").on("click", ".track-result", function () {
     var track = $(this).text();
     lyrics(track);
   });
@@ -386,10 +385,3 @@ document.addEventListener("DOMContentLoaded", function () {
   var elems = $(".modal");
   var instances = M.Modal.init(elems);
 });
-
-
-// Erase input after search function
-// function eraseInput(){
-//   if ()
-//   $('input').val('');
-// }
