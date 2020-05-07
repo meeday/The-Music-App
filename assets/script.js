@@ -221,7 +221,7 @@ function getArtistInfo(userInput) {
               // Appending the album
               $("#albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a id="albums" class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
+                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="customFunction($(this))"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
@@ -321,7 +321,7 @@ function customFunction(data) {
     //for loop to add track inside the modal
     for (i = 0; i < length; i++) {
       $("#modal-search-tracks>ol").append(
-        "<li><a id='tracks' class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+        "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
           tracks[i].name +
           "</a></li>"
       );
