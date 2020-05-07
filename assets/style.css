@@ -14,7 +14,7 @@ body {
 a {
   color: #fff;
 }
-a:hover::after {
+.track-result:hover::after {
   background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
   content: attr(title);
   justify-content: center;
