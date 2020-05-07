@@ -168,7 +168,6 @@ function getArtistInfo() {
       }
     },
   }).then(function (response) {
-    
     // Handling LastFM error response
     if (response.error) {
       var error = response.message;
@@ -185,8 +184,7 @@ function getArtistInfo() {
         });
       } else {
         $("#artist-name").text(name);
-        console.log(response);
-  
+
         $("#artist-bio").html(bio.summary);
         $("#artist-bio>a").attr("Target", "_blank");
         // Filling top 4 albums
@@ -269,7 +267,7 @@ function getArtistInfo() {
 }
 
 //Function for lyrics modal in track result page
-function getLyrics(track) {
+function getModalTrackInfo(track) {
   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
   var lyricsURL =
     "https://api.audd.io/findLyrics/?q=" +
@@ -286,17 +284,9 @@ function getLyrics(track) {
   });
 }
 
-// Generating top albums modal
-function getModalAlbumsInfo(clickedElement) {
-  // Reset the list when modal is clicked
-  $("#modal-search-tracks>ol").html("");
-  // Get value from the search input and image alt
-  var artist = $("#search-query").val();
-  var album = clickedElement[0].firstChild.alt;
-  // Add pic to the modal (if added, less tracks will be shown)
-  // $("#modal-album-pic").attr("src", clickedElement[0].firstChild.src);
-
-  // ajax call to get information of track
+function getModalAlbumInfo(album) {
+  var artist = $("#artist-name").text();
+  var albumName = $("#artist-name").text();
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
     artist +
@@ -306,21 +296,60 @@ function getModalAlbumsInfo(clickedElement) {
   $.ajax({
     url: albumURL,
     method: "GET",
+    // Handling errors with the api call
+    error: function (xhr, _ajaxOptions, _thrownError) {
+      if (xhr.status == 400) {
+        M.toast({
+          html: "400: Invalid Input.",
+          classes: "error-message",
+        });
+      } else if (xhr.status == 404) {
+        M.toast({ html: "404: Not Found.", classes: "error-message" });
+      }
+    },
   }).then(function (response) {
-    var tracks = response.album.tracks.track;
-    var length = tracks.length;
-    //logic gate to limit the track shown
-    if (length > 5) {
-      var length = 5;
-    }
-    $("#top-album-modal").text(album);
-    //for loop to add track inside the modal
-    for (i = 0; i < length; i++) {
-      $("#modal-search-tracks>ol").append(
-        "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-          tracks[i].name +
-          "</a></li>"
-      );
+    // Checking for error response
+    if (response.error) {
+      var error = response.message;
+      M.toast({ html: error, classes: "error-message" });
+      $("#toast-container").css("top", "44%");
+    } else {
+      var albumName = response.album.name;
+      var icon = response.album.image[2]["#text"];
+      var tracks = response.album.tracks.track;
+      // Checking if an empty album was returned
+      if (!icon && !tracks.length) {
+        M.toast({
+          html: "The album you supplied could not be found",
+          classes: "error-message",
+        });
+        $("#toast-container").css("top", "44%");
+      } else {
+        //album search result shown
+        $("#modal-album-pic").attr("src", icon);
+        $("#modal-summaryHeading").text(albumName);
+        // create title attribute
+        $("#modal-album-pic").attr("title", response.album.artist);
+        //function for setting attribute to each link
+        $("a.img").each(function () {
+          $(this).attr("title", $(this).find("img").attr("title"));
+        });
+        $("#modal-search-tracks>ol").html("");
+        if (!response.album.wiki) {
+          $("#modal-summary").hide();
+        } else {
+          $("#modal-summary").html(response.album.wiki.summary);
+          $("#modal-summary").show();
+        }
+        // Appending tracks
+        for (i = 0; i < tracks.length; i++) {
+          $("#modal-search-tracks>ol").append(
+            "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+              tracks[i].name +
+              "</a></li>"
+          );
+        }
+      }
     }
   });
 }
@@ -442,79 +471,6 @@ function getModalArtistInfo(artistName) {
   });
 }
 
-function getModalAlbumInfo(album) {
-  var artist = $("#artist-name").text();
-  var albumName = $("#artist-name").text();
-  console.log(artist);
-  console.log(album);
-  var albumURL =
-    "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
-    artist +
-    "&album=" +
-    album +
-    "&format=json";
-  $.ajax({
-    url: albumURL,
-    method: "GET",
-    // Handling errors with the api call
-    error: function (xhr, _ajaxOptions, _thrownError) {
-      if (xhr.status == 400) {
-        M.toast({
-          html: "400: Invalid Input.",
-          classes: "error-message",
-        });
-      } else if (xhr.status == 404) {
-        M.toast({ html: "404: Not Found.", classes: "error-message" });
-      }
-    },
-  }).then(function (response) {
-    console.log(response);
-    // Checking for error response
-    if (response.error) {
-      var error = response.message;
-      M.toast({ html: error, classes: "error-message" });
-      $("#toast-container").css("top", "44%");
-    } else {
-      var albumName = response.album.name;
-      var icon = response.album.image[2]["#text"];
-      var tracks = response.album.tracks.track;
-      // Checking if an empty album was returned
-      if (!icon && !tracks.length) {
-        M.toast({
-          html: "The album you supplied could not be found",
-          classes: "error-message",
-        });
-        $("#toast-container").css("top", "44%");
-      } else {
-        //album search result shown
-        $("#modal-album-pic").attr("src", icon);
-        $("#modal-summaryHeading").text(albumName);
-        // create title attribute
-        $("#modal-album-pic").attr("title", response.album.artist);
-        //function for setting attribute to each link
-        $("a.img").each(function () {
-          $(this).attr("title", $(this).find("img").attr("title"));
-        });
-        $("#modal-search-tracks>ol").html("");
-        if (!response.album.wiki) {
-          $("#modal-summary").hide();
-        } else {
-          $("#modal-summary").html(response.album.wiki.summary);
-          $("#modal-summary").show();
-        }
-        // Appending tracks
-        for (i = 0; i < tracks.length; i++) {
-          $("#modal-search-tracks>ol").append(
-            "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-              tracks[i].name +
-              "</a></li>"
-          );
-        }
-      }
-    }
-  });
-}
-
 // These apply on page load
 $(function () {
   $("#search-icon").on("click", function () {
@@ -560,7 +516,7 @@ $(function () {
   //Filling in lyrics in modal when track is clicked
   $("ol").on("click", ".track-result", function () {
     var track = $(this).text();
-    getLyrics(track);
+    getModalTrackInfo(track);
   });
 
   //Filling in artist info modal
