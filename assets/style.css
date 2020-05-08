@@ -2,8 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
-/* landing-page styling */
-
 body {
   background-image: url("../assets/images/landing-background.jpeg");
   background-position: center;
@@ -12,21 +10,18 @@ body {
   background-size: cover;
 }
 
+/* landing-page styling */
+
 a {
   color: #fff;
 }
 
-.track-result:hover::after {
-  background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
-  content: attr(title);
-  justify-content: center;
-  padding: 4px 10px;
-  text-align: center;
-  margin-left: 10px;
-}
-
 .white-text {
   text-shadow: 10px 8px 9px black;
+}
+
+label.white-text {
+  font-size: 1.5rem;
 }
 
 #search-icon {
@@ -36,18 +31,11 @@ a {
 
 #album-search-icon {
   cursor: pointer;
-}
-
-label.white-text {
-  font-size: 1.5rem;
+  top: -0.5rem;
 }
 
 #artist-input {
   margin-left: 43.5px;
-}
-
-#album-search-icon {
-  top: -0.5rem;
 }
 
 #query-selection {
@@ -63,36 +51,78 @@ label.white-text {
   font-size: 1.7rem;
 }
 
-.error-message {
+.track-result:hover::after {
+  background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
+  content: attr(title);
+  justify-content: center;
+  padding: 4px 10px;
   text-align: center;
-  background-color: red;
-  color: #ffffff;
+  margin-left: 10px;
 }
 
-#toast-container {
-  bottom: auto !important;
-  top: 62%;
+.materialboxed {
+  cursor: pointer;
 }
 
-/* results page styling */
+/* results page and modals styling */
+
+.results-page {
+  width: 100%;
+  padding: 5% 0px 1%;
+  font-family: "Raleway", sans-serif;
+}
 
 .search-profile {
   background-color: rgba(0, 0, 0, 0.9);
   background-image: url("../assets/images/results-background.jpg");
   background-position: top center;
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
   width: 80%;
   margin: 0px auto;
   padding: 4px;
   border-radius: 4px;
 }
 
+.search-profile a,
+.search-profile a:hover {
+  text-decoration: none;
+}
 .search-profile h1 {
   color: white;
   text-align: center;
   font-weight: 600;
   font-size: 2em;
+}
+
+.search-profile h3 {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.search-profile ol {
+  list-style-type: none;
+  padding: 20px 36px;
+  font-weight: 500;
+}
+
+.search-profile ol li {
+  color: white;
+  border-bottom: 1px solid white;
+  counter-increment: number;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: initial;
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  align-items: center;
+  align-content: initial;
+  height: 45px;
+}
+
+.search-profile ol li a span:not(:last-child) {
+  margin-right: 2em;
 }
 
 .search-pic,
@@ -127,18 +157,6 @@ label.white-text {
   font-size: 1em;
 }
 
-.search-results-page,
-#album-results-page {
-  width: 100%;
-  padding: 5% 0px 1%;
-  font-family: "Raleway", sans-serif;
-}
-
-.search-profile a,
-.search-profile a:hover {
-  text-decoration: none;
-}
-
 #albums ul,
 #modal-albums ul {
   list-style: none;
@@ -149,12 +167,6 @@ label.white-text {
 #albums li,
 #modal-albums li {
   display: inline;
-}
-
-.search-profile h3 {
-  color: white;
-  text-align: center;
-  font-size: 1.5em;
 }
 
 #albums,
@@ -168,7 +180,7 @@ label.white-text {
 #albums img,
 #modal-albums img {
   color: rgba(255, 255, 255, 1);
-  padding: 0;
+  padding: 5px;
   margin: 0 5px;
 }
 
@@ -179,30 +191,11 @@ label.white-text {
   margin-top: 20px;
 }
 
-.search-profile ol {
-  list-style-type: none;
-  padding: 20px 36px;
-  font-weight: 500;
-}
-
-.search-profile ol li {
+.modal-search-tracks {
   color: white;
-  border-bottom: 1px solid white;
-  counter-increment: number;
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: initial;
-  -webkit-box-pack: justify;
-  -webkit-box-align: center;
-  align-items: center;
-  align-content: initial;
-  height: 45px;
+  padding: 2em;
+  text-align: justify;
 }
-
-.search-profile ol li a span:not(:last-child) {
-  margin-right: 2em;
-}
-
 .app-name {
   color: white;
   width: 80%;
@@ -210,16 +203,6 @@ label.white-text {
   clear: both;
   text-align: center;
   margin-bottom: 20px;
-}
-
-.modal-search-tracks {
-  color: white;
-  padding: 2em;
-  text-align: justify;
-}
-
-.materialboxed {
-  cursor: pointer;
 }
 
 .img:hover::after,
@@ -233,6 +216,20 @@ label.white-text {
   display: block;
 }
 
+/* error handlers styling */
+
+.error-message {
+  text-align: center;
+  background-color: red;
+  color: #ffffff;
+}
+
+#toast-container {
+  bottom: auto !important;
+  top: 62%;
+}
+
+/* media queries */
 @media (min-width: 600px) {
   #toast-container {
     bottom: auto !important;
