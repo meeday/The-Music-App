@@ -174,7 +174,7 @@ function getArtistInfo() {
       M.toast({ html: error, classes: "error-message" });
     } else {
       // Determining if artist exists
-      var name = response.artist.name;
+      var artistName = response.artist.name;
       var bio = response.artist.bio;
       var image = response.artist.image[0]["#text"];
       if (!bio.content && !image) {
@@ -183,8 +183,7 @@ function getArtistInfo() {
           classes: "error-message",
         });
       } else {
-        $("#artist-name").text(name);
-
+        $("#artist-name").text(artistName);
         $("#artist-bio").html(bio.summary);
         $("#artist-bio>a").attr("Target", "_blank");
         // Filling top 4 albums
@@ -220,23 +219,29 @@ function getArtistInfo() {
               // Appending the album
               $("#albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a class="album-cover image waves-effect waves-light modal-trigger" href="#album-modal"><img class="materialboxed" src="' +
+                '<li><a class="album-cover image waves-effect waves-light modal-trigger" href="#album-modal">' +
+                  '<img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
                   '" title="' +
                   albumName +
-                  '"' +
-                  "/></a>" +
+                  '" data-artist-name="' +
+                  artistName +
+                  '"/></a>' +
                   "</li>"
               );
-              //function for setting attribute to each link
-              $("a.image").each(function () {
-                $(this).attr("title", $(this).find("img").attr("title"));
-              });
-              // Incrimenting album count
+              // Incrementing album count
               a++;
             }
+            // Function for setting attributes to each link
+            $("a.image").each(function () {
+              $(this).attr("title", $(this).find("img").attr("title"));
+              $(this).attr(
+                "data-artist-name",
+                $(this).find("img").attr("data-artist-name")
+              );
+            });
           }
         });
 
@@ -286,8 +291,7 @@ function getModalTrackInfo(track) {
   });
 }
 
-function getModalAlbumInfo(album) {
-  var artist = $("#artist-name").text();
+function getModalAlbumInfo(artist, album) {
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
     artist +
@@ -427,23 +431,29 @@ function getModalArtistInfo(artistName) {
               // Appending the album
               $("#modal-albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a class="album-cover image waves-effect waves-light modal-trigger" href="#album-modal"><img class="materialboxed" src="' +
+                '<li><a class="album-cover image waves-effect waves-light modal-trigger" href="#album-modal">' +
+                  '<img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
                   '" title="' +
                   albumName +
-                  '"' +
-                  "/></a>" +
+                  '" data-artist-name="' +
+                  artistName +
+                  '"/></a>' +
                   "</li>"
               );
-              // Function for setting attribute to each link
-              $("a.image").each(function () {
-                $(this).attr("title", $(this).find("img").attr("title"));
-              });
               // Incrementing album count
               a++;
             }
+            // Function for setting attributes to each link
+            $("a.image").each(function () {
+              $(this).attr("title", $(this).find("img").attr("title"));
+              $(this).attr(
+                "data-artist-name",
+                $(this).find("img").attr("data-artist-name")
+              );
+            });
           }
         });
 
@@ -528,8 +538,9 @@ $(function () {
 
   //Filling in album info modal
   $("ul").on("click", ".album-cover", function () {
+    var artistName = $(this).attr("data-artist-name");
     var albumName = $(this).attr("title");
-    getModalAlbumInfo(albumName);
+    getModalAlbumInfo(artistName, albumName);
   });
 });
 
