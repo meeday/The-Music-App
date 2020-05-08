@@ -538,5 +538,5 @@ $(function () {
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {
   var elems = $(".modal");
-  var instances = M.Modal.init(elems);
+  M.Modal.init(elems);
 });
