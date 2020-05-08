@@ -277,10 +277,11 @@ function getModalTrackInfo(track) {
     url: lyricsURL,
     method: "GET",
   }).then(function (response) {
+    console.log(response);
+    
     var trackName = response.result[0].title;
     var artistName = response.result[0].artist;
     var lyrics = response.result[0].lyrics;
-    var mediaLink = response.result[0].media[2]["url"];
     $("#modal-track-name").text(trackName);
     $("#modal-artist-name").text(artistName);
     $("#modal-track-search-result").text(lyrics);
@@ -289,7 +290,6 @@ function getModalTrackInfo(track) {
 
 function getModalAlbumInfo(album) {
   var artist = $("#artist-name").text();
-  var albumName = $("#artist-name").text();
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
     artist +
@@ -538,5 +538,5 @@ $(function () {
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {
   var elems = $(".modal");
-  var instances = M.Modal.init(elems);
+  M.Modal.init(elems);
 });
