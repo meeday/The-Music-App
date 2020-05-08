@@ -11,9 +11,11 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
 a {
   color: #fff;
 }
+
 .track-result:hover::after {
   background-image: url("https://i.stack.imgur.com/vAGZp.jpg");
   content: attr(title);
@@ -93,7 +95,7 @@ label.white-text {
   font-size: 2em;
 }
 
-.search-pic, 
+.search-pic,
 .modal-search-pic {
   width: 180px;
   height: 180px;
@@ -106,7 +108,7 @@ label.white-text {
   border-radius: 50%;
 }
 
-.search-bio, 
+.search-bio,
 .modal-search-bio {
   text-align: center;
   padding-bottom: 10px;
@@ -119,7 +121,7 @@ label.white-text {
 }
 
 .search-bio p,
-.modal-search-bio p{
+.modal-search-bio p {
   text-align: center;
   color: white;
   font-size: 1em;
