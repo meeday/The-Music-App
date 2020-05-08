@@ -277,8 +277,6 @@ function getModalTrackInfo(track) {
     url: lyricsURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
-    
     var trackName = response.result[0].title;
     var artistName = response.result[0].artist;
     var lyrics = response.result[0].lyrics;
