@@ -81,7 +81,7 @@ label.white-text {
   background-image: url("../assets/images/results-background.jpg");
   background-position: top center;
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
   width: 80%;
   margin: 0px auto;
   padding: 4px;
