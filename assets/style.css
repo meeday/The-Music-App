@@ -93,28 +93,33 @@ label.white-text {
   font-size: 2em;
 }
 
-.search-pic {
+.search-pic, 
+.modal-search-pic {
   width: 180px;
   height: 180px;
   margin: 20px auto 10px;
 }
 
-.search-pic img {
+.search-pic img,
+.modal-search-pic img {
   width: 100%;
   border-radius: 50%;
 }
 
-.search-bio {
+.search-bio, 
+.modal-search-bio {
   text-align: center;
   padding-bottom: 10px;
 }
 
-.search-bio h2 {
+.search-bio h2,
+.modal-search-bio h2 {
   color: white;
   font-size: 2em;
 }
 
-.search-bio p {
+.search-bio p,
+.modal-search-bio p{
   text-align: center;
   color: white;
   font-size: 1em;
@@ -165,7 +170,8 @@ label.white-text {
   margin: 0 5px;
 }
 
-.search-tracks {
+.search-tracks,
+#modal-search-tracks {
   background-image: url("../assets/images/results-background.jpg");
   background: rgba(255, 255, 255, 0.1);
   margin-top: 20px;

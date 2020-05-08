@@ -184,6 +184,7 @@ function getArtistInfo() {
         });
       } else {
         $("#artist-name").text(name);
+
         $("#artist-bio").html(bio.summary);
         $("#artist-bio>a").attr("Target", "_blank");
         // Filling top 4 albums
@@ -219,7 +220,7 @@ function getArtistInfo() {
               // Appending the album
               $("#albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="getModalAlbumsInfo($(this))"><img class="materialboxed" src="' +
+                '<li><a class="album-cover image waves-effect waves-light modal-trigger" href="#album-modal"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
@@ -266,7 +267,7 @@ function getArtistInfo() {
 }
 
 //Function for lyrics modal in track result page
-function getLyrics(track) {
+function getModalTrackInfo(track) {
   //Create lyrics api url with <li> information. The syntax is //https://api.audd.io/findLyrics/?q=adele hello
   var lyricsURL =
     "https://api.audd.io/findLyrics/?q=" +
@@ -276,24 +277,19 @@ function getLyrics(track) {
     url: lyricsURL,
     method: "GET",
   }).then(function (response) {
+    var trackName = response.result[0].title;
+    var artistName = response.result[0].artist;
     var lyrics = response.result[0].lyrics;
     var mediaLink = response.result[0].media[2]["url"];
-    $("#modal-track-title").text(track);
+    $("#modal-track-name").text(trackName);
+    $("#modal-artist-name").text(artistName);
     $("#modal-track-search-result").text(lyrics);
   });
 }
 
-// Generating top albums modal
-function getModalAlbumsInfo(clickedElement) {
-  // Reset the list when modal is clicked
-  $("#modal-search-tracks>ol").html("");
-  // Get value from the search input and image alt
-  var artist = $("#search-query").val();
-  var album = clickedElement[0].firstChild.alt;
-  // Add pic to the modal (if added, less tracks will be shown)
-  // $("#modal-album-pic").attr("src", clickedElement[0].firstChild.src);
-
-  // ajax call to get information of track
+function getModalAlbumInfo(album) {
+  var artist = $("#artist-name").text();
+  var albumName = $("#artist-name").text();
   var albumURL =
     "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cdcc6e0cda44cee6b6571363c390279&artist=" +
     artist +
@@ -303,21 +299,60 @@ function getModalAlbumsInfo(clickedElement) {
   $.ajax({
     url: albumURL,
     method: "GET",
+    // Handling errors with the api call
+    error: function (xhr, _ajaxOptions, _thrownError) {
+      if (xhr.status == 400) {
+        M.toast({
+          html: "400: Invalid Input.",
+          classes: "error-message",
+        });
+      } else if (xhr.status == 404) {
+        M.toast({ html: "404: Not Found.", classes: "error-message" });
+      }
+    },
   }).then(function (response) {
-    var tracks = response.album.tracks.track;
-    var length = tracks.length;
-    //logic gate to limit the track shown
-    if (length > 5) {
-      var length = 5;
-    }
-    $("#top-album-modal").text(album);
-    //for loop to add track inside the modal
-    for (i = 0; i < length; i++) {
-      $("#modal-search-tracks>ol").append(
-        "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
-          tracks[i].name +
-          "</a></li>"
-      );
+    // Checking for error response
+    if (response.error) {
+      var error = response.message;
+      M.toast({ html: error, classes: "error-message" });
+      $("#toast-container").css("top", "44%");
+    } else {
+      var albumName = response.album.name;
+      var icon = response.album.image[2]["#text"];
+      var tracks = response.album.tracks.track;
+      // Checking if an empty album was returned
+      if (!icon && !tracks.length) {
+        M.toast({
+          html: "The album you supplied could not be found",
+          classes: "error-message",
+        });
+        $("#toast-container").css("top", "44%");
+      } else {
+        //album search result shown
+        $("#modal-album-pic").attr("src", icon);
+        $("#modal-summaryHeading").text(albumName);
+        // create title attribute
+        $("#modal-album-pic").attr("title", response.album.artist);
+        //function for setting attribute to each link
+        $("a.img").each(function () {
+          $(this).attr("title", $(this).find("img").attr("title"));
+        });
+        $("#modal-search-tracks>ol").html("");
+        if (!response.album.wiki) {
+          $("#modal-summary").hide();
+        } else {
+          $("#modal-summary").html(response.album.wiki.summary);
+          $("#modal-summary").show();
+        }
+        // Appending tracks
+        for (i = 0; i < tracks.length; i++) {
+          $("#modal-search-tracks>ol").append(
+            "<li><a class='track-result waves-effect waves-light collection-item modal-trigger' href='#track-modal'>" +
+              tracks[i].name +
+              "</a></li>"
+          );
+        }
+      }
     }
   });
 }
@@ -394,7 +429,7 @@ function getModalArtistInfo(artistName) {
               // Appending the album
               $("#modal-albums>ul").append(
                 //We have come up with two solution regarding the event alligation (this is one of the method we come up with)
-                '<li><a class="image waves-effect waves-light modal-trigger" href="#album-modal" onclick="getModalAlbumsInfo($(this))"><img class="materialboxed" src="' +
+                '<li><a class="album-cover image waves-effect waves-light modal-trigger" href="#album-modal"><img class="materialboxed" src="' +
                   albumImage +
                   '" alt="' +
                   albumName +
@@ -484,7 +519,7 @@ $(function () {
   //Filling in lyrics in modal when track is clicked
   $("ol").on("click", ".track-result", function () {
     var track = $(this).text();
-    getLyrics(track);
+    getModalTrackInfo(track);
   });
 
   //Filling in artist info modal
@@ -492,8 +527,13 @@ $(function () {
     var artistName = $(this).attr("title");
     getModalArtistInfo(artistName);
   });
-});
 
+  //Filling in album info modal
+  $("ul").on("click", ".album-cover", function () {
+    var albumName = $(this).attr("title");
+    getModalAlbumInfo(albumName);
+  });
+});
 
 // Modal function
 document.addEventListener("DOMContentLoaded", function () {
