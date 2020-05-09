@@ -286,7 +286,7 @@ function getModalTrackInfo(track) {
     var artistName = response.result[0].artist;
     var lyrics = response.result[0].lyrics;
     $("#modal-track-name").text(trackName);
-    $("#modal-artist-name").text(artistName);
+    $(".modal-artist-name").text(artistName);
     $("#modal-track-search-result").text(lyrics);
   });
 }
@@ -395,7 +395,7 @@ function getModalArtistInfo(artistName) {
           classes: "error-message",
         });
       } else {
-        $("#modal-artist-name").text(name);
+        $(".modal-artist-name").text(name);
         $("#modal-artist-bio").html(bio.summary);
         $("#modal-artist-bio>a").attr("Target", "_blank");
         // Filling top 4 albums
