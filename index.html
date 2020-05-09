@@ -108,15 +108,15 @@
       class="container result-page"
       id="artist-results-page"
     >
-      <main class="container search-profile">
+      <section class="container search-profile">
         <h1>Artists Profile</h1>
         <figure class="search-pic">
           <img id="header-img" src="" alt="" />
         </figure>
-        <figcaption class="search-bio">
+        <figure class="search-bio">
           <h2 id="artist-name"></h2>
           <p id="artist-bio"></p>
-        </figcaption>
+        </figure>
         <h3>Top Albums</h3>
         <div id="albums">
           <ul></ul>
@@ -128,7 +128,7 @@
         <footer class="app-name">
           <p>The Music App</p>
         </footer>
-      </main>
+      </section>
     </div>
 
     <!-- Track search results page html  -->
@@ -137,11 +137,11 @@
       class="container result-page"
       id="track-results-page"
     >
-      <main class="search-profile">
+      <section class="search-profile">
         <h1>Track Search</h1>
-        <figcaption class="search-bio">
+        <figure class="search-bio">
           <h2 id="track-name"></h2>
-        </figcaption>
+        </figure>
 
         <h3>Track Search Results</h3>
         <div class="search-tracks" id="track-search-result">
@@ -150,7 +150,7 @@
         <footer class="app-name">
           <p>The Music App</p>
         </footer>
-      </main>
+      </section>
     </div>
 
     <!-- Album search results page html -->
@@ -159,7 +159,7 @@
       class="container result-page"
       id="album-results-page"
     >
-      <main class="search-profile">
+      <section class="search-profile">
         <h1>Album Profile</h1>
         <figure class="search-pic">
           <a
@@ -168,10 +168,10 @@
             ><img class="materialboxed" src="" alt="" id="album-pic"
           /></a>
         </figure>
-        <figcaption class="search-bio">
+        <figure class="search-bio">
           <h2 id="summaryHeading"></h2>
           <p id="summary"></p>
-        </figcaption>
+        </figure>
 
         <h3>Album Tracks</h3>
         <div class="search-tracks">
@@ -180,12 +180,12 @@
         <footer class="app-name">
           <p>The Music App</p>
         </footer>
-      </main>
+      </section>
     </div>
 
     <!-- Album Modal Structure -->
     <div class="modal-content">
-      <main id="album-modal" class="modal search-profile">
+      <section id="album-modal" class="modal search-profile">
         <div class="modal-header right-align">
           <a
             href="#!"
@@ -197,10 +197,10 @@
         <figure class="modal-search-pic">
           <img src="" alt="" id="modal-album-pic" />
         </figure>
-        <figcaption class="modal-search-bio">
+        <figure class="modal-search-bio">
           <h2 id="modal-summaryHeading"></h2>
           <p id="modal-summary"></p>
-        </figcaption>
+        </figure>
         <h3>Album Tracks</h3>
         <div id="modal-search-tracks">
           <ol></ol>
@@ -208,12 +208,12 @@
         <footer class="app-name">
           <p>The Music App</p>
         </footer>
-      </main>
+      </section>
     </div>
 
     <!-- Tracks Modal Structure -->
     <div class="modal-content">
-      <main id="track-modal" class="modal search-profile">
+      <section id="track-modal" class="modal search-profile">
         <div class="modal-header right-align">
           <a
             href="#!"
@@ -223,7 +223,7 @@
         </div>
         <h1 id="modal-track-title">
           <span id="modal-track-name"></span> -
-          <span id="modal-artist-name"></span>
+          <span class="modal-artist-name"></span>
         </h1>
         <h2 id="modal-album-name"></h2>
         <h3>Lyrics</h3>
@@ -235,12 +235,12 @@
         <footer class="app-name">
           <p>The Music App</p>
         </footer>
-      </main>
+      </section>
     </div>
 
     <!-- Artists Modal Structure -->
     <div class="modal-content">
-      <main id="artist-modal" class="modal search-profile">
+      <section id="artist-modal" class="modal search-profile">
         <div class="modal-header right-align">
           <a
             href="#!"
@@ -252,10 +252,10 @@
         <figure class="search-pic">
           <img id="modal-header-img" src="" alt="" />
         </figure>
-        <figcaption class="search-bio">
-          <h2 id="modal-artist-name"></h2>
+        <figure class="search-bio">
+          <h2 class="modal-artist-name"></h2>
           <p id="modal-artist-bio"></p>
-        </figcaption>
+        </figure>
         <h3>Top Albums</h3>
         <div id="modal-albums">
           <ul></ul>
@@ -267,7 +267,7 @@
         <footer class="app-name">
           <p>The Music App</p>
         </footer>
-      </main>
+      </section>
     </div>
 
     <!-- Compiled and minified JavaScript -->
